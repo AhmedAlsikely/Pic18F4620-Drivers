@@ -48,8 +48,8 @@
         </logicalFolder>
         <logicalFolder name="Interrupt" displayName="Interrupt" projectFiles="true">
           <itemPath>MCAL_Layer/Interrupt/mcal_internal_interrupt.c</itemPath>
-          <itemPath>mcal_external_interrupt.c</itemPath>
           <itemPath>MCAL_Layer/Interrupt/mcal_interrupt_manager.c</itemPath>
+          <itemPath>MCAL_Layer/Interrupt/mcal_external_interrupt.c</itemPath>
         </logicalFolder>
         <itemPath>MCAL_Layer/device_config.c</itemPath>
       </logicalFolder>

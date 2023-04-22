@@ -4,7 +4,7 @@
  *
  * Created on April 16, 2023, 6:23 PM
  */
-#include "MCAL_Layer/Interrupt/mcal_external_interrupt.h"
+#include "mcal_external_interrupt.h"
 
 static void (*INT0_InterruptHandler)(void) = NULL;
 static void (*INT1_InterruptHandler)(void) = NULL;
