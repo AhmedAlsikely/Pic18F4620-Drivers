@@ -12,7 +12,6 @@
 #include <pic18f4620.h>
 #include "../mcal_std_types.h"
 #include "../GPIO/hal_gpio.h"
-//#include "mcal_interrupt_gen_cfg.h"
 #include "mcal_interrupt_gen_cfg.h"
 
 /* Section : Macro Declarations */

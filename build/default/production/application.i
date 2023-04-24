@@ -4810,6 +4810,27 @@ Std_ReturnType convert_int_to_string(uint32 value, uint8 *str);
 # 12 "./ECU_Layer/ecu_layer_init.h" 2
 
 
+# 1 "./ECU_Layer/LED/ecu_led.h" 1
+# 19 "./ECU_Layer/LED/ecu_led.h"
+typedef enum{
+    LED_OFF = 0 ,
+    LED_ON
+}led_status_t;
+
+typedef struct{
+    uint8 port_name :4;
+    uint8 pin :3;
+    uint8 led_status :1;
+}led_t;
+
+
+
+Std_ReturnType led_initialize(const led_t *led);
+Std_ReturnType led_turn_on(const led_t *led);
+Std_ReturnType led_turn_off(const led_t *led);
+Std_ReturnType led_turn_toggle(const led_t *led);
+# 14 "./ECU_Layer/ecu_layer_init.h" 2
+
 
 
 extern chr_lcd_4bit_t lcd_1;
@@ -4819,205 +4840,46 @@ extern chr_lcd_8bit_t lcd_2;
 void app_initialize(void);
 # 8 "application.c" 2
 
-# 1 "./MCAL_Layer/Interrupt/mcal_external_interrupt.h" 1
-# 13 "./MCAL_Layer/Interrupt/mcal_external_interrupt.h"
-# 1 "./MCAL_Layer/Interrupt/mcal_interrupt_config.h" 1
-# 16 "./MCAL_Layer/Interrupt/mcal_interrupt_config.h"
-# 1 "./MCAL_Layer/Interrupt/mcal_interrupt_gen_cfg.h" 1
-# 16 "./MCAL_Layer/Interrupt/mcal_interrupt_config.h" 2
-# 55 "./MCAL_Layer/Interrupt/mcal_interrupt_config.h"
-typedef enum{
-    INTERRUPT_LOW_PRIORITY = 0,
-    INTERRUPT_HIGH_PRIORITY
-}interrupt_priority_cfg;
-# 13 "./MCAL_Layer/Interrupt/mcal_external_interrupt.h" 2
-# 84 "./MCAL_Layer/Interrupt/mcal_external_interrupt.h"
-typedef enum{
-    INTERRUPT_FALLING_EDGE = 0,
-    INTERRUPT_RISING_EDGE
-}interrupt_INTx_edge;
-
-typedef enum{
-    INTERRUPT_EXTERNAL_INT0 = 0,
-    INTERRUPT_EXTERNAL_INT1,
-    INTERRUPT_EXTERNAL_INT2
-}interrupt_INTx_src;
-
-typedef struct{
-    void (* InterruptHandler)(void);
-    pin_config_t mcu_pin;
-    interrupt_INTx_edge edge;
-    interrupt_INTx_src source;
-    interrupt_priority_cfg priority;
-}interrupt_INTx_t;
-
-typedef struct{
-    void (* InterruptHandler_HIGH)(void);
-    void (* InterruptHandler_LOW)(void);
-    pin_config_t mcu_pin;
-    interrupt_priority_cfg priority;
-}interrupt_RBx_t;
-
-
-Std_ReturnType Interrupt_INTx_Init(const interrupt_INTx_t *int_obj);
-Std_ReturnType Interrupt_INTx_DeInit(const interrupt_INTx_t *int_obj);
-Std_ReturnType Interrupt_RBx_Init(const interrupt_RBx_t *int_obj);
-Std_ReturnType Interrupt_RBx_DeInit(const interrupt_RBx_t *int_obj);
-# 9 "application.c" 2
 
 
 
+    led_t led1 = {.port_name = PORTC_INDEX, .pin = PIN0, .led_status = GPIO_LOW};
+    led_t led2 = {.port_name = PORTC_INDEX, .pin = PIN1, .led_status = GPIO_LOW};
+    led_t led3 = {.port_name = PORTC_INDEX, .pin = PIN2, .led_status = GPIO_LOW};
+    led_t led4 = {.port_name = PORTC_INDEX, .pin = PIN3, .led_status = GPIO_LOW};
 
-uint8 counter = 0;
-uint8 num_arr[4];
-
-pin_config_t led1 ={.pin = PIN0, .logic = GPIO_HIGH, .direction = GPIO_OUTPUT, .port = PORTC_INDEX};
-pin_config_t led2 ={.pin = PIN1, .logic = GPIO_HIGH, .direction = GPIO_OUTPUT, .port = PORTC_INDEX};
-pin_config_t led3 ={.pin = PIN2, .logic = GPIO_HIGH, .direction = GPIO_OUTPUT, .port = PORTC_INDEX};
-pin_config_t led4 ={.pin = PIN3, .logic = GPIO_HIGH, .direction = GPIO_OUTPUT, .port = PORTC_INDEX};
-
-void RB4_HIGH_Int_APP_ISR(void){
-    gpio_pin_write_logic(&led1,GPIO_HIGH);
-}
-
-void RB4_LOW_Int_APP_ISR(void){
-    gpio_pin_write_logic(&led1,GPIO_LOW);
-}
-
-void RB5_HIGH_Int_APP_ISR(void){
-    gpio_pin_write_logic(&led2,GPIO_HIGH);
-}
-
-void RB5_LOW_Int_APP_ISR(void){
-    gpio_pin_write_logic(&led2,GPIO_LOW);
-}
-
-void RB6_HIGH_Int_APP_ISR(void){
-    gpio_pin_write_logic(&led3,GPIO_HIGH);
-}
-
-void RB6_LOW_Int_APP_ISR(void){
-    gpio_pin_write_logic(&led3,GPIO_LOW);
-}
-
-void RB7_HIGH_Int_APP_ISR(void){
-    gpio_pin_write_logic(&led4,GPIO_HIGH);
-}
-
-void RB7_LOW_Int_APP_ISR(void){
-    gpio_pin_write_logic(&led4,GPIO_LOW);
-}
-
-interrupt_RBx_t rb4_int_obj = {
-  .InterruptHandler_HIGH = RB4_HIGH_Int_APP_ISR,
-  .InterruptHandler_LOW = RB4_LOW_Int_APP_ISR,
-  .priority = INTERRUPT_HIGH_PRIORITY,
-  .mcu_pin.port = PORTB_INDEX,
-  .mcu_pin.pin =PIN4,
-  .mcu_pin.direction = GPIO_INPUT
-};
-
-interrupt_RBx_t rb5_int_obj = {
-  .InterruptHandler_HIGH = RB5_HIGH_Int_APP_ISR,
-  .InterruptHandler_LOW = RB5_LOW_Int_APP_ISR,
-  .priority = INTERRUPT_HIGH_PRIORITY,
-  .mcu_pin.port = PORTB_INDEX,
-  .mcu_pin.pin =PIN5,
-  .mcu_pin.direction = GPIO_INPUT
-};
-
-interrupt_RBx_t rb6_int_obj = {
-  .InterruptHandler_HIGH = RB6_HIGH_Int_APP_ISR,
-  .InterruptHandler_LOW = RB6_LOW_Int_APP_ISR,
-  .priority = INTERRUPT_HIGH_PRIORITY,
-  .mcu_pin.port = PORTB_INDEX,
-  .mcu_pin.pin =PIN6,
-  .mcu_pin.direction = GPIO_INPUT
-};
-
-interrupt_RBx_t rb7_int_obj = {
-  .InterruptHandler_HIGH = RB7_HIGH_Int_APP_ISR,
-  .InterruptHandler_LOW = RB7_LOW_Int_APP_ISR,
-  .priority = INTERRUPT_HIGH_PRIORITY,
-  .mcu_pin.port = PORTB_INDEX,
-  .mcu_pin.pin =PIN7,
-  .mcu_pin.direction = GPIO_INPUT
-};
-
-
-void Int0_App_ISR(void){
-    gpio_pin_toggle_logic(&led1);
-    _delay((unsigned long)((500)*(8000000UL/4000.0)));
-}
-void Int1_App_ISR(void){
-    gpio_pin_toggle_logic(&led2);
-    _delay((unsigned long)((500)*(8000000UL/4000.0)));
-}
-void Int2_App_ISR(void){
-    gpio_pin_toggle_logic(&led3);
-    _delay((unsigned long)((500)*(8000000UL/4000.0)));
-}
-
-interrupt_INTx_t int0_obj = {
-    .mcu_pin.port = PORTB_INDEX,
-    .mcu_pin.pin = PIN0,
-    .mcu_pin.logic = GPIO_LOW,
-    .mcu_pin.direction = GPIO_INPUT,
-    .edge = INTERRUPT_RISING_EDGE,
-    .source = INTERRUPT_EXTERNAL_INT0,
-    .priority = INTERRUPT_HIGH_PRIORITY,
-    .InterruptHandler = Int0_App_ISR,
-};
-
-interrupt_INTx_t int1_obj = {
-    .mcu_pin.port = PORTB_INDEX,
-    .mcu_pin.pin = PIN1,
-    .mcu_pin.logic = GPIO_LOW,
-    .mcu_pin.direction = GPIO_INPUT,
-    .edge = INTERRUPT_FALLING_EDGE,
-    .source = INTERRUPT_EXTERNAL_INT1,
-    .priority = INTERRUPT_LOW_PRIORITY,
-    .InterruptHandler = Int1_App_ISR,
-};
-
-interrupt_INTx_t int2_obj = {
-    .mcu_pin.port = PORTB_INDEX,
-    .mcu_pin.pin = PIN2,
-    .mcu_pin.logic = GPIO_LOW,
-    .mcu_pin.direction = GPIO_INPUT,
-    .edge = INTERRUPT_RISING_EDGE,
-    .source = INTERRUPT_EXTERNAL_INT2,
-    .priority = INTERRUPT_HIGH_PRIORITY,
-    .InterruptHandler = Int2_App_ISR,
-};
-# 175 "application.c"
+Std_ReturnType ret = (Std_ReturnType)0x00;
 int main() {
-    Std_ReturnType ret = (Std_ReturnType)0x00;
+
+
     app_initialize();
-# 194 "application.c"
-    while(1)
-    {
-# 236 "application.c"
+    while(1){
+        ret = led_turn_on(&led1);
+        ret = led_turn_on(&led2);
+        ret = led_turn_on(&led3);
+        ret = led_turn_on(&led4);
+        _delay((unsigned long)((1000)*(8000000UL/4000.0)));
+        ret = led_turn_off(&led1);
+        ret = led_turn_off(&led2);
+        ret = led_turn_off(&led3);
+        ret = led_turn_off(&led4);
+        _delay((unsigned long)((1000)*(8000000UL/4000.0)));
+        ret = led_turn_toggle(&led1);
+        ret = led_turn_toggle(&led3);
+        _delay((unsigned long)((1000)*(8000000UL/4000.0)));
+        ret = led_turn_toggle(&led1);
+        ret = led_turn_toggle(&led2);
+        ret = led_turn_toggle(&led3);
+        ret = led_turn_toggle(&led4);
+        _delay((unsigned long)((1000)*(8000000UL/4000.0)));
     }
     return (0);
 }
 
 void app_initialize(void){
-
-    gpio_pin_direction_intialize(&led1);
-    gpio_pin_direction_intialize(&led2);
-    gpio_pin_direction_intialize(&led3);
-    gpio_pin_direction_intialize(&led4);
-
-
-
-
-
-    Interrupt_RBx_Init(&rb4_int_obj);
-    Interrupt_RBx_Init(&rb5_int_obj);
-    Interrupt_RBx_Init(&rb6_int_obj);
-    Interrupt_RBx_Init(&rb7_int_obj);
-
-
+    ret = led_initialize(&led1);
+    ret = led_initialize(&led2);
+    ret = led_initialize(&led3);
+    ret = led_initialize(&led4);
 
 }

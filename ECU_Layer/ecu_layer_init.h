@@ -11,6 +11,7 @@
 /* Section : Includes */
 #include "LCD/ecu_char_lcd.h"
 #include "../MCAL_Layer/GPIO/hal_gpio.h"
+#include "LED/ecu_led.h"
 
 /* Section : Macro Declarations */
 extern chr_lcd_4bit_t lcd_1;

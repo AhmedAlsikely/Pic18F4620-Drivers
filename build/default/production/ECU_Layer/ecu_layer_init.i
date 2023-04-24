@@ -4808,6 +4808,27 @@ Std_ReturnType convert_int_to_string(uint32 value, uint8 *str);
 # 12 "ECU_Layer/ecu_layer_init.h" 2
 
 
+# 1 "ECU_Layer/LED/ecu_led.h" 1
+# 19 "ECU_Layer/LED/ecu_led.h"
+typedef enum{
+    LED_OFF = 0 ,
+    LED_ON
+}led_status_t;
+
+typedef struct{
+    uint8 port_name :4;
+    uint8 pin :3;
+    uint8 led_status :1;
+}led_t;
+
+
+
+Std_ReturnType led_initialize(const led_t *led);
+Std_ReturnType led_turn_on(const led_t *led);
+Std_ReturnType led_turn_off(const led_t *led);
+Std_ReturnType led_turn_toggle(const led_t *led);
+# 14 "ECU_Layer/ecu_layer_init.h" 2
+
 
 
 extern chr_lcd_4bit_t lcd_1;

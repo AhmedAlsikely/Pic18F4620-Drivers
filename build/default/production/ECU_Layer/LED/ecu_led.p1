@@ -1,31 +1,29 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"24 ECU_Layer/LED/ecu_led.h
+[; ;ECU_Layer/LED/ecu_led.h: 24: typedef struct{
+[s S274 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S274 . port_name pin led_status ]
 "61 ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h
+[; ;ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h: 61: typedef struct{
 [s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S273 . port pin direction logic ]
-"47 ECU_Layer/LCD/ecu_char_lcd.h
-[; ;ECU_Layer/LCD/ecu_char_lcd.h: 47: typedef struct{
-[s S274 `S273 1 `S273 1 `S273 -> 4 `i ]
-[n S274 . lcd_rs lcd_en lcd_data ]
-"9 ECU_Layer/ecu_layer_init.c
-[; ;ECU_Layer/ecu_layer_init.c: 9: chr_lcd_4bit_t lcd_1 = {
-[c E2986 0 1 2 3 4 .. ]
-[n E2986 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
-[c E2976 0 1 2 3 4 5 6 7 .. ]
-[n E2976 . PIN0 PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7  ]
+"24 ECU_Layer/LED/ecu_led.c
+[; ;ECU_Layer/LED/ecu_led.c: 24:         pin_config_t pin_obj={.port = led->port_name, .pin = led->pin, .direction = GPIO_OUTPUT, .logic = led->led_status};
 [c E2972 0 1 .. ]
 [n E2972 . GPIO_OUTPUT GPIO_INPUT  ]
+"125 ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h
+[; ;ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h: 125: Std_ReturnType gpio_pin_intialize(const pin_config_t *_pin_config);
+[v _gpio_pin_intialize `(uc ~T0 @X0 0 ef1`*CS273 ]
+"45 ECU_Layer/LED/ecu_led.c
+[; ;ECU_Layer/LED/ecu_led.c: 45:         gpio_pin_write_logic(&pin_obj,GPIO_HIGH);
 [c E2968 0 1 .. ]
 [n E2968 . GPIO_LOW GPIO_HIGH  ]
-"53 ECU_Layer/LCD/ecu_char_lcd.h
-[; ;ECU_Layer/LCD/ecu_char_lcd.h: 53: typedef struct{
-[s S275 `S273 1 `S273 1 `S273 -> 8 `i ]
-[n S275 . lcd_rs lcd_en lcd_data ]
-"60
-[; ;ECU_Layer/LCD/ecu_char_lcd.h: 60: Std_ReturnType lcd_4bit_intialize(const chr_lcd_4bit_t *lcd);
-[v _lcd_4bit_intialize `(uc ~T0 @X0 0 ef1`*CS274 ]
-"68
-[; ;ECU_Layer/LCD/ecu_char_lcd.h: 68: Std_ReturnType lcd_8bit_intialize(const chr_lcd_8bit_t *lcd);
-[v _lcd_8bit_intialize `(uc ~T0 @X0 0 ef1`*CS275 ]
+"97 ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h
+[; ;ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h: 97: Std_ReturnType gpio_pin_write_logic(const pin_config_t *_pin_config ,logic_t logic);
+[v _gpio_pin_write_logic `(uc ~T0 @X0 0 ef2`*CS273`E2968 ]
+"116
+[; ;ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h: 116: Std_ReturnType gpio_pin_toggle_logic(const pin_config_t *_pin_config);
+[v _gpio_pin_toggle_logic `(uc ~T0 @X0 0 ef1`*CS273 ]
 "55 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 55: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -437,149 +435,239 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6716
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 6716: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"9 ECU_Layer/ecu_layer_init.c
-[; ;ECU_Layer/ecu_layer_init.c: 9: chr_lcd_4bit_t lcd_1 = {
-[v _lcd_1 `S274 ~T0 @X0 1 e ]
-[i _lcd_1
-:U ..
-:U ..
-:U ..
-:U ..
--> . `E2986 2 `uc
--> . `E2976 0 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-..
-:U ..
-:U ..
--> . `E2986 2 `uc
--> . `E2976 1 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-..
-:U ..
-:U ..
--> . `E2986 2 `uc
--> . `E2976 2 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 2 `uc
--> . `E2976 3 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 2 `uc
--> . `E2976 4 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 2 `uc
--> . `E2976 5 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-..
-..
-..
-]
-"37
-[; ;ECU_Layer/ecu_layer_init.c: 37: chr_lcd_8bit_t lcd_2 = {
-[v _lcd_2 `S275 ~T0 @X0 1 e ]
-[i _lcd_2
-:U ..
-:U ..
-:U ..
-:U ..
--> . `E2986 2 `uc
--> . `E2976 6 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-..
-:U ..
-:U ..
--> . `E2986 2 `uc
--> . `E2976 7 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-..
-:U ..
-:U ..
--> . `E2986 3 `uc
--> . `E2976 0 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 3 `uc
--> . `E2976 1 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 3 `uc
--> . `E2976 2 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 3 `uc
--> . `E2976 3 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 3 `uc
--> . `E2976 4 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 3 `uc
--> . `E2976 5 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 3 `uc
--> . `E2976 6 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 3 `uc
--> . `E2976 7 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-..
-..
-..
-]
-"79
-[; ;ECU_Layer/ecu_layer_init.c: 79: void ecu_layer_intialize(void){
-[v _ecu_layer_intialize `(v ~T0 @X0 1 ef ]
+"17 ECU_Layer/LED/ecu_led.c
+[; ;ECU_Layer/LED/ecu_led.c: 17: Std_ReturnType led_initialize(const led_t *led){
+[v _led_initialize `(uc ~T0 @X0 1 ef1`*CS274 ]
 {
-[e :U _ecu_layer_intialize ]
+[e :U _led_initialize ]
+[v _led `*CS274 ~T0 @X0 1 r1 ]
 [f ]
-"80
-[; ;ECU_Layer/ecu_layer_init.c: 80:     Std_ReturnType ret = (Std_ReturnType)0x00;
+"18
+[; ;ECU_Layer/LED/ecu_led.c: 18:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"19
+[; ;ECU_Layer/LED/ecu_led.c: 19:     if(((void*)0) == led){
+[e $ ! == -> -> -> 0 `i `*v `*CS274 _led 276  ]
+{
+"20
+[; ;ECU_Layer/LED/ecu_led.c: 20:         ret = (Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
+"21
+[; ;ECU_Layer/LED/ecu_led.c: 21:     }
+}
+[e $U 277  ]
+"22
+[; ;ECU_Layer/LED/ecu_led.c: 22:     else
+[e :U 276 ]
+"23
+[; ;ECU_Layer/LED/ecu_led.c: 23:     {
+{
+[v F3048 `S273 ~T0 @X0 1 s ]
+[i F3048
+:U ..
+:U ..
+"24
+[; ;ECU_Layer/LED/ecu_led.c: 24:         pin_config_t pin_obj={.port = led->port_name, .pin = led->pin, .direction = GPIO_OUTPUT, .logic = led->led_status};
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+]
+[v _pin_obj `S273 ~T0 @X0 1 a ]
+[e = _pin_obj F3048 ]
+[e ; = . _pin_obj 0 . *U _led 0 ; = . _pin_obj 1 . *U _led 1 ; = . _pin_obj 2 -> . `E2972 0 `uc = . _pin_obj 3 . *U _led 2 ]
+"25
+[; ;ECU_Layer/LED/ecu_led.c: 25:         gpio_pin_intialize(&pin_obj);
+[e ( _gpio_pin_intialize (1 -> &U _pin_obj `*CS273 ]
+"26
+[; ;ECU_Layer/LED/ecu_led.c: 26:     }
+}
+[e :U 277 ]
+"27
+[; ;ECU_Layer/LED/ecu_led.c: 27:     return ret;
+[e ) _ret ]
+[e $UE 275  ]
+"28
+[; ;ECU_Layer/LED/ecu_led.c: 28: }
+[e :UE 275 ]
+}
+"37
+[; ;ECU_Layer/LED/ecu_led.c: 37: Std_ReturnType led_turn_on(const led_t *led){
+[v _led_turn_on `(uc ~T0 @X0 1 ef1`*CS274 ]
+{
+[e :U _led_turn_on ]
+[v _led `*CS274 ~T0 @X0 1 r1 ]
+[f ]
+"38
+[; ;ECU_Layer/LED/ecu_led.c: 38:     Std_ReturnType ret = (Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"39
+[; ;ECU_Layer/LED/ecu_led.c: 39:     if(((void*)0) == led){
+[e $ ! == -> -> -> 0 `i `*v `*CS274 _led 279  ]
+{
+"40
+[; ;ECU_Layer/LED/ecu_led.c: 40:         ret = (Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"41
+[; ;ECU_Layer/LED/ecu_led.c: 41:     }
+}
+[e $U 280  ]
+"42
+[; ;ECU_Layer/LED/ecu_led.c: 42:     else
+[e :U 279 ]
+"43
+[; ;ECU_Layer/LED/ecu_led.c: 43:     {
+{
+[v F3053 `S273 ~T0 @X0 1 s ]
+[i F3053
+:U ..
+:U ..
+"44
+[; ;ECU_Layer/LED/ecu_led.c: 44:         pin_config_t pin_obj={.port = led->port_name, .pin = led->pin, .direction = GPIO_OUTPUT, .logic = led->led_status};
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+]
+[v _pin_obj `S273 ~T0 @X0 1 a ]
+[e = _pin_obj F3053 ]
+[e ; = . _pin_obj 0 . *U _led 0 ; = . _pin_obj 1 . *U _led 1 ; = . _pin_obj 2 -> . `E2972 0 `uc = . _pin_obj 3 . *U _led 2 ]
+"45
+[; ;ECU_Layer/LED/ecu_led.c: 45:         gpio_pin_write_logic(&pin_obj,GPIO_HIGH);
+[e ( _gpio_pin_write_logic (2 , -> &U _pin_obj `*CS273 . `E2968 1 ]
+"46
+[; ;ECU_Layer/LED/ecu_led.c: 46:     }
+}
+[e :U 280 ]
+"47
+[; ;ECU_Layer/LED/ecu_led.c: 47:     return ret;
+[e ) _ret ]
+[e $UE 278  ]
+"48
+[; ;ECU_Layer/LED/ecu_led.c: 48: }
+[e :UE 278 ]
+}
+"57
+[; ;ECU_Layer/LED/ecu_led.c: 57: Std_ReturnType led_turn_off(const led_t *led){
+[v _led_turn_off `(uc ~T0 @X0 1 ef1`*CS274 ]
+{
+[e :U _led_turn_off ]
+[v _led `*CS274 ~T0 @X0 1 r1 ]
+[f ]
+"58
+[; ;ECU_Layer/LED/ecu_led.c: 58:     Std_ReturnType ret = (Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"59
+[; ;ECU_Layer/LED/ecu_led.c: 59:     if(((void*)0) == led){
+[e $ ! == -> -> -> 0 `i `*v `*CS274 _led 282  ]
+{
+"60
+[; ;ECU_Layer/LED/ecu_led.c: 60:         ret = (Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"61
+[; ;ECU_Layer/LED/ecu_led.c: 61:     }
+}
+[e $U 283  ]
+"62
+[; ;ECU_Layer/LED/ecu_led.c: 62:     else
+[e :U 282 ]
+"63
+[; ;ECU_Layer/LED/ecu_led.c: 63:     {
+{
+[v F3058 `S273 ~T0 @X0 1 s ]
+[i F3058
+:U ..
+:U ..
+"64
+[; ;ECU_Layer/LED/ecu_led.c: 64:         pin_config_t pin_obj={.port = led->port_name, .pin = led->pin, .direction = GPIO_OUTPUT, .logic = led->led_status};
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+]
+[v _pin_obj `S273 ~T0 @X0 1 a ]
+[e = _pin_obj F3058 ]
+[e ; = . _pin_obj 0 . *U _led 0 ; = . _pin_obj 1 . *U _led 1 ; = . _pin_obj 2 -> . `E2972 0 `uc = . _pin_obj 3 . *U _led 2 ]
+"65
+[; ;ECU_Layer/LED/ecu_led.c: 65:         gpio_pin_write_logic(&pin_obj,GPIO_LOW);
+[e ( _gpio_pin_write_logic (2 , -> &U _pin_obj `*CS273 . `E2968 0 ]
+"66
+[; ;ECU_Layer/LED/ecu_led.c: 66:     }
+}
+[e :U 283 ]
+"67
+[; ;ECU_Layer/LED/ecu_led.c: 67:     return ret;
+[e ) _ret ]
+[e $UE 281  ]
+"68
+[; ;ECU_Layer/LED/ecu_led.c: 68: }
+[e :UE 281 ]
+}
+"77
+[; ;ECU_Layer/LED/ecu_led.c: 77: Std_ReturnType led_turn_toggle(const led_t *led){
+[v _led_turn_toggle `(uc ~T0 @X0 1 ef1`*CS274 ]
+{
+[e :U _led_turn_toggle ]
+[v _led `*CS274 ~T0 @X0 1 r1 ]
+[f ]
+"78
+[; ;ECU_Layer/LED/ecu_led.c: 78:     Std_ReturnType ret = (Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"80
+[; ;ECU_Layer/LED/ecu_led.c: 80:     if(((void*)0) == led){
+[e $ ! == -> -> -> 0 `i `*v `*CS274 _led 285  ]
+{
 "81
-[; ;ECU_Layer/ecu_layer_init.c: 81:     ret = lcd_4bit_intialize(&lcd_1);
-[e = _ret ( _lcd_4bit_intialize (1 -> &U _lcd_1 `*CS274 ]
+[; ;ECU_Layer/LED/ecu_led.c: 81:         ret = (Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
 "82
-[; ;ECU_Layer/ecu_layer_init.c: 82:     ret = lcd_8bit_intialize(&lcd_2);
-[e = _ret ( _lcd_8bit_intialize (1 -> &U _lcd_2 `*CS275 ]
+[; ;ECU_Layer/LED/ecu_led.c: 82:     }
+}
+[e $U 286  ]
 "83
-[; ;ECU_Layer/ecu_layer_init.c: 83: }
-[e :UE 277 ]
+[; ;ECU_Layer/LED/ecu_led.c: 83:     else
+[e :U 285 ]
+"84
+[; ;ECU_Layer/LED/ecu_led.c: 84:     {
+{
+[v F3063 `S273 ~T0 @X0 1 s ]
+[i F3063
+:U ..
+:U ..
+"85
+[; ;ECU_Layer/LED/ecu_led.c: 85:         pin_config_t pin_obj={.port = led->port_name, .pin = led->pin, .direction = GPIO_OUTPUT, .logic = led->led_status};
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+]
+[v _pin_obj `S273 ~T0 @X0 1 a ]
+[e = _pin_obj F3063 ]
+[e ; = . _pin_obj 0 . *U _led 0 ; = . _pin_obj 1 . *U _led 1 ; = . _pin_obj 2 -> . `E2972 0 `uc = . _pin_obj 3 . *U _led 2 ]
+"86
+[; ;ECU_Layer/LED/ecu_led.c: 86:         gpio_pin_toggle_logic(&pin_obj);
+[e ( _gpio_pin_toggle_logic (1 -> &U _pin_obj `*CS273 ]
+"87
+[; ;ECU_Layer/LED/ecu_led.c: 87:     }
+}
+[e :U 286 ]
+"88
+[; ;ECU_Layer/LED/ecu_led.c: 88:     return ret;
+[e ) _ret ]
+[e $UE 284  ]
+"89
+[; ;ECU_Layer/LED/ecu_led.c: 89: }
+[e :UE 284 ]
 }

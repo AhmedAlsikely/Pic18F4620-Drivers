@@ -4768,10 +4768,9 @@ Std_ReturnType gpio_port_read_logic(port_index_t port ,uint8 *logic);
 Std_ReturnType gpio_port_toggle_logic(port_index_t port);
 # 14 "MCAL_Layer/Interrupt/mcal_interrupt_config.h" 2
 
-
 # 1 "MCAL_Layer/Interrupt/mcal_interrupt_gen_cfg.h" 1
-# 16 "MCAL_Layer/Interrupt/mcal_interrupt_config.h" 2
-# 55 "MCAL_Layer/Interrupt/mcal_interrupt_config.h"
+# 15 "MCAL_Layer/Interrupt/mcal_interrupt_config.h" 2
+# 54 "MCAL_Layer/Interrupt/mcal_interrupt_config.h"
 typedef enum{
     INTERRUPT_LOW_PRIORITY = 0,
     INTERRUPT_HIGH_PRIORITY

@@ -19,7 +19,6 @@
 
 /* Section : Data Type Declarations */
 
-
 /* Section : Functions Declarations */
 
 #endif	/* MCAL_INTERNAL_INTERRUPT_H */

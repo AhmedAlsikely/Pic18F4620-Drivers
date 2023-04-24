@@ -1,31 +1,53 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"61 ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h
-[s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S273 . port pin direction logic ]
-"47 ECU_Layer/LCD/ecu_char_lcd.h
-[; ;ECU_Layer/LCD/ecu_char_lcd.h: 47: typedef struct{
-[s S274 `S273 1 `S273 1 `S273 -> 4 `i ]
-[n S274 . lcd_rs lcd_en lcd_data ]
-"9 ECU_Layer/ecu_layer_init.c
-[; ;ECU_Layer/ecu_layer_init.c: 9: chr_lcd_4bit_t lcd_1 = {
-[c E2986 0 1 2 3 4 .. ]
-[n E2986 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
-[c E2976 0 1 2 3 4 5 6 7 .. ]
-[n E2976 . PIN0 PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7  ]
-[c E2972 0 1 .. ]
-[n E2972 . GPIO_OUTPUT GPIO_INPUT  ]
-[c E2968 0 1 .. ]
-[n E2968 . GPIO_LOW GPIO_HIGH  ]
-"53 ECU_Layer/LCD/ecu_char_lcd.h
-[; ;ECU_Layer/LCD/ecu_char_lcd.h: 53: typedef struct{
-[s S275 `S273 1 `S273 1 `S273 -> 8 `i ]
-[n S275 . lcd_rs lcd_en lcd_data ]
-"60
-[; ;ECU_Layer/LCD/ecu_char_lcd.h: 60: Std_ReturnType lcd_4bit_intialize(const chr_lcd_4bit_t *lcd);
-[v _lcd_4bit_intialize `(uc ~T0 @X0 0 ef1`*CS274 ]
-"68
-[; ;ECU_Layer/LCD/ecu_char_lcd.h: 68: Std_ReturnType lcd_8bit_intialize(const chr_lcd_8bit_t *lcd);
-[v _lcd_8bit_intialize `(uc ~T0 @X0 0 ef1`*CS275 ]
+"6381 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 6381:     struct {
+[s S258 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S258 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"6391
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 6391:     struct {
+[s S259 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S259 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"6401
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 6401:     struct {
+[s S260 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S260 . . GIEL GIEH ]
+"6380
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 6380: typedef union {
+[u S257 `S258 1 `S259 1 `S260 1 ]
+[n S257 . . . . ]
+"6407
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 6407: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS257 ~T0 @X0 0 e@4082 ]
+"3014
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 3014: extern volatile unsigned char EEADRH __attribute__((address(0xFAA)));
+[v _EEADRH `Vuc ~T0 @X0 0 e@4010 ]
+"3007
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 3007: extern volatile unsigned char EEADR __attribute__((address(0xFA9)));
+[v _EEADR `Vuc ~T0 @X0 0 e@4009 ]
+"3000
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 3000: extern volatile unsigned char EEDATA __attribute__((address(0xFA8)));
+[v _EEDATA `Vuc ~T0 @X0 0 e@4008 ]
+"2933
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 2933:     struct {
+[s S104 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S104 . RD WR WREN WRERR FREE . CFGS EEPGD ]
+"2943
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 2943:     struct {
+[s S105 :6 `uc 1 :1 `uc 1 ]
+[n S105 . . EEFS ]
+"2932
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 2932: typedef union {
+[u S103 `S104 1 `S105 1 ]
+[n S103 . . . ]
+"2948
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 2948: extern volatile EECON1bits_t EECON1bits __attribute__((address(0xFA6)));
+[v _EECON1bits `VS103 ~T0 @X0 0 e@4006 ]
+"2993
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 2993: extern volatile unsigned char EECON2 __attribute__((address(0xFA7)));
+[v _EECON2 `Vuc ~T0 @X0 0 e@4007 ]
+"8 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\builtins.h
+[v ___nop `(v ~T0 @X0 0 ef ]
+[p i ___nop ]
 "55 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 55: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -437,149 +459,135 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6716
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 6716: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"9 ECU_Layer/ecu_layer_init.c
-[; ;ECU_Layer/ecu_layer_init.c: 9: chr_lcd_4bit_t lcd_1 = {
-[v _lcd_1 `S274 ~T0 @X0 1 e ]
-[i _lcd_1
-:U ..
-:U ..
-:U ..
-:U ..
--> . `E2986 2 `uc
--> . `E2976 0 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-..
-:U ..
-:U ..
--> . `E2986 2 `uc
--> . `E2976 1 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-..
-:U ..
-:U ..
--> . `E2986 2 `uc
--> . `E2976 2 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 2 `uc
--> . `E2976 3 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 2 `uc
--> . `E2976 4 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 2 `uc
--> . `E2976 5 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-..
-..
-..
-]
-"37
-[; ;ECU_Layer/ecu_layer_init.c: 37: chr_lcd_8bit_t lcd_2 = {
-[v _lcd_2 `S275 ~T0 @X0 1 e ]
-[i _lcd_2
-:U ..
-:U ..
-:U ..
-:U ..
--> . `E2986 2 `uc
--> . `E2976 6 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-..
-:U ..
-:U ..
--> . `E2986 2 `uc
--> . `E2976 7 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-..
-:U ..
-:U ..
--> . `E2986 3 `uc
--> . `E2976 0 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 3 `uc
--> . `E2976 1 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 3 `uc
--> . `E2976 2 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 3 `uc
--> . `E2976 3 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 3 `uc
--> . `E2976 4 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 3 `uc
--> . `E2976 5 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 3 `uc
--> . `E2976 6 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-:U ..
--> . `E2986 3 `uc
--> . `E2976 7 `uc
--> . `E2972 0 `uc
--> . `E2968 0 `uc
-..
-..
-..
-..
-]
-"79
-[; ;ECU_Layer/ecu_layer_init.c: 79: void ecu_layer_intialize(void){
-[v _ecu_layer_intialize `(v ~T0 @X0 1 ef ]
+"9 MCAL_Layer/EEPROM/hal_eeprom.c
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 9: Std_ReturnType Data_EEPROM_WriteByte(uint16 bAdd, uint8 bData){
+[v _Data_EEPROM_WriteByte `(uc ~T0 @X0 1 ef2`us`uc ]
 {
-[e :U _ecu_layer_intialize ]
+[e :U _Data_EEPROM_WriteByte ]
+[v _bAdd `us ~T0 @X0 1 r1 ]
+[v _bData `uc ~T0 @X0 1 r2 ]
 [f ]
-"80
-[; ;ECU_Layer/ecu_layer_init.c: 80:     Std_ReturnType ret = (Std_ReturnType)0x00;
+"10
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 10:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"12
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 12:     uint8 Global_Interrupt_Status = INTCONbits.GIE;
+[v _Global_Interrupt_Status `uc ~T0 @X0 1 a ]
+[e = _Global_Interrupt_Status . . _INTCONbits 1 7 ]
+"14
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 14:     EEADRH = (uint8)((bAdd >> 8)&0x3);
+[e = _EEADRH -> & >> -> _bAdd `ui -> 8 `i -> -> 3 `i `ui `uc ]
+"15
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 15:     EEADR = (uint8)(bAdd &0xFF);
+[e = _EEADR -> & -> _bAdd `ui -> -> 255 `i `ui `uc ]
+"17
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 17:     EEDATA = bData;
+[e = _EEDATA _bData ]
+"19
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 19:     EECON1bits.EEPGD = 0U;
+[e = . . _EECON1bits 0 7 -> -> 0 `ui `uc ]
+"20
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 20:     EECON1bits.CFGS = 0U;
+[e = . . _EECON1bits 0 6 -> -> 0 `ui `uc ]
+"22
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 22:     EECON1bits.WREN = 1U;
+[e = . . _EECON1bits 0 2 -> -> 1 `ui `uc ]
+"25
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 25:     (INTCONbits.GIEH = 0);
+[e = . . _INTCONbits 2 2 -> -> 0 `i `uc ]
+"30
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 30:     EECON2 = 0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
+"31
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 31:     EECON2 = 0xAA;
+[e = _EECON2 -> -> 170 `i `uc ]
+"33
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 33:     EECON1bits.WR = 1U;
+[e = . . _EECON1bits 0 1 -> -> 1 `ui `uc ]
+"35
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 35:     while(EECON1bits.WR);
+[e $U 275  ]
+[e :U 276 ]
+[e :U 275 ]
+[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 276  ]
+[e :U 277 ]
+"37
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 37:     EECON1bits.WREN = 0U;
+[e = . . _EECON1bits 0 2 -> -> 0 `ui `uc ]
+"39
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 39:     INTCONbits.GIE = Global_Interrupt_Status;
+[e = . . _INTCONbits 1 7 _Global_Interrupt_Status ]
+"40
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 40:     return ret;
+[e ) _ret ]
+[e $UE 274  ]
+"42
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 42: }
+[e :UE 274 ]
+}
+"43
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 43: Std_ReturnType Data_EEPROM_ReadByte(uint16 bAdd, uint8 *bData){
+[v _Data_EEPROM_ReadByte `(uc ~T0 @X0 1 ef2`us`*uc ]
+{
+[e :U _Data_EEPROM_ReadByte ]
+[v _bAdd `us ~T0 @X0 1 r1 ]
+[v _bData `*uc ~T0 @X0 1 r2 ]
+[f ]
+"44
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 44:     Std_ReturnType ret = (Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"45
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 45:     if(((void*)0) == bData){
+[e $ ! == -> -> -> 0 `i `*v `*uc _bData 279  ]
+{
+"46
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 46:         ret = (Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
-"81
-[; ;ECU_Layer/ecu_layer_init.c: 81:     ret = lcd_4bit_intialize(&lcd_1);
-[e = _ret ( _lcd_4bit_intialize (1 -> &U _lcd_1 `*CS274 ]
-"82
-[; ;ECU_Layer/ecu_layer_init.c: 82:     ret = lcd_8bit_intialize(&lcd_2);
-[e = _ret ( _lcd_8bit_intialize (1 -> &U _lcd_2 `*CS275 ]
-"83
-[; ;ECU_Layer/ecu_layer_init.c: 83: }
-[e :UE 277 ]
+"47
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 47:     }
+}
+[e $U 280  ]
+"48
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 48:     else
+[e :U 279 ]
+"49
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 49:     {
+{
+"51
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 51:         EEADRH = (uint8)((bAdd >> 8)&0x3);
+[e = _EEADRH -> & >> -> _bAdd `ui -> 8 `i -> -> 3 `i `ui `uc ]
+"52
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 52:         EEADR = (uint8)(bAdd &0xFF);
+[e = _EEADR -> & -> _bAdd `ui -> -> 255 `i `ui `uc ]
+"54
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 54:         EECON1bits.EEPGD = 0U;
+[e = . . _EECON1bits 0 7 -> -> 0 `ui `uc ]
+"55
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 55:         EECON1bits.CFGS = 0U;
+[e = . . _EECON1bits 0 6 -> -> 0 `ui `uc ]
+"57
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 57:         EECON1bits.RD = 1U;
+[e = . . _EECON1bits 0 0 -> -> 1 `ui `uc ]
+"58
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 58:         __nop();
+[e ( ___nop ..  ]
+"59
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 59:         __nop();
+[e ( ___nop ..  ]
+"61
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 61:         *bData = EEDATA ;
+[e = *U _bData _EEDATA ]
+"62
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 62:     }
+}
+[e :U 280 ]
+"63
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 63:     return ret;
+[e ) _ret ]
+[e $UE 278  ]
+"64
+[; ;MCAL_Layer/EEPROM/hal_eeprom.c: 64: }
+[e :UE 278 ]
 }
