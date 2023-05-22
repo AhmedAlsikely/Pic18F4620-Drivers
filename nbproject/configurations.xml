@@ -5,6 +5,10 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="ECU_Layer" displayName="ECU_Layer" projectFiles="true">
+        <logicalFolder name="button" displayName="button" projectFiles="true">
+          <itemPath>ECU_Layer/button/ecu_button.h</itemPath>
+          <itemPath>ECU_Layer/button/ecu_button_cfg.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="LCD" displayName="LCD" projectFiles="true">
           <itemPath>ECU_Layer/LCD/ecu_char_lcd.h</itemPath>
         </logicalFolder>
@@ -14,6 +18,10 @@
         <itemPath>ECU_Layer/ecu_layer_init.h</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL_Layer" displayName="MCAL_Layer" projectFiles="true">
+        <logicalFolder name="ADC" displayName="ADC" projectFiles="true">
+          <itemPath>MCAL_Layer/ADC/hal_adc.h</itemPath>
+          <itemPath>MCAL_Layer/ADC/hal_adc_cfg.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="EEPROM" displayName="EEPROM" projectFiles="true">
           <itemPath>MCAL_Layer/EEPROM/hal_eeprom.h</itemPath>
         </logicalFolder>
@@ -27,6 +35,11 @@
           <itemPath>MCAL_Layer/Interrupt/mcal_internal_interrupt.h</itemPath>
           <itemPath>MCAL_Layer/Interrupt/mcal_external_interrupt.h</itemPath>
           <itemPath>MCAL_Layer/Interrupt/mcal_interrupt_manager.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="Timer" displayName="Timer" projectFiles="true">
+          <logicalFolder name="Timer0" displayName="Timer0" projectFiles="true">
+            <itemPath>MCAL_Layer/Timer/Timer0/hal_timer0.h</itemPath>
+          </logicalFolder>
         </logicalFolder>
         <itemPath>MCAL_Layer/compiler.h</itemPath>
         <itemPath>MCAL_Layer/device_config.h</itemPath>
@@ -43,6 +56,9 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="ECU_Layer" displayName="ECU_Layer" projectFiles="true">
+        <logicalFolder name="button" displayName="button" projectFiles="true">
+          <itemPath>ECU_Layer/button/hal_button.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="LCD" displayName="LCD" projectFiles="true">
           <itemPath>ECU_Layer/LCD/ecu_char_lcd.c</itemPath>
         </logicalFolder>
@@ -52,6 +68,9 @@
         <itemPath>ECU_Layer/ecu_layer_init.c</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL_Layer" displayName="MCAL_Layer" projectFiles="true">
+        <logicalFolder name="ADC" displayName="ADC" projectFiles="true">
+          <itemPath>MCAL_Layer/ADC/hal_adc.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="EEPROM" displayName="EEPROM" projectFiles="true">
           <itemPath>MCAL_Layer/EEPROM/hal_eeprom.c</itemPath>
         </logicalFolder>
@@ -62,6 +81,11 @@
           <itemPath>MCAL_Layer/Interrupt/mcal_internal_interrupt.c</itemPath>
           <itemPath>MCAL_Layer/Interrupt/mcal_interrupt_manager.c</itemPath>
           <itemPath>mcal_external_interrupt.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="Timer" displayName="Timer" projectFiles="true">
+          <logicalFolder name="Timer0" displayName="Timer0" projectFiles="true">
+            <itemPath>MCAL_Layer/Timer/Timer0/hal_timer0.c</itemPath>
+          </logicalFolder>
         </logicalFolder>
         <itemPath>MCAL_Layer/device_config.c</itemPath>
       </logicalFolder>

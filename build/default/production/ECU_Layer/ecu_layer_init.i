@@ -4802,9 +4802,9 @@ Std_ReturnType lcd_8bit_send_string_pos(const chr_lcd_8bit_t *lcd, uint8 row, ui
 Std_ReturnType lcd_8bit_send_custome_char(const chr_lcd_8bit_t *lcd, uint8 row, uint8 column,const uint8 _chr[], uint8 mem_pos);
 
 
-Std_ReturnType convert_byte_to_string(uint8 value, uint8 *str);
-Std_ReturnType convert_short_to_string(uint16 value, uint8 *str);
-Std_ReturnType convert_int_to_string(uint32 value, uint8 *str);
+Std_ReturnType convert_uint8_to_string(uint8 value, uint8 *str);
+Std_ReturnType convert_uint16_to_string(uint16 value, uint8 *str);
+Std_ReturnType convert_uint32_to_string(uint32 value, uint8 *str);
 # 12 "ECU_Layer/ecu_layer_init.h" 2
 
 
@@ -4829,10 +4829,28 @@ Std_ReturnType led_turn_off(const led_t *led);
 Std_ReturnType led_turn_toggle(const led_t *led);
 # 14 "ECU_Layer/ecu_layer_init.h" 2
 
+# 1 "ECU_Layer/button/ecu_button.h" 1
+# 20 "ECU_Layer/button/ecu_button.h"
+typedef enum{
+    BUTTON_RELEASED = 0,
+    BUTTON_PRESSED
+}button_state_t;
+
+typedef enum{
+    BUTTON_ACTIVE_LOW = 0,
+    BUTTON_ACTIVE_HIGH
+}button_active_t;
+
+typedef struct{
+    pin_config_t button_pin;
+    button_active_t button_connection;
+}button_t;
 
 
-extern chr_lcd_4bit_t lcd_1;
-extern chr_lcd_8bit_t lcd_2;
+
+Std_ReturnType button_initialize(const button_t *btn);
+Std_ReturnType button_read_state(const button_t *btn ,button_state_t *btn_state);
+# 15 "ECU_Layer/ecu_layer_init.h" 2
 # 8 "ECU_Layer/ecu_layer_init.c" 2
 
 chr_lcd_4bit_t lcd_1 = {
@@ -4907,6 +4925,6 @@ chr_lcd_8bit_t lcd_2 = {
 };
 void ecu_layer_intialize(void){
     Std_ReturnType ret = (Std_ReturnType)0x00;
-    ret = lcd_4bit_intialize(&lcd_1);
-    ret = lcd_8bit_intialize(&lcd_2);
+
+
 }

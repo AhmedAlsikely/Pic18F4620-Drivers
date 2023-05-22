@@ -9,4 +9,5 @@ ECU_Layer/LCD/../../MCAL_Layer/GPIO/../compiler.h  \
 ECU_Layer/LCD/../../MCAL_Layer/GPIO/../device_config.h  \
 ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio_cfg.h  \
 ECU_Layer/LCD/ecu_char_lcd_cfg.h  \
-ECU_Layer/LED/ecu_led.h 
+ECU_Layer/LED/ecu_led.h  \
+ECU_Layer/button/ecu_button.h 

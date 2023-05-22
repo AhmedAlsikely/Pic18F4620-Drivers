@@ -12,10 +12,10 @@
 #include "LCD/ecu_char_lcd.h"
 #include "../MCAL_Layer/GPIO/hal_gpio.h"
 #include "LED/ecu_led.h"
+#include "button/ecu_button.h"
+#include "../MCAL_Layer/Timer/Timer0/hal_timer0.h"
 
 /* Section : Macro Declarations */
-extern chr_lcd_4bit_t lcd_1;
-extern chr_lcd_8bit_t lcd_2;
 
 /* Section : Macro Functions Declarations */
 

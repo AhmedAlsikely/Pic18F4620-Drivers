@@ -7,13 +7,6 @@
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "application.c" 2
-
-
-
-
-
-
-
 # 1 "./application.h" 1
 # 14 "./application.h"
 # 1 "./ECU_Layer/ecu_layer_init.h" 1
@@ -4804,9 +4797,9 @@ Std_ReturnType lcd_8bit_send_string_pos(const chr_lcd_8bit_t *lcd, uint8 row, ui
 Std_ReturnType lcd_8bit_send_custome_char(const chr_lcd_8bit_t *lcd, uint8 row, uint8 column,const uint8 _chr[], uint8 mem_pos);
 
 
-Std_ReturnType convert_byte_to_string(uint8 value, uint8 *str);
-Std_ReturnType convert_short_to_string(uint16 value, uint8 *str);
-Std_ReturnType convert_int_to_string(uint32 value, uint8 *str);
+Std_ReturnType convert_uint8_to_string(uint8 value, uint8 *str);
+Std_ReturnType convert_uint16_to_string(uint16 value, uint8 *str);
+Std_ReturnType convert_uint32_to_string(uint32 value, uint8 *str);
 # 12 "./ECU_Layer/ecu_layer_init.h" 2
 
 
@@ -4831,55 +4824,267 @@ Std_ReturnType led_turn_off(const led_t *led);
 Std_ReturnType led_turn_toggle(const led_t *led);
 # 14 "./ECU_Layer/ecu_layer_init.h" 2
 
+# 1 "./ECU_Layer/button/ecu_button.h" 1
+# 20 "./ECU_Layer/button/ecu_button.h"
+typedef enum{
+    BUTTON_RELEASED = 0,
+    BUTTON_PRESSED
+}button_state_t;
+
+typedef enum{
+    BUTTON_ACTIVE_LOW = 0,
+    BUTTON_ACTIVE_HIGH
+}button_active_t;
+
+typedef struct{
+    pin_config_t button_pin;
+    button_active_t button_connection;
+}button_t;
 
 
-extern chr_lcd_4bit_t lcd_1;
-extern chr_lcd_8bit_t lcd_2;
+
+Std_ReturnType button_initialize(const button_t *btn);
+Std_ReturnType button_read_state(const button_t *btn ,button_state_t *btn_state);
+# 15 "./ECU_Layer/ecu_layer_init.h" 2
 # 14 "./application.h" 2
-# 23 "./application.h"
-void app_initialize(void);
-# 8 "application.c" 2
+
+# 1 "./MCAL_Layer/ADC/hal_adc.h" 1
+# 15 "./MCAL_Layer/ADC/hal_adc.h"
+# 1 "./MCAL_Layer/ADC/../Interrupt/mcal_internal_interrupt.h" 1
+# 13 "./MCAL_Layer/ADC/../Interrupt/mcal_internal_interrupt.h"
+# 1 "./MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h" 1
+# 15 "./MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h"
+# 1 "./MCAL_Layer/ADC/../Interrupt/mcal_interrupt_gen_cfg.h" 1
+# 15 "./MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h" 2
+# 54 "./MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h"
+typedef enum{
+    INTERRUPT_LOW_PRIORITY = 0,
+    INTERRUPT_HIGH_PRIORITY
+}interrupt_priority_cfg;
+# 13 "./MCAL_Layer/ADC/../Interrupt/mcal_internal_interrupt.h" 2
+# 15 "./MCAL_Layer/ADC/hal_adc.h" 2
+
+# 1 "./MCAL_Layer/ADC/hal_adc_cfg.h" 1
+# 16 "./MCAL_Layer/ADC/hal_adc.h" 2
+# 75 "./MCAL_Layer/ADC/hal_adc.h"
+typedef uint16 adc_result_t;
+typedef enum{
+            ADC_ALL_PINS_ANALOG_FUNCTIONALITY = 0,
+            ADC_ALL_ANALOG_FUNCTIONALITY,
+            ADC_AN12_TO_AN0_ANALOG_FUNCTIONALITY,
+            ADC_AN11_TO_AN0_ANALOG_FUNCTIONALITY,
+            ADC_AN10_TO_AN0_ANALOG_FUNCTIONALITY,
+            ADC_AN9_TO_AN0_ANALOG_FUNCTIONALITY,
+            ADC_AN8_TO_AN0_ANALOG_FUNCTIONALITY,
+            ADC_AN7_TO_AN0_ANALOG_FUNCTIONALITY,
+            ADC_AN6_TO_AN0_ANALOG_FUNCTIONALITY,
+            ADC_AN5_TO_AN0_ANALOG_FUNCTIONALITY,
+            ADC_AN4_TO_AN0_ANALOG_FUNCTIONALITY,
+            ADC_AN3_TO_AN0_ANALOG_FUNCTIONALITY,
+            ADC_AN2_TO_AN0_ANALOG_FUNCTIONALITY,
+            ADC_AN1_TO_AN0_ANALOG_FUNCTIONALITY,
+            ADC_AN0_ANALOG_FUNCTIONALITY,
+            ADC_ALL_PINS_DIGITAL_FUNCTIONALITY,
+}adc_config_pin_select_t;
+
+typedef enum{
+            ADC_CHANNEL_AN0 = 0,
+            ADC_CHANNEL_AN1,
+            ADC_CHANNEL_AN2,
+            ADC_CHANNEL_AN3,
+            ADC_CHANNEL_AN4,
+            ADC_CHANNEL_AN5,
+            ADC_CHANNEL_AN6,
+            ADC_CHANNEL_AN7,
+            ADC_CHANNEL_AN8,
+            ADC_CHANNEL_AN9,
+            ADC_CHANNEL_AN10,
+            ADC_CHANNEL_AN11,
+            ADC_CHANNEL_AN12,
+}adc_channel_select_t;
+
+
+typedef enum{
+            ADC_0_TAD = 0,
+            ADC_2_TAD ,
+            ADC_4_TAD ,
+            ADC_6_TAD ,
+            ADC_8_TAD ,
+            ADC_12_TAD ,
+            ADC_16_TAD ,
+            ADC_20_TAD ,
+}adc_acquisition_time_t;
 
 
 
 
-    led_t led1 = {.port_name = PORTC_INDEX, .pin = PIN0, .led_status = GPIO_LOW};
-    led_t led2 = {.port_name = PORTC_INDEX, .pin = PIN1, .led_status = GPIO_LOW};
-    led_t led3 = {.port_name = PORTC_INDEX, .pin = PIN2, .led_status = GPIO_LOW};
-    led_t led4 = {.port_name = PORTC_INDEX, .pin = PIN3, .led_status = GPIO_LOW};
 
-Std_ReturnType ret = (Std_ReturnType)0x00;
+
+
+typedef enum{
+            ADC_CONVERSION_CLOCK_FOSC_DIV_2 = 0,
+            ADC_CONVERSION_CLOCK_FOSC_DIV_8,
+            ADC_CONVERSION_CLOCK_FOSC_DIV_32,
+            ADC_CONVERSION_CLOCK_FOSC_DIV_FRC,
+            ADC_CONVERSION_CLOCK_FOSC_DIV_4,
+            ADC_CONVERSION_CLOCK_FOSC_DIV_16,
+            ADC_CONVERSION_CLOCK_FOSC_DIV_64,
+}adc_conversion_clock_t;
+
+
+typedef struct{
+
+    void(* ADC_InterruptHandler)(void);
+    interrupt_priority_cfg priority;
+
+    adc_acquisition_time_t acquisition_time;
+    adc_conversion_clock_t conversion_clock;
+    adc_channel_select_t adc_channel;
+    uint8 voltage_reference :1;
+    uint8 result_format :1;
+    uint8 ADC_Resreved :6;
+
+}adc_conf_t;
+
+
+Std_ReturnType ADC_Init(const adc_conf_t *_adc);
+Std_ReturnType ADC_DeInit(const adc_conf_t *_adc);
+Std_ReturnType ADC_SelectChannel(const adc_conf_t *_adc, adc_channel_select_t channel );
+Std_ReturnType ADC_StartConversion(const adc_conf_t *_adc);
+Std_ReturnType ADC_IsConversionDone(const adc_conf_t *_adc,uint8 *conversion_status);
+Std_ReturnType ADC_GetConversionResult(const adc_conf_t *_adc,adc_result_t *conversion_result);
+Std_ReturnType ADC_GetConversion_Blocking(const adc_conf_t *_adc,adc_channel_select_t channel ,adc_result_t *conversion_result);
+Std_ReturnType ADC_Start_Conversion_Intterrupt(const adc_conf_t *_adc,adc_channel_select_t channel);
+# 15 "./application.h" 2
+# 1 "application.c" 2
+
+led_t led1 = {.port_name = PORTC_INDEX, .pin = PIN0, .led_status = GPIO_LOW};
+led_t led2 = {.port_name = PORTC_INDEX, .pin = PIN1, .led_status = GPIO_LOW};
+
+button_t btn_high = {
+    .button_pin.port = PORTC_INDEX,
+    .button_pin.pin = PIN2,
+    .button_pin.direction = GPIO_INPUT,
+    .button_pin.logic = GPIO_LOW,
+    .button_connection = BUTTON_ACTIVE_HIGH,
+
+};
+button_t btn_low = {
+    .button_pin.port = PORTC_INDEX,
+    .button_pin.pin = PIN3,
+    .button_pin.direction = GPIO_INPUT,
+    .button_pin.logic = GPIO_LOW,
+    .button_connection = BUTTON_ACTIVE_LOW,
+
+};
+button_state_t btn_low_status = BUTTON_RELEASED;
+button_state_t btn_high_status = BUTTON_RELEASED;
+
+button_state_t btn_high_valid_status = BUTTON_RELEASED;
+button_state_t btn_high_last_valid_status = BUTTON_RELEASED;
+
+uint32 btn_high_valid = 0;
+uint32 btn_low_valid = 0;
+uint8 flag_low = 0;
+uint8 Program_Selected = 0;
+
+void app_intialize(void);
+void program_1(void);
+void program_2(void);
+void program_3(void);
+
+
 int main() {
+    Std_ReturnType ret = (Std_ReturnType)0x00;
+    app_intialize();
 
-
-    app_initialize();
     while(1){
-        ret = led_turn_on(&led1);
-        ret = led_turn_on(&led2);
-        ret = led_turn_on(&led3);
-        ret = led_turn_on(&led4);
-        _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-        ret = led_turn_off(&led1);
-        ret = led_turn_off(&led2);
-        ret = led_turn_off(&led3);
-        ret = led_turn_off(&led4);
-        _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-        ret = led_turn_toggle(&led1);
-        ret = led_turn_toggle(&led3);
-        _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-        ret = led_turn_toggle(&led1);
-        ret = led_turn_toggle(&led2);
-        ret = led_turn_toggle(&led3);
-        ret = led_turn_toggle(&led4);
-        _delay((unsigned long)((1000)*(8000000UL/4000.0)));
+        ret = button_read_state(&btn_high, &btn_high_status);
+        ret = button_read_state(&btn_low, &btn_low_status);
+
+
+        if(BUTTON_PRESSED == btn_high_status){
+            btn_high_valid++;
+            if(btn_high_valid > 500){
+                btn_high_valid_status = BUTTON_PRESSED;
+            }
+        }
+        else{
+            btn_high_valid = 0;
+            btn_high_valid_status = BUTTON_RELEASED;
+        }
+
+        if(btn_high_valid_status != btn_high_last_valid_status){
+            btn_high_last_valid_status = btn_high_valid_status;
+            if(BUTTON_PRESSED == btn_high_valid_status){
+                if(3 == Program_Selected){
+                    Program_Selected = 0;
+                }else{ }
+
+                Program_Selected++;
+
+                switch(Program_Selected){
+                    case 1 : program_1(); break;
+                    case 2 : program_2(); break;
+                    case 3 : program_3(); break;
+                    default : break;
+                }
+            }else{ }
+        }else{ }
+
+
+
+        if((BUTTON_PRESSED == btn_low_status) && (0 == flag_low)){
+            led_turn_on(&led2);
+            btn_low_valid++;
+            flag_low = 1;
+
+        }else if ((BUTTON_PRESSED == btn_low_status) && (1 == flag_low)){
+            btn_low_valid++;
+            led_turn_off(&led2);
+            flag_low = 0;
+        }
+        else{
+        btn_low_valid = 0;
+        }
+
+
     }
     return (0);
 }
 
-void app_initialize(void){
+void app_intialize(void){
+    Std_ReturnType ret = (Std_ReturnType)0x00;
+
+    ret = button_initialize(&btn_high);
+    ret = button_initialize(&btn_low);
     ret = led_initialize(&led1);
     ret = led_initialize(&led2);
-    ret = led_initialize(&led3);
-    ret = led_initialize(&led4);
+}
 
+void program_1(void){
+    led_turn_on(&led1);
+    _delay((unsigned long)((500)*(8000000UL/4000.0)));
+    led_turn_off(&led1);
+    _delay((unsigned long)((500)*(8000000UL/4000.0)));
+}
+
+void program_2(void){
+    uint8 counter = 0;
+    for(counter = 0; counter < 2; counter ++){
+        led_turn_on(&led1);
+        _delay((unsigned long)((500)*(8000000UL/4000.0)));
+        led_turn_off(&led1);
+        _delay((unsigned long)((500)*(8000000UL/4000.0)));
+    }
+}
+
+void program_3(void){
+    uint8 counter = 0;
+    for(counter = 0; counter < 3; counter ++){
+        led_turn_on(&led1);
+        _delay((unsigned long)((500)*(8000000UL/4000.0)));
+        led_turn_off(&led1);
+        _delay((unsigned long)((500)*(8000000UL/4000.0)));
+    }
 }

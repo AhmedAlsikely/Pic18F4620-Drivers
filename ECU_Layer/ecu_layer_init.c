@@ -78,6 +78,6 @@ chr_lcd_8bit_t lcd_2 = {
 };
 void ecu_layer_intialize(void){
     Std_ReturnType ret = E_NOT_OK;
-    ret = lcd_4bit_intialize(&lcd_1);
-    ret = lcd_8bit_intialize(&lcd_2);
+//    ret = lcd_4bit_intialize(&lcd_1);
+    //ret = lcd_8bit_intialize(&lcd_2);
 }

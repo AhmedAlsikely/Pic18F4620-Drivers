@@ -4785,6 +4785,8 @@ void RB4_ISR(uint8 RB4_Source);
 void RB5_ISR(uint8 RB5_Source);
 void RB6_ISR(uint8 RB6_Source);
 void RB7_ISR(uint8 RB7_Source);
+void ADC_ISR(void);
+void TMRO_ISR(void);
 # 8 "MCAL_Layer/Interrupt/mcal_interrupt_manager.c" 2
 
 
@@ -4859,6 +4861,16 @@ static void InterruptCheck(void){
     if((1 == INTCONbits.RBIE)&&(1 == INTCONbits.RBIF)&&(PORTBbits.RB7 == GPIO_LOW)&& (RB7_Flag ==0)){
         RB7_Flag = 1;
         RB7_ISR(0);
+    }
+    else{ }
+
+    if((1 == PIE1bits.ADIE)&&(1 == PIR1bits.ADIF)){
+        ADC_ISR();
+    }
+    else{ }
+
+    if((1 == INTCONbits.TMR0IE)&&(1 == INTCONbits.TMR0IF)){
+        TMRO_ISR();
     }
     else{ }
 }

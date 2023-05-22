@@ -87,4 +87,14 @@ static void InterruptCheck(void){
         RB7_ISR(0);
     }
     else{/* Nothing */}
+    /*------------------------------- ADC INTERRUPT ----------------------------------*/
+    if((INTERRUPT_ENABLE == PIE1bits.ADIE)&&(INTERRUPT_OCCUR == PIR1bits.ADIF)){
+        ADC_ISR();
+    }
+    else{/* Nothing */}
+    /*------------------------------- TIMER0 INTERRUPT ----------------------------------*/
+    if((INTERRUPT_ENABLE == INTCONbits.TMR0IE)&&(INTERRUPT_OCCUR == INTCONbits.TMR0IF)){
+        TMRO_ISR();
+    }
+    else{/* Nothing */}
 }

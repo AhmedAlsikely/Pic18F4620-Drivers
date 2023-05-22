@@ -1,5 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"61 ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h
+"61 ECU_Layer/button/../../MCAL_Layer/GPIO/hal_gpio.h
 [s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S273 . port pin direction logic ]
 "47 ECU_Layer/LCD/ecu_char_lcd.h
@@ -20,12 +20,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU_Layer/LCD/ecu_char_lcd.h: 53: typedef struct{
 [s S275 `S273 1 `S273 1 `S273 -> 8 `i ]
 [n S275 . lcd_rs lcd_en lcd_data ]
-"60
-[; ;ECU_Layer/LCD/ecu_char_lcd.h: 60: Std_ReturnType lcd_4bit_intialize(const chr_lcd_4bit_t *lcd);
-[v _lcd_4bit_intialize `(uc ~T0 @X0 0 ef1`*CS274 ]
-"68
-[; ;ECU_Layer/LCD/ecu_char_lcd.h: 68: Std_ReturnType lcd_8bit_intialize(const chr_lcd_8bit_t *lcd);
-[v _lcd_8bit_intialize `(uc ~T0 @X0 0 ef1`*CS275 ]
 "55 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 55: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -573,13 +567,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU_Layer/ecu_layer_init.c: 80:     Std_ReturnType ret = (Std_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 0 `i `uc ]
-"81
-[; ;ECU_Layer/ecu_layer_init.c: 81:     ret = lcd_4bit_intialize(&lcd_1);
-[e = _ret ( _lcd_4bit_intialize (1 -> &U _lcd_1 `*CS274 ]
-"82
-[; ;ECU_Layer/ecu_layer_init.c: 82:     ret = lcd_8bit_intialize(&lcd_2);
-[e = _ret ( _lcd_8bit_intialize (1 -> &U _lcd_2 `*CS275 ]
 "83
 [; ;ECU_Layer/ecu_layer_init.c: 83: }
-[e :UE 277 ]
+[e :UE 278 ]
 }
