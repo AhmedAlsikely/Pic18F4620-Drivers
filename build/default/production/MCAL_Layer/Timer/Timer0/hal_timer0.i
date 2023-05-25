@@ -4860,6 +4860,7 @@ Std_ReturnType Timer0_Init(const timer0_t *_timer){
 
 
 
+        (T0CONbits.TMR0ON = 1);
         ret = (Std_ReturnType)0x01;
     }
 
@@ -4878,8 +4879,10 @@ Std_ReturnType Timer0_DeInit(const timer0_t *_timer){
     }
     else
     {
+        (T0CONbits.TMR0ON = 0);
 
-
+        (INTCONbits.TMR0IE = 0);
+        (INTCONbits.TMR0IF = 0);
 
 
 

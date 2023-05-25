@@ -12,8 +12,12 @@ ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio_cfg.h  \
 ECU_Layer/LCD/ecu_char_lcd_cfg.h  \
 ECU_Layer/LED/ecu_led.h  \
 ECU_Layer/button/ecu_button.h  \
+ECU_Layer/../MCAL_Layer/Timer/Timer0/hal_timer0.h  \
+ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_internal_interrupt.h  \
+ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_interrupt_config.h  \
+ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_interrupt_gen_cfg.h  \
+ECU_Layer/../MCAL_Layer/Timer/Timer1/hal_timer1.h  \
+ECU_Layer/7_segement/ecu_7_segement.h  \
 MCAL_Layer/ADC/hal_adc.h  \
-MCAL_Layer/ADC/../Interrupt/mcal_internal_interrupt.h  \
-MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h  \
-MCAL_Layer/ADC/../Interrupt/mcal_interrupt_gen_cfg.h  \
-MCAL_Layer/ADC/hal_adc_cfg.h 
+MCAL_Layer/ADC/hal_adc_cfg.h  \
+MCAL_Layer/Timer/Timer2/hal_timer2.h 

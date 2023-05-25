@@ -97,4 +97,19 @@ static void InterruptCheck(void){
         TMRO_ISR();
     }
     else{/* Nothing */}
+    /*------------------------------- TIMER1 INTERRUPT ----------------------------------*/
+    if((INTERRUPT_ENABLE == PIE1bits.TMR1IE)&&(INTERRUPT_OCCUR == PIR1bits.TMR1IF)){
+        TMR1_ISR();
+    }
+    else{/* Nothing */}
+    /*------------------------------- TIMER2 INTERRUPT ----------------------------------*/
+    if((INTERRUPT_ENABLE == PIE1bits.TMR2IE)&&(INTERRUPT_OCCUR == PIR1bits.TMR2IF)){
+        TMR2_ISR();
+    }
+    else{/* Nothing */}
+    /*------------------------------- TIMER3 INTERRUPT ----------------------------------*/
+    if((INTERRUPT_ENABLE == PIE2bits.TMR3IE)&&(INTERRUPT_OCCUR == PIR2bits.TMR3IF)){
+        TMR3_ISR();
+    }
+    else{/* Nothing */}
 }

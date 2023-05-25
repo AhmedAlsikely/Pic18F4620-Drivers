@@ -1,5 +1,5 @@
-build/default/production/mcal_external_interrupt.p1:  \
-mcal_external_interrupt.c  \
+build/default/production/MCAL_Layer/Interrupt/mcal_external_interrupt.p1:  \
+MCAL_Layer/Interrupt/mcal_external_interrupt.c  \
 MCAL_Layer/Interrupt/mcal_external_interrupt.h  \
 MCAL_Layer/Interrupt/mcal_interrupt_config.h  \
 MCAL_Layer/Interrupt/../mcal_std_types.h  \

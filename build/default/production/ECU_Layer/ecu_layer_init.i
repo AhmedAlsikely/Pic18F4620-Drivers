@@ -4851,6 +4851,94 @@ typedef struct{
 Std_ReturnType button_initialize(const button_t *btn);
 Std_ReturnType button_read_state(const button_t *btn ,button_state_t *btn_state);
 # 15 "ECU_Layer/ecu_layer_init.h" 2
+
+# 1 "ECU_Layer/../MCAL_Layer/Timer/Timer0/hal_timer0.h" 1
+# 14 "ECU_Layer/../MCAL_Layer/Timer/Timer0/hal_timer0.h"
+# 1 "ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_internal_interrupt.h" 1
+# 13 "ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_internal_interrupt.h"
+# 1 "ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_interrupt_config.h" 1
+# 15 "ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_interrupt_config.h"
+# 1 "ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_interrupt_gen_cfg.h" 1
+# 15 "ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_interrupt_config.h" 2
+# 54 "ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_interrupt_config.h"
+typedef enum{
+    INTERRUPT_LOW_PRIORITY = 0,
+    INTERRUPT_HIGH_PRIORITY
+}interrupt_priority_cfg;
+# 13 "ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_internal_interrupt.h" 2
+# 14 "ECU_Layer/../MCAL_Layer/Timer/Timer0/hal_timer0.h" 2
+# 46 "ECU_Layer/../MCAL_Layer/Timer/Timer0/hal_timer0.h"
+typedef enum{
+    TIMER0_PRESCALER_DIV_BY_2 = 0,
+    TIMER0_PRESCALER_DIV_BY_4,
+    TIMER0_PRESCALER_DIV_BY_8,
+    TIMER0_PRESCALER_DIV_BY_16,
+    TIMER0_PRESCALER_DIV_BY_32,
+    TIMER0_PRESCALER_DIV_BY_64,
+    TIMER0_PRESCALER_DIV_BY_128,
+    TIMER0_PRESCALER_DIV_BY_256,
+}timer0_prescaler_select_t;
+
+typedef struct{
+
+    void (* TMR0_InterruptHandler)(void);
+    interrupt_priority_cfg priority;
+
+    timer0_prescaler_select_t prescaler_value;
+    uint16 timer0_preload_value;
+    uint8 prescaler_enable :1;
+    uint8 timer0_counter_edge :1;
+    uint8 timer0_mode :1;
+    uint8 timer0_register_size :1;
+    uint8 timer0_reserved :4;
+
+}timer0_t;
+
+Std_ReturnType Timer0_Init(const timer0_t *_timer);
+Std_ReturnType Timer0_DeInit(const timer0_t *_timer);
+Std_ReturnType Timer0_Write_value(const timer0_t *_timer,uint16 _value);
+Std_ReturnType Timer0_Read_value(const timer0_t *_timer,uint16 *_value);
+# 16 "ECU_Layer/ecu_layer_init.h" 2
+
+# 1 "ECU_Layer/../MCAL_Layer/Timer/Timer1/hal_timer1.h" 1
+# 55 "ECU_Layer/../MCAL_Layer/Timer/Timer1/hal_timer1.h"
+typedef struct{
+
+    void (* TMR1_InterruptHandler)(void);
+    interrupt_priority_cfg priority;
+
+    uint16 timer1_preload_value;
+    uint8 timer1_prescaler_value :2;
+    uint8 timer1_mode :1;
+    uint8 timer1_counter_mode :1;
+    uint8 timer1_osc_cfg :1;
+    uint8 timer1_reg_wr_mode :1;
+    uint8 reserved :2;
+}timer1_t;
+
+
+Std_ReturnType Timer1_Init(const timer1_t *_timer);
+Std_ReturnType Timer1_DeInit(const timer1_t *_timer);
+Std_ReturnType Timer1_Write_value(const timer1_t *_timer,uint16 _value);
+Std_ReturnType Timer1_Read_value(const timer1_t *_timer,uint16 *_value);
+# 17 "ECU_Layer/ecu_layer_init.h" 2
+
+# 1 "ECU_Layer/7_segement/ecu_7_segement.h" 1
+# 21 "ECU_Layer/7_segement/ecu_7_segement.h"
+typedef enum{
+    SEGEMENT_COMMON_ANODE = 0,
+    SEGEMENT_COMMON_CHATHOD
+}sev_seg_type;
+
+typedef struct{
+    pin_config_t sev_seg_pin[4];
+    sev_seg_type sev_seg_type;
+}seven_seg_t;
+
+
+Std_ReturnType seven_segement_intialize(const seven_seg_t *_seg);
+Std_ReturnType seven_segement_write_number(const seven_seg_t *_seg , uint8 number);
+# 18 "ECU_Layer/ecu_layer_init.h" 2
 # 8 "ECU_Layer/ecu_layer_init.c" 2
 
 chr_lcd_4bit_t lcd_1 = {

@@ -14,6 +14,8 @@
 #include "LED/ecu_led.h"
 #include "button/ecu_button.h"
 #include "../MCAL_Layer/Timer/Timer0/hal_timer0.h"
+#include "../MCAL_Layer/Timer/Timer1/hal_timer1.h"
+#include "7_segement/ecu_7_segement.h"
 
 /* Section : Macro Declarations */
 

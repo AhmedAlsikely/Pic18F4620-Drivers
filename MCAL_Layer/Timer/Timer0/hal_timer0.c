@@ -53,6 +53,7 @@ Std_ReturnType Timer0_Init(const timer0_t *_timer){
         INTERRUPT_PeripheralInterruptEnable();
 #endif
 #endif
+        TIMER0_MODULE_ENABLE();
         ret = E_OK;
     }
     
@@ -71,8 +72,10 @@ Std_ReturnType Timer0_DeInit(const timer0_t *_timer){
     }
     else
     {
-        
+        TIMER0_MODULE_DISABLE();
         #if INTERRUPT_FEATURE_ENABLE == TIMER0_INTERRUPT_FEATURE_ENABLE
+        TIMER0_InterruptDisable();
+        TIMER0_InterruptFlagClear();
         
         #endif
         

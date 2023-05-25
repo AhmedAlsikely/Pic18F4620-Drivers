@@ -4846,24 +4846,98 @@ typedef struct{
 Std_ReturnType button_initialize(const button_t *btn);
 Std_ReturnType button_read_state(const button_t *btn ,button_state_t *btn_state);
 # 15 "./ECU_Layer/ecu_layer_init.h" 2
-# 14 "./application.h" 2
 
-# 1 "./MCAL_Layer/ADC/hal_adc.h" 1
-# 15 "./MCAL_Layer/ADC/hal_adc.h"
-# 1 "./MCAL_Layer/ADC/../Interrupt/mcal_internal_interrupt.h" 1
-# 13 "./MCAL_Layer/ADC/../Interrupt/mcal_internal_interrupt.h"
-# 1 "./MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h" 1
-# 15 "./MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h"
-# 1 "./MCAL_Layer/ADC/../Interrupt/mcal_interrupt_gen_cfg.h" 1
-# 15 "./MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h" 2
-# 54 "./MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h"
+# 1 "./ECU_Layer/../MCAL_Layer/Timer/Timer0/hal_timer0.h" 1
+# 14 "./ECU_Layer/../MCAL_Layer/Timer/Timer0/hal_timer0.h"
+# 1 "./ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_internal_interrupt.h" 1
+# 13 "./ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_internal_interrupt.h"
+# 1 "./ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_interrupt_config.h" 1
+# 15 "./ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_interrupt_config.h"
+# 1 "./ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_interrupt_gen_cfg.h" 1
+# 15 "./ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_interrupt_config.h" 2
+# 54 "./ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_interrupt_config.h"
 typedef enum{
     INTERRUPT_LOW_PRIORITY = 0,
     INTERRUPT_HIGH_PRIORITY
 }interrupt_priority_cfg;
-# 13 "./MCAL_Layer/ADC/../Interrupt/mcal_internal_interrupt.h" 2
-# 15 "./MCAL_Layer/ADC/hal_adc.h" 2
+# 13 "./ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_internal_interrupt.h" 2
+# 14 "./ECU_Layer/../MCAL_Layer/Timer/Timer0/hal_timer0.h" 2
+# 46 "./ECU_Layer/../MCAL_Layer/Timer/Timer0/hal_timer0.h"
+typedef enum{
+    TIMER0_PRESCALER_DIV_BY_2 = 0,
+    TIMER0_PRESCALER_DIV_BY_4,
+    TIMER0_PRESCALER_DIV_BY_8,
+    TIMER0_PRESCALER_DIV_BY_16,
+    TIMER0_PRESCALER_DIV_BY_32,
+    TIMER0_PRESCALER_DIV_BY_64,
+    TIMER0_PRESCALER_DIV_BY_128,
+    TIMER0_PRESCALER_DIV_BY_256,
+}timer0_prescaler_select_t;
 
+typedef struct{
+
+    void (* TMR0_InterruptHandler)(void);
+    interrupt_priority_cfg priority;
+
+    timer0_prescaler_select_t prescaler_value;
+    uint16 timer0_preload_value;
+    uint8 prescaler_enable :1;
+    uint8 timer0_counter_edge :1;
+    uint8 timer0_mode :1;
+    uint8 timer0_register_size :1;
+    uint8 timer0_reserved :4;
+
+}timer0_t;
+
+Std_ReturnType Timer0_Init(const timer0_t *_timer);
+Std_ReturnType Timer0_DeInit(const timer0_t *_timer);
+Std_ReturnType Timer0_Write_value(const timer0_t *_timer,uint16 _value);
+Std_ReturnType Timer0_Read_value(const timer0_t *_timer,uint16 *_value);
+# 16 "./ECU_Layer/ecu_layer_init.h" 2
+
+# 1 "./ECU_Layer/../MCAL_Layer/Timer/Timer1/hal_timer1.h" 1
+# 55 "./ECU_Layer/../MCAL_Layer/Timer/Timer1/hal_timer1.h"
+typedef struct{
+
+    void (* TMR1_InterruptHandler)(void);
+    interrupt_priority_cfg priority;
+
+    uint16 timer1_preload_value;
+    uint8 timer1_prescaler_value :2;
+    uint8 timer1_mode :1;
+    uint8 timer1_counter_mode :1;
+    uint8 timer1_osc_cfg :1;
+    uint8 timer1_reg_wr_mode :1;
+    uint8 reserved :2;
+}timer1_t;
+
+
+Std_ReturnType Timer1_Init(const timer1_t *_timer);
+Std_ReturnType Timer1_DeInit(const timer1_t *_timer);
+Std_ReturnType Timer1_Write_value(const timer1_t *_timer,uint16 _value);
+Std_ReturnType Timer1_Read_value(const timer1_t *_timer,uint16 *_value);
+# 17 "./ECU_Layer/ecu_layer_init.h" 2
+
+# 1 "./ECU_Layer/7_segement/ecu_7_segement.h" 1
+# 21 "./ECU_Layer/7_segement/ecu_7_segement.h"
+typedef enum{
+    SEGEMENT_COMMON_ANODE = 0,
+    SEGEMENT_COMMON_CHATHOD
+}sev_seg_type;
+
+typedef struct{
+    pin_config_t sev_seg_pin[4];
+    sev_seg_type sev_seg_type;
+}seven_seg_t;
+
+
+Std_ReturnType seven_segement_intialize(const seven_seg_t *_seg);
+Std_ReturnType seven_segement_write_number(const seven_seg_t *_seg , uint8 number);
+# 18 "./ECU_Layer/ecu_layer_init.h" 2
+# 14 "./application.h" 2
+
+# 1 "./MCAL_Layer/ADC/hal_adc.h" 1
+# 16 "./MCAL_Layer/ADC/hal_adc.h"
 # 1 "./MCAL_Layer/ADC/hal_adc_cfg.h" 1
 # 16 "./MCAL_Layer/ADC/hal_adc.h" 2
 # 75 "./MCAL_Layer/ADC/hal_adc.h"
@@ -4958,97 +5032,72 @@ Std_ReturnType ADC_Start_Conversion_Intterrupt(const adc_conf_t *_adc,adc_channe
 # 15 "./application.h" 2
 # 1 "application.c" 2
 
-led_t led1 = {.port_name = PORTC_INDEX, .pin = PIN0, .led_status = GPIO_LOW};
-led_t led2 = {.port_name = PORTC_INDEX, .pin = PIN1, .led_status = GPIO_LOW};
 
-button_t btn_high = {
-    .button_pin.port = PORTC_INDEX,
-    .button_pin.pin = PIN2,
-    .button_pin.direction = GPIO_INPUT,
-    .button_pin.logic = GPIO_LOW,
-    .button_connection = BUTTON_ACTIVE_HIGH,
+# 1 "./MCAL_Layer/Timer/Timer2/hal_timer2.h" 1
+# 50 "./MCAL_Layer/Timer/Timer2/hal_timer2.h"
+typedef struct{
 
+    void (* TMR2_InterruptHandler)(void);
+    interrupt_priority_cfg priority;
+
+    uint8 timer2_preload_value;
+    uint8 timer2_postscaler_value :4;
+    uint8 timer2_prescaler_value :2;
+    uint8 reserved :2;
+}timer2_t;
+
+
+Std_ReturnType Timer2_Init(const timer2_t *_timer);
+Std_ReturnType Timer2_DeInit(const timer2_t *_timer);
+Std_ReturnType Timer2_Write_value(const timer2_t *_timer,uint8 _value);
+Std_ReturnType Timer2_Read_value(const timer2_t *_timer,uint8 *_value);
+# 3 "application.c" 2
+
+led_t led1 = {.port_name = PORTC_INDEX, .pin = PIN6, .led_status = GPIO_LOW};
+led_t led2 = {.port_name = PORTC_INDEX, .pin = PIN7, .led_status = GPIO_LOW};
+
+volatile uint8 timer0_count = 0;
+volatile uint8 timer1_count = 0;
+
+void timer0_interruptHundler(void);
+void timer1_interruptHundler(void);
+void timer2_interruptHundler(void);
+timer0_t timer0 ={
+    .TMR0_InterruptHandler = timer0_interruptHundler,
+    .prescaler_enable = 1,
+    .prescaler_value = TIMER0_PRESCALER_DIV_BY_32,
+    .priority = INTERRUPT_HIGH_PRIORITY,
+    .timer0_counter_edge = 1,
+    .timer0_mode = 1,
+    .timer0_register_size = 0,
+    .timer0_preload_value =3036,
 };
-button_t btn_low = {
-    .button_pin.port = PORTC_INDEX,
-    .button_pin.pin = PIN3,
-    .button_pin.direction = GPIO_INPUT,
-    .button_pin.logic = GPIO_LOW,
-    .button_connection = BUTTON_ACTIVE_LOW,
 
+timer1_t timer1 = {
+    .TMR1_InterruptHandler = timer1_interruptHundler,
+    .priority = INTERRUPT_HIGH_PRIORITY,
+    .timer1_mode = 1,
+    .timer1_osc_cfg = 0,
+    .timer1_preload_value = 0,
+    .timer1_prescaler_value = 0,
+    .timer1_reg_wr_mode = 1
 };
-button_state_t btn_low_status = BUTTON_RELEASED;
-button_state_t btn_high_status = BUTTON_RELEASED;
-
-button_state_t btn_high_valid_status = BUTTON_RELEASED;
-button_state_t btn_high_last_valid_status = BUTTON_RELEASED;
-
-uint32 btn_high_valid = 0;
-uint32 btn_low_valid = 0;
-uint8 flag_low = 0;
-uint8 Program_Selected = 0;
+timer2_t timer2 = {
+    .TMR2_InterruptHandler = timer2_interruptHundler,
+    .priority = INTERRUPT_HIGH_PRIORITY,
+    .timer2_preload_value = 1,
+    .timer2_prescaler_value = 0,
+    .timer2_postscaler_value = 0
+};
 
 void app_intialize(void);
-void program_1(void);
-void program_2(void);
-void program_3(void);
-
 
 int main() {
     Std_ReturnType ret = (Std_ReturnType)0x00;
     app_intialize();
 
     while(1){
-        ret = button_read_state(&btn_high, &btn_high_status);
-        ret = button_read_state(&btn_low, &btn_low_status);
-
-
-        if(BUTTON_PRESSED == btn_high_status){
-            btn_high_valid++;
-            if(btn_high_valid > 500){
-                btn_high_valid_status = BUTTON_PRESSED;
-            }
-        }
-        else{
-            btn_high_valid = 0;
-            btn_high_valid_status = BUTTON_RELEASED;
-        }
-
-        if(btn_high_valid_status != btn_high_last_valid_status){
-            btn_high_last_valid_status = btn_high_valid_status;
-            if(BUTTON_PRESSED == btn_high_valid_status){
-                if(3 == Program_Selected){
-                    Program_Selected = 0;
-                }else{ }
-
-                Program_Selected++;
-
-                switch(Program_Selected){
-                    case 1 : program_1(); break;
-                    case 2 : program_2(); break;
-                    case 3 : program_3(); break;
-                    default : break;
-                }
-            }else{ }
-        }else{ }
-
-
-
-        if((BUTTON_PRESSED == btn_low_status) && (0 == flag_low)){
-            led_turn_on(&led2);
-            btn_low_valid++;
-            flag_low = 1;
-
-        }else if ((BUTTON_PRESSED == btn_low_status) && (1 == flag_low)){
-            btn_low_valid++;
-            led_turn_off(&led2);
-            flag_low = 0;
-        }
-        else{
-        btn_low_valid = 0;
-        }
-
-
+        Timer1_Read_value(&timer1,&timer1_count);
     }
     return (0);
 }
@@ -5056,35 +5105,22 @@ int main() {
 void app_intialize(void){
     Std_ReturnType ret = (Std_ReturnType)0x00;
 
-    ret = button_initialize(&btn_high);
-    ret = button_initialize(&btn_low);
+
     ret = led_initialize(&led1);
     ret = led_initialize(&led2);
+
+
+    ret = Timer2_Init(&timer2);
 }
 
-void program_1(void){
-    led_turn_on(&led1);
-    _delay((unsigned long)((500)*(8000000UL/4000.0)));
-    led_turn_off(&led1);
-    _delay((unsigned long)((500)*(8000000UL/4000.0)));
+void timer0_interruptHundler(void){
+    Timer1_Read_value(&timer1,&timer1_count);
+    Timer1_Write_value(&timer1,0);
 }
 
-void program_2(void){
-    uint8 counter = 0;
-    for(counter = 0; counter < 2; counter ++){
-        led_turn_on(&led1);
-        _delay((unsigned long)((500)*(8000000UL/4000.0)));
-        led_turn_off(&led1);
-        _delay((unsigned long)((500)*(8000000UL/4000.0)));
-    }
+void timer1_interruptHundler(void){
+    led_turn_toggle(&led1);
 }
-
-void program_3(void){
-    uint8 counter = 0;
-    for(counter = 0; counter < 3; counter ++){
-        led_turn_on(&led1);
-        _delay((unsigned long)((500)*(8000000UL/4000.0)));
-        led_turn_off(&led1);
-        _delay((unsigned long)((500)*(8000000UL/4000.0)));
-    }
+void timer2_interruptHundler(void){
+    led_turn_toggle(&led1);
 }
