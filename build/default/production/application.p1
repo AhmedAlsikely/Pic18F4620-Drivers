@@ -11,50 +11,75 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E2976 . PIN0 PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7  ]
 [c E2968 0 1 .. ]
 [n E2968 . GPIO_LOW GPIO_HIGH  ]
-[v F3151 `(v ~T0 @X0 0 tf ]
-"13
-[; ;application.c: 13: timer0_t timer0 ={
+"10
+[; ;application.c: 10: ccp1_t ccp1_obj ={
+[c E3225 0 1 2 .. ]
+[n E3225 . CCP1_CAPTURE_MODE_SELECTED CCP1_COMPARE_MODE_SELECTED CCP1_PWM_MODE_SELECTED  ]
+"61 ./MCAL_Layer/ADC/../GPIO/hal_gpio.h
+[s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S273 . port pin direction logic ]
+[v F3241 `(v ~T0 @X0 0 tf ]
+"10 application.c
+[; ;application.c: 10: ccp1_t ccp1_obj ={
 [c E3135 0 1 .. ]
 [n E3135 . INTERRUPT_LOW_PRIORITY INTERRUPT_HIGH_PRIORITY  ]
+"95 ./ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h
+[; ;./ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h: 95: typedef struct{
+[s S284 `E3225 1 `S273 1 `*F3241 1 `E3135 1 `ui 1 :4 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S284 . ccp1_mode ccp1_pin CCP1_InterruptHandler priority PWM_Frequency CCP1_timer2_postscaler_value CCP1_timer2_prescaler_value reserved ]
+"10 application.c
+[; ;application.c: 10: ccp1_t ccp1_obj ={
+[c E2972 0 1 .. ]
+[n E2972 . GPIO_OUTPUT GPIO_INPUT  ]
+[v F3347 `(v ~T0 @X0 0 tf ]
+[v F3151 `(v ~T0 @X0 0 tf ]
+"25
+[; ;application.c: 25: timer0_t timer0 ={
 [c E3139 0 1 2 3 4 5 6 7 .. ]
 [n E3139 . TIMER0_PRESCALER_DIV_BY_2 TIMER0_PRESCALER_DIV_BY_4 TIMER0_PRESCALER_DIV_BY_8 TIMER0_PRESCALER_DIV_BY_16 TIMER0_PRESCALER_DIV_BY_32 TIMER0_PRESCALER_DIV_BY_64 TIMER0_PRESCALER_DIV_BY_128 TIMER0_PRESCALER_DIV_BY_256  ]
 "57 ./ECU_Layer/../MCAL_Layer/Timer/Timer0/hal_timer0.h
 [; ;./ECU_Layer/../MCAL_Layer/Timer/Timer0/hal_timer0.h: 57: typedef struct{
 [s S278 `*F3151 1 `E3135 1 `E3139 1 `us 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
 [n S278 . TMR0_InterruptHandler priority prescaler_value timer0_preload_value prescaler_enable timer0_counter_edge timer0_mode timer0_register_size timer0_reserved ]
-"10 application.c
-[; ;application.c: 10: void timer0_interruptHundler(void);
+"22 application.c
+[; ;application.c: 22: void timer0_interruptHundler(void);
 [v _timer0_interruptHundler `(v ~T0 @X0 0 ef ]
 [v F3173 `(v ~T0 @X0 0 tf ]
 "55 ./ECU_Layer/../MCAL_Layer/Timer/Timer1/hal_timer1.h
 [; ;./ECU_Layer/../MCAL_Layer/Timer/Timer1/hal_timer1.h: 55: typedef struct{
 [s S279 `*F3173 1 `E3135 1 `us 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 ]
 [n S279 . TMR1_InterruptHandler priority timer1_preload_value timer1_prescaler_value timer1_mode timer1_counter_mode timer1_osc_cfg timer1_reg_wr_mode reserved ]
-"11 application.c
-[; ;application.c: 11: void timer1_interruptHundler(void);
+"23 application.c
+[; ;application.c: 23: void timer1_interruptHundler(void);
 [v _timer1_interruptHundler `(v ~T0 @X0 0 ef ]
-[v F3294 `(v ~T0 @X0 0 tf ]
+[v F3208 `(v ~T0 @X0 0 tf ]
 "50 ./MCAL_Layer/Timer/Timer2/hal_timer2.h
-[; ;./MCAL_Layer/Timer/Timer2/hal_timer2.h: 50: typedef struct{
-[s S282 `*F3294 1 `E3135 1 `uc 1 :4 `uc 1 :2 `uc 1 :2 `uc 1 ]
-[n S282 . TMR2_InterruptHandler priority timer2_preload_value timer2_postscaler_value timer2_prescaler_value reserved ]
-"12 application.c
-[; ;application.c: 12: void timer2_interruptHundler(void);
-[v _timer2_interruptHundler `(v ~T0 @X0 0 ef ]
+[s S281 `*F3208 1 `E3135 1 `uc 1 :4 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S281 . TMR2_InterruptHandler priority timer2_preload_value timer2_postscaler_value timer2_prescaler_value reserved ]
+[v F3356 `(v ~T0 @X0 0 tf ]
 [p mainexit ]
-"41
-[; ;application.c: 41: void app_intialize(void);
+"53 application.c
+[; ;application.c: 53: void app_intialize(void);
 [v _app_intialize `(v ~T0 @X0 0 ef ]
+"129 ./ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h
+[; ;./ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h: 129: Std_ReturnType CCP1_PWM1_Set_Duty_Cycle(const uint8 _duty);
+[v _CCP1_PWM1_Set_Duty_Cycle `(uc ~T0 @X0 0 ef1`Cuc ]
+"130
+[; ;./ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h: 130: Std_ReturnType CCP1_PWM1_Start(void);
+[v _CCP1_PWM1_Start `(uc ~T0 @X0 0 ef ]
+[v F2938 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\builtins.h
+[v __delay `JF2938 ~T0 @X0 0 e ]
+[p i __delay ]
+"62 ./MCAL_Layer/Timer/Timer2/hal_timer2.h
+[v _Timer2_Init `(uc ~T0 @X0 0 ef1`*CS281 ]
+"115 ./ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h
+[; ;./ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h: 115: Std_ReturnType CCP1_Init(const ccp1_t *_ccp);
+[v _CCP1_Init `(uc ~T0 @X0 0 ef1`*CS284 ]
 "73 ./ECU_Layer/../MCAL_Layer/Timer/Timer1/hal_timer1.h
 [; ;./ECU_Layer/../MCAL_Layer/Timer/Timer1/hal_timer1.h: 73: Std_ReturnType Timer1_Read_value(const timer1_t *_timer,uint16 *_value);
 [v _Timer1_Read_value `(uc ~T0 @X0 0 ef2`*CS279`*us ]
-"32 ./ECU_Layer/LED/ecu_led.h
-[; ;./ECU_Layer/LED/ecu_led.h: 32: Std_ReturnType led_initialize(const led_t *led);
-[v _led_initialize `(uc ~T0 @X0 0 ef1`*CS276 ]
-"62 ./MCAL_Layer/Timer/Timer2/hal_timer2.h
-[; ;./MCAL_Layer/Timer/Timer2/hal_timer2.h: 62: Std_ReturnType Timer2_Init(const timer2_t *_timer);
-[v _Timer2_Init `(uc ~T0 @X0 0 ef1`*CS282 ]
-"72 ./ECU_Layer/../MCAL_Layer/Timer/Timer1/hal_timer1.h
+"72
 [; ;./ECU_Layer/../MCAL_Layer/Timer/Timer1/hal_timer1.h: 72: Std_ReturnType Timer1_Write_value(const timer1_t *_timer,uint16 _value);
 [v _Timer1_Write_value `(uc ~T0 @X0 0 ef2`*CS279`us ]
 "35 ./ECU_Layer/LED/ecu_led.h
@@ -507,8 +532,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _timer1_count
 -> -> 0 `i `uc
 ]
-"13
-[; ;application.c: 13: timer0_t timer0 ={
+"10
+[; ;application.c: 10: ccp1_t ccp1_obj ={
+[v _ccp1_obj `S284 ~T0 @X0 1 e ]
+[i _ccp1_obj
+:U ..
+:U ..
+. `E3225 2
+:U ..
+:U ..
+-> . `E2986 2 `uc
+-> . `E2976 2 `uc
+-> . `E2972 0 `uc
+-> . `E2968 0 `uc
+..
+..
+-> -> -> 0 `i `*v `*F3347
+-> -> 0 `i `E3135
+-> -> 20000 `i `ui
+-> -> 1 `i `uc
+-> -> 1 `i `uc
+..
+..
+]
+"25
+[; ;application.c: 25: timer0_t timer0 ={
 [v _timer0 `S278 ~T0 @X0 1 e ]
 [i _timer0
 :U ..
@@ -524,8 +572,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"24
-[; ;application.c: 24: timer1_t timer1 = {
+"36
+[; ;application.c: 36: timer1_t timer1 = {
 [v _timer1 `S279 ~T0 @X0 1 e ]
 [i _timer1
 :U ..
@@ -541,117 +589,139 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"33
-[; ;application.c: 33: timer2_t timer2 = {
-[v _timer2 `S282 ~T0 @X0 1 e ]
+"45
+[; ;application.c: 45: timer2_t timer2 = {
+[v _timer2 `S281 ~T0 @X0 1 e ]
 [i _timer2
 :U ..
 :U ..
-&U _timer2_interruptHundler
+-> -> -> 0 `i `*v `*F3356
 . `E3135 1
--> -> 1 `i `uc
+-> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 ..
 ..
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"43
-[; ;application.c: 43: int main() {
+"55
+[; ;application.c: 55: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"44
-[; ;application.c: 44:     Std_ReturnType ret = (Std_ReturnType)0x00;
+"56
+[; ;application.c: 56:     Std_ReturnType ret = (Std_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 0 `i `uc ]
-"45
-[; ;application.c: 45:     app_intialize();
+"57
+[; ;application.c: 57:     app_intialize();
 [e ( _app_intialize ..  ]
-"47
-[; ;application.c: 47:     while(1){
-[e :U 285 ]
+"58
+[; ;application.c: 58:     ret = CCP1_PWM1_Set_Duty_Cycle(85);
+[e = _ret ( _CCP1_PWM1_Set_Duty_Cycle (1 -> -> 85 `i `uc ]
+"59
+[; ;application.c: 59:     ret = CCP1_PWM1_Start();
+[e = _ret ( _CCP1_PWM1_Start ..  ]
+"60
+[; ;application.c: 60:     while(1){
+[e :U 288 ]
 {
-"48
-[; ;application.c: 48:         Timer1_Read_value(&timer1,&timer1_count);
-[e ( _Timer1_Read_value (2 , -> &U _timer1 `*CS279 -> &U _timer1_count `*us ]
-"49
-[; ;application.c: 49:     }
+"61
+[; ;application.c: 61:         for(int i= 1 ;i<=100;i+=5){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 1 `i ]
+[e $ <= _i -> 100 `i 290  ]
+[e $U 291  ]
+[e :U 290 ]
+{
+"62
+[; ;application.c: 62:             ret = CCP1_PWM1_Set_Duty_Cycle(i);
+[e = _ret ( _CCP1_PWM1_Set_Duty_Cycle (1 -> _i `uc ]
+"63
+[; ;application.c: 63:             _delay((unsigned long)((5)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+"64
+[; ;application.c: 64:         }
 }
-[e :U 284 ]
-[e $U 285  ]
-[e :U 286 ]
-"50
-[; ;application.c: 50:     return (0);
+[e =+ _i -> 5 `i ]
+[e $ <= _i -> 100 `i 290  ]
+[e :U 291 ]
+}
+"66
+[; ;application.c: 66:     }
+}
+[e :U 287 ]
+[e $U 288  ]
+[e :U 289 ]
+"67
+[; ;application.c: 67:     return (0);
 [e ) -> 0 `i ]
-[e $UE 283  ]
-"51
-[; ;application.c: 51: }
-[e :UE 283 ]
+[e $UE 286  ]
+"68
+[; ;application.c: 68: }
+[e :UE 286 ]
 }
-"53
-[; ;application.c: 53: void app_intialize(void){
+"70
+[; ;application.c: 70: void app_intialize(void){
 [v _app_intialize `(v ~T0 @X0 1 ef ]
 {
 [e :U _app_intialize ]
 [f ]
-"54
-[; ;application.c: 54:     Std_ReturnType ret = (Std_ReturnType)0x00;
+"71
+[; ;application.c: 71:     Std_ReturnType ret = (Std_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 0 `i `uc ]
-"57
-[; ;application.c: 57:     ret = led_initialize(&led1);
-[e = _ret ( _led_initialize (1 -> &U _led1 `*CS276 ]
-"58
-[; ;application.c: 58:     ret = led_initialize(&led2);
-[e = _ret ( _led_initialize (1 -> &U _led2 `*CS276 ]
-"61
-[; ;application.c: 61:     ret = Timer2_Init(&timer2);
-[e = _ret ( _Timer2_Init (1 -> &U _timer2 `*CS282 ]
-"62
-[; ;application.c: 62: }
-[e :UE 287 ]
+"78
+[; ;application.c: 78:     ret = Timer2_Init(&timer2);
+[e = _ret ( _Timer2_Init (1 -> &U _timer2 `*CS281 ]
+"79
+[; ;application.c: 79:     ret = CCP1_Init(&ccp1_obj);
+[e = _ret ( _CCP1_Init (1 -> &U _ccp1_obj `*CS284 ]
+"80
+[; ;application.c: 80: }
+[e :UE 293 ]
 }
-"64
-[; ;application.c: 64: void timer0_interruptHundler(void){
+"82
+[; ;application.c: 82: void timer0_interruptHundler(void){
 [v _timer0_interruptHundler `(v ~T0 @X0 1 ef ]
 {
 [e :U _timer0_interruptHundler ]
 [f ]
-"65
-[; ;application.c: 65:     Timer1_Read_value(&timer1,&timer1_count);
+"83
+[; ;application.c: 83:     Timer1_Read_value(&timer1,&timer1_count);
 [e ( _Timer1_Read_value (2 , -> &U _timer1 `*CS279 -> &U _timer1_count `*us ]
-"66
-[; ;application.c: 66:     Timer1_Write_value(&timer1,0);
+"84
+[; ;application.c: 84:     Timer1_Write_value(&timer1,0);
 [e ( _Timer1_Write_value (2 , -> &U _timer1 `*CS279 -> -> 0 `i `us ]
-"67
-[; ;application.c: 67: }
-[e :UE 288 ]
+"85
+[; ;application.c: 85: }
+[e :UE 294 ]
 }
-"69
-[; ;application.c: 69: void timer1_interruptHundler(void){
+"87
+[; ;application.c: 87: void timer1_interruptHundler(void){
 [v _timer1_interruptHundler `(v ~T0 @X0 1 ef ]
 {
 [e :U _timer1_interruptHundler ]
 [f ]
-"70
-[; ;application.c: 70:     led_turn_toggle(&led1);
+"88
+[; ;application.c: 88:     led_turn_toggle(&led1);
 [e ( _led_turn_toggle (1 -> &U _led1 `*CS276 ]
-"71
-[; ;application.c: 71: }
-[e :UE 289 ]
+"89
+[; ;application.c: 89: }
+[e :UE 295 ]
 }
-"72
-[; ;application.c: 72: void timer2_interruptHundler(void){
+"90
+[; ;application.c: 90: void timer2_interruptHundler(void){
 [v _timer2_interruptHundler `(v ~T0 @X0 1 ef ]
 {
 [e :U _timer2_interruptHundler ]
 [f ]
-"73
-[; ;application.c: 73:     led_turn_toggle(&led1);
+"91
+[; ;application.c: 91:     led_turn_toggle(&led1);
 [e ( _led_turn_toggle (1 -> &U _led1 `*CS276 ]
-"74
-[; ;application.c: 74: }
-[e :UE 290 ]
+"92
+[; ;application.c: 92: }
+[e :UE 296 ]
 }

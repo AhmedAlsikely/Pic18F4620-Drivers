@@ -14,6 +14,7 @@
 #include "ECU_Layer/ecu_layer_init.h"
 #include "MCAL_Layer/ADC/hal_adc.h"
 
+
 /* Section : Macro Declarations */
 #define _XTAL_FREQ 8000000UL
 /* Section : Macro Functions Declarations */

@@ -4934,6 +4934,77 @@ typedef struct{
 Std_ReturnType seven_segement_intialize(const seven_seg_t *_seg);
 Std_ReturnType seven_segement_write_number(const seven_seg_t *_seg , uint8 number);
 # 18 "./ECU_Layer/ecu_layer_init.h" 2
+
+# 1 "./ECU_Layer/../MCAL_Layer/Timer/Timer2/hal_timer2.h" 1
+# 50 "./ECU_Layer/../MCAL_Layer/Timer/Timer2/hal_timer2.h"
+typedef struct{
+
+    void (* TMR2_InterruptHandler)(void);
+    interrupt_priority_cfg priority;
+
+    uint8 timer2_preload_value;
+    uint8 timer2_postscaler_value :4;
+    uint8 timer2_prescaler_value :2;
+    uint8 reserved :2;
+}timer2_t;
+
+
+Std_ReturnType Timer2_Init(const timer2_t *_timer);
+Std_ReturnType Timer2_DeInit(const timer2_t *_timer);
+Std_ReturnType Timer2_Write_value(const timer2_t *_timer,uint8 _value);
+Std_ReturnType Timer2_Read_value(const timer2_t *_timer,uint8 *_value);
+# 19 "./ECU_Layer/ecu_layer_init.h" 2
+
+# 1 "./ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h" 1
+# 15 "./ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h"
+# 1 "./ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1_cfg.h" 1
+# 15 "./ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h" 2
+# 77 "./ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h"
+typedef enum{
+    CCP1_CAPTURE_MODE_SELECTED =0,
+    CCP1_COMPARE_MODE_SELECTED,
+    CCP1_PWM_MODE_SELECTED
+}ccp1_mode_t;
+
+
+
+
+
+typedef union{
+    struct{
+        uint8 ccpr1_low;
+        uint8 ccpr1_high;
+    };
+    uint16 ccpr1_16Bit;
+}CCP1_REG_T;
+
+typedef struct{
+    ccp1_mode_t ccp1_mode;
+    pin_config_t ccp1_pin;
+
+    void (* CCP1_InterruptHandler)(void);
+    interrupt_priority_cfg priority;
+
+
+
+
+
+    uint32 PWM_Frequency;
+    uint8 CCP1_timer2_postscaler_value :4;
+    uint8 CCP1_timer2_prescaler_value :2;
+    uint8 reserved :2;
+
+}ccp1_t;
+
+
+
+Std_ReturnType CCP1_Init(const ccp1_t *_ccp);
+Std_ReturnType CCP1_DeInit(const ccp1_t *_ccp);
+# 129 "./ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h"
+Std_ReturnType CCP1_PWM1_Set_Duty_Cycle(const uint8 _duty);
+Std_ReturnType CCP1_PWM1_Start(void);
+Std_ReturnType CCP1_PWM1_Stop(void);
+# 20 "./ECU_Layer/ecu_layer_init.h" 2
 # 14 "./application.h" 2
 
 # 1 "./MCAL_Layer/ADC/hal_adc.h" 1
@@ -5033,31 +5104,24 @@ Std_ReturnType ADC_Start_Conversion_Intterrupt(const adc_conf_t *_adc,adc_channe
 # 1 "application.c" 2
 
 
-# 1 "./MCAL_Layer/Timer/Timer2/hal_timer2.h" 1
-# 50 "./MCAL_Layer/Timer/Timer2/hal_timer2.h"
-typedef struct{
-
-    void (* TMR2_InterruptHandler)(void);
-    interrupt_priority_cfg priority;
-
-    uint8 timer2_preload_value;
-    uint8 timer2_postscaler_value :4;
-    uint8 timer2_prescaler_value :2;
-    uint8 reserved :2;
-}timer2_t;
-
-
-Std_ReturnType Timer2_Init(const timer2_t *_timer);
-Std_ReturnType Timer2_DeInit(const timer2_t *_timer);
-Std_ReturnType Timer2_Write_value(const timer2_t *_timer,uint8 _value);
-Std_ReturnType Timer2_Read_value(const timer2_t *_timer,uint8 *_value);
-# 3 "application.c" 2
 
 led_t led1 = {.port_name = PORTC_INDEX, .pin = PIN6, .led_status = GPIO_LOW};
 led_t led2 = {.port_name = PORTC_INDEX, .pin = PIN7, .led_status = GPIO_LOW};
 
 volatile uint8 timer0_count = 0;
 volatile uint8 timer1_count = 0;
+
+ccp1_t ccp1_obj ={
+  .CCP1_InterruptHandler = ((void*)0),
+  .ccp1_mode = CCP1_PWM_MODE_SELECTED,
+  .PWM_Frequency = 20000,
+  .ccp1_pin.port = PORTC_INDEX,
+  .ccp1_pin.pin = PIN2,
+  .ccp1_pin.direction =GPIO_OUTPUT,
+  .ccp1_pin.logic = GPIO_LOW,
+  .CCP1_timer2_postscaler_value = 1,
+  .CCP1_timer2_prescaler_value = 1,
+};
 
 void timer0_interruptHundler(void);
 void timer1_interruptHundler(void);
@@ -5083,9 +5147,9 @@ timer1_t timer1 = {
     .timer1_reg_wr_mode = 1
 };
 timer2_t timer2 = {
-    .TMR2_InterruptHandler = timer2_interruptHundler,
+    .TMR2_InterruptHandler = ((void*)0),
     .priority = INTERRUPT_HIGH_PRIORITY,
-    .timer2_preload_value = 1,
+    .timer2_preload_value = 0,
     .timer2_prescaler_value = 0,
     .timer2_postscaler_value = 0
 };
@@ -5095,9 +5159,14 @@ void app_intialize(void);
 int main() {
     Std_ReturnType ret = (Std_ReturnType)0x00;
     app_intialize();
-
+    ret = CCP1_PWM1_Set_Duty_Cycle(85);
+    ret = CCP1_PWM1_Start();
     while(1){
-        Timer1_Read_value(&timer1,&timer1_count);
+        for(int i= 1 ;i<=100;i+=5){
+            ret = CCP1_PWM1_Set_Duty_Cycle(i);
+            _delay((unsigned long)((5)*(8000000UL/4000.0)));
+        }
+
     }
     return (0);
 }
@@ -5106,11 +5175,12 @@ void app_intialize(void){
     Std_ReturnType ret = (Std_ReturnType)0x00;
 
 
-    ret = led_initialize(&led1);
-    ret = led_initialize(&led2);
+
+
 
 
     ret = Timer2_Init(&timer2);
+    ret = CCP1_Init(&ccp1_obj);
 }
 
 void timer0_interruptHundler(void){

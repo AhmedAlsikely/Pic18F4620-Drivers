@@ -14,11 +14,11 @@
 #include "../../Interrupt/mcal_internal_interrupt.h"
 
 /*-----Section : Macro Declarations-----*/
-/* Timer1 Prescaler */
+/* Timer2 Prescaler */
 #define TIMER2_PRESCALER_DIV_BY_1       0
 #define TIMER2_PRESCALER_DIV_BY_4       1
 #define TIMER2_PRESCALER_DIV_BY_16      2
-/* Timer1 postscaler */
+/* Timer2 postscaler */
 #define TIMER2_POSTSCALER_DIV_BY_1      0
 #define TIMER2_POSTSCALER_DIV_BY_2      1
 #define TIMER2_POSTSCALER_DIV_BY_3      2
@@ -41,9 +41,9 @@
 #define TIMER2_MODULE_ENABLE()               (T2CONbits.TMR2ON = 1)
 #define TIMER2_MODULE_DISABLE()              (T2CONbits.TMR2ON = 0)
 
-/* Timer1 Pre-scaler Select */ 
+/* Timer2 Pre-scaler Select */ 
 #define TIMER2_PRESCALER_SELECT(_PRESCALER_) (T2CONbits.T2CKPS = _PRESCALER_)
-/* Timer1 POST-scaler Select */ 
+/* Timer2 POST-scaler Select */ 
 #define TIMER2_POSTSCALER_SELECT(_POSTSCALER_) (T2CONbits.TOUTPS = _POSTSCALER_)
 
 /*-----Section : Data Type Declarations-----*/

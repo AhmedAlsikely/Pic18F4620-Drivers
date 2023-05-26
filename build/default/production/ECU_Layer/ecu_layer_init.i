@@ -4939,6 +4939,77 @@ typedef struct{
 Std_ReturnType seven_segement_intialize(const seven_seg_t *_seg);
 Std_ReturnType seven_segement_write_number(const seven_seg_t *_seg , uint8 number);
 # 18 "ECU_Layer/ecu_layer_init.h" 2
+
+# 1 "ECU_Layer/../MCAL_Layer/Timer/Timer2/hal_timer2.h" 1
+# 50 "ECU_Layer/../MCAL_Layer/Timer/Timer2/hal_timer2.h"
+typedef struct{
+
+    void (* TMR2_InterruptHandler)(void);
+    interrupt_priority_cfg priority;
+
+    uint8 timer2_preload_value;
+    uint8 timer2_postscaler_value :4;
+    uint8 timer2_prescaler_value :2;
+    uint8 reserved :2;
+}timer2_t;
+
+
+Std_ReturnType Timer2_Init(const timer2_t *_timer);
+Std_ReturnType Timer2_DeInit(const timer2_t *_timer);
+Std_ReturnType Timer2_Write_value(const timer2_t *_timer,uint8 _value);
+Std_ReturnType Timer2_Read_value(const timer2_t *_timer,uint8 *_value);
+# 19 "ECU_Layer/ecu_layer_init.h" 2
+
+# 1 "ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h" 1
+# 15 "ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h"
+# 1 "ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1_cfg.h" 1
+# 15 "ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h" 2
+# 77 "ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h"
+typedef enum{
+    CCP1_CAPTURE_MODE_SELECTED =0,
+    CCP1_COMPARE_MODE_SELECTED,
+    CCP1_PWM_MODE_SELECTED
+}ccp1_mode_t;
+
+
+
+
+
+typedef union{
+    struct{
+        uint8 ccpr1_low;
+        uint8 ccpr1_high;
+    };
+    uint16 ccpr1_16Bit;
+}CCP1_REG_T;
+
+typedef struct{
+    ccp1_mode_t ccp1_mode;
+    pin_config_t ccp1_pin;
+
+    void (* CCP1_InterruptHandler)(void);
+    interrupt_priority_cfg priority;
+
+
+
+
+
+    uint32 PWM_Frequency;
+    uint8 CCP1_timer2_postscaler_value :4;
+    uint8 CCP1_timer2_prescaler_value :2;
+    uint8 reserved :2;
+
+}ccp1_t;
+
+
+
+Std_ReturnType CCP1_Init(const ccp1_t *_ccp);
+Std_ReturnType CCP1_DeInit(const ccp1_t *_ccp);
+# 129 "ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h"
+Std_ReturnType CCP1_PWM1_Set_Duty_Cycle(const uint8 _duty);
+Std_ReturnType CCP1_PWM1_Start(void);
+Std_ReturnType CCP1_PWM1_Stop(void);
+# 20 "ECU_Layer/ecu_layer_init.h" 2
 # 8 "ECU_Layer/ecu_layer_init.c" 2
 
 chr_lcd_4bit_t lcd_1 = {

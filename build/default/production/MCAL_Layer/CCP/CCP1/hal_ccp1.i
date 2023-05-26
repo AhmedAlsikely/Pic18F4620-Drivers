@@ -14,12 +14,6 @@
 
 
 
-
-static void (* CCP1_InterruptHandler)(void) = NULL;
-
-
-
-
 # 1 "MCAL_Layer/CCP/CCP1/hal_cpp1.h" 1
 # 11 "MCAL_Layer/CCP/CCP1/hal_cpp1.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 1 3
@@ -4789,7 +4783,7 @@ typedef enum{
 
 # 1 "MCAL_Layer/CCP/CCP1/hal_cpp1_cfg.h" 1
 # 15 "MCAL_Layer/CCP/CCP1/hal_cpp1.h" 2
-# 54 "MCAL_Layer/CCP/CCP1/hal_cpp1.h"
+# 77 "MCAL_Layer/CCP/CCP1/hal_cpp1.h"
 typedef enum{
     CCP1_CAPTURE_MODE_SELECTED =0,
     CCP1_COMPARE_MODE_SELECTED,
@@ -4806,7 +4800,7 @@ typedef union{
         uint8 ccpr1_high;
     };
     uint16 ccpr1_16Bit;
-}CCP1_PRELOAD_REG_T;
+}CCP1_REG_T;
 
 typedef struct{
     ccp1_mode_t ccp1_mode;
@@ -4816,10 +4810,13 @@ typedef struct{
     interrupt_priority_cfg priority;
 
 
-    uint8 ccp1_mode_variant;
 
 
 
+    uint32 PWM_Frequency;
+    uint8 CCP1_timer2_postscaler_value :4;
+    uint8 CCP1_timer2_prescaler_value :2;
+    uint8 reserved :2;
 
 }ccp1_t;
 
@@ -4827,11 +4824,17 @@ typedef struct{
 
 Std_ReturnType CCP1_Init(const ccp1_t *_ccp);
 Std_ReturnType CCP1_DeInit(const ccp1_t *_ccp);
+# 129 "MCAL_Layer/CCP/CCP1/hal_cpp1.h"
+Std_ReturnType CCP1_PWM1_Set_Duty_Cycle(const uint8 _duty);
+Std_ReturnType CCP1_PWM1_Start(void);
+Std_ReturnType CCP1_PWM1_Stop(void);
+# 8 "MCAL_Layer/CCP/CCP1/hal_ccp1.c" 2
 
 
-Std_ReturnType CCP1_IsCaptureDataReady(uint8 *_capture_status);
-Std_ReturnType CCP1_Capture_Mode_Read_Value(uint16 *_capture_value);
-# 13 "MCAL_Layer/CCP/CCP1/hal_ccp1.c" 2
+
+
+static void (* _CCP1_InterruptHandler)(void) = ((void*)0);
+
 
 
 Std_ReturnType CCP1_Init(const ccp1_t *_ccp){
@@ -4845,10 +4848,13 @@ Std_ReturnType CCP1_Init(const ccp1_t *_ccp){
         (CCP1CONbits.CCP1M = ((uint8)0x00));
 
 
-        (CCP1CONbits.CCP1M = _ccp->ccp1_mode_variant);
 
 
 
+
+        (CCP1CONbits.CCP1M = ((uint8)0x0C));
+        PR2 = (uint8)(((8000000UL)/(_ccp->PWM_Frequency * 4.0 *
+                _ccp->CCP1_timer2_postscaler_value * _ccp->CCP1_timer2_prescaler_value))-1);
 
 
 
@@ -4858,7 +4864,7 @@ Std_ReturnType CCP1_Init(const ccp1_t *_ccp){
 
         (PIE1bits.CCP1IE = 1);
         (PIR1bits.CCP1IF = 0);
-        CCP1_InterruptHandler = _ccp->CCP1_InterruptHandler;
+        _CCP1_InterruptHandler = _ccp->CCP1_InterruptHandler;
 
         (RCONbits.IPEN = 1);
         if(INTERRUPT_HIGH_PRIORITY == _ccp->priority){
@@ -4868,6 +4874,7 @@ Std_ReturnType CCP1_Init(const ccp1_t *_ccp){
             (INTCONbits.GIEL = 1);
             (IPR1bits.CCP1IP = 0);
         }else{ }
+
 
 
 
@@ -4887,37 +4894,37 @@ Std_ReturnType CCP1_DeInit(const ccp1_t *_ccp){
     else
     {
 
-        ret = (Std_ReturnType)0x01;
-    }
+        (CCP1CONbits.CCP1M = ((uint8)0x00));
 
-    return ret;
-}
-
-
-Std_ReturnType CCP1_IsCaptureDataReady(uint8 *_capture_status){
-    Std_ReturnType ret = (Std_ReturnType)0x00;
-    if(((void*)0) == _capture_status){
-        ret = (Std_ReturnType)0x00;
-    }
-    else
-    {
+        (PIE1bits.CCP1IE = 1);
+        (PIR1bits.CCP1IF = 0);
 
         ret = (Std_ReturnType)0x01;
     }
 
     return ret;
 }
-
-Std_ReturnType CCP1_Capture_Mode_Read_Value(uint16 *_capture_value){
+# 155 "MCAL_Layer/CCP/CCP1/hal_ccp1.c"
+Std_ReturnType CCP1_PWM1_Set_Duty_Cycle(const uint8 _duty){
     Std_ReturnType ret = (Std_ReturnType)0x00;
-    if(((void*)0) == _capture_value){
-        ret = (Std_ReturnType)0x00;
-    }
-    else
-    {
+    uint16 l_duty_temp = 0;
+    l_duty_temp = (uint16)((PR2+1)*(_duty/100.0)*4);
+    CCP1CONbits.DC1B = (uint8)(l_duty_temp & 0x0003);
+    CCPR1L = (uint8)(l_duty_temp >> 2);
+    ret = (Std_ReturnType)0x01;
 
-        ret = (Std_ReturnType)0x01;
-    }
+    return ret;
+}
+Std_ReturnType CCP1_PWM1_Start(void){
+    Std_ReturnType ret = (Std_ReturnType)0x00;
+    (CCP1CONbits.CCP1M = ((uint8)0x0C));
+    ret = (Std_ReturnType)0x01;
 
+    return ret;
+}
+Std_ReturnType CCP1_PWM1_Stop(void){
+    Std_ReturnType ret = (Std_ReturnType)0x00;
+    (CCP1CONbits.CCP1M = ((uint8)0x00));
+    ret = (Std_ReturnType)0x01;
     return ret;
 }

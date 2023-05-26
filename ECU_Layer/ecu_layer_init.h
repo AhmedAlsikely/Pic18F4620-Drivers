@@ -16,6 +16,8 @@
 #include "../MCAL_Layer/Timer/Timer0/hal_timer0.h"
 #include "../MCAL_Layer/Timer/Timer1/hal_timer1.h"
 #include "7_segement/ecu_7_segement.h"
+#include "../MCAL_Layer/Timer/Timer2/hal_timer2.h"
+#include "../MCAL_Layer/CCP/CCP1/hal_cpp1.h"
 
 /* Section : Macro Declarations */
 

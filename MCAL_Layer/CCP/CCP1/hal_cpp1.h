@@ -32,6 +32,29 @@
 #endif
 #if CCP1_CFG_SELECTED_MODE == CCP1_CFG_PWM_MODE_SELECTED
 #define CCP1_PWM_MODE                             ((uint8)0x0C)
+
+/* Timer2 Prescaler */
+#define CCP1_TIMER2_PRESCALER_DIV_BY_1       1
+#define CCP1_TIMER2_PRESCALER_DIV_BY_4       4
+#define CCP1_TIMER2_PRESCALER_DIV_BY_16      16
+/* Timer2 postscaler */
+#define CCP1_TIMER2_POSTSCALER_DIV_BY_1      1
+#define CCP1_TIMER2_POSTSCALER_DIV_BY_2      2
+#define CCP1_TIMER2_POSTSCALER_DIV_BY_3      3
+#define CCP1_TIMER2_POSTSCALER_DIV_BY_4      4
+#define CCP1_TIMER2_POSTSCALER_DIV_BY_5      5
+#define CCP1_TIMER2_POSTSCALER_DIV_BY_6      6
+#define CCP1_TIMER2_POSTSCALER_DIV_BY_7      7
+#define CCP1_TIMER2_POSTSCALER_DIV_BY_8      8
+#define CCP1_TIMER2_POSTSCALER_DIV_BY_9      9
+#define CCP1_TIMER2_POSTSCALER_DIV_BY_10     10
+#define CCP1_TIMER2_POSTSCALER_DIV_BY_11     11
+#define CCP1_TIMER2_POSTSCALER_DIV_BY_12     12
+#define CCP1_TIMER2_POSTSCALER_DIV_BY_13     13
+#define CCP1_TIMER2_POSTSCALER_DIV_BY_14     14
+#define CCP1_TIMER2_POSTSCALER_DIV_BY_15     15
+#define CCP1_TIMER2_POSTSCALER_DIV_BY_16     16
+
 #endif
 
 /* CCP1 Capture Mode State */
@@ -67,7 +90,7 @@ typedef union{
         uint8 ccpr1_high;
     };
     uint16 ccpr1_16Bit;
-}CCP1_PRELOAD_REG_T;
+}CCP1_REG_T;
 
 typedef struct{
     ccp1_mode_t ccp1_mode;  
@@ -80,7 +103,10 @@ typedef struct{
     uint8 ccp1_mode_variant;
 #endif
 #if CCP1_CFG_SELECTED_MODE == CCP1_CFG_PWM_MODE_SELECTED
-    uint32 PWM_Frequency;    
+    uint32 PWM_Frequency;
+    uint8 CCP1_timer2_postscaler_value :4;
+    uint8 CCP1_timer2_prescaler_value :2;
+    uint8 reserved :2;
 #endif
 }ccp1_t;
 
@@ -96,11 +122,11 @@ Std_ReturnType CCP1_Capture_Mode_Read_Value(uint16 *_capture_value);
 
 #if CCP1_CFG_SELECTED_MODE == CCP1_CFG_COMPARE_MODE_SELECTED
 Std_ReturnType CCP1_IsCompareDataReady(uint8 *_compare_status);
-Std_ReturnType CCP1_Compare_Mode_Set_Value(uint16 *_compare_value);
+Std_ReturnType CCP1_Compare_Mode_Set_Value(uint16 _compare_value);
 #endif
 
 #if CCP1_CFG_SELECTED_MODE == CCP1_CFG_PWM_MODE_SELECTED
-Std_ReturnType CCP1_PWM1_Set_Duty_Cycle(const uint16 _duty);
+Std_ReturnType CCP1_PWM1_Set_Duty_Cycle(const uint8 _duty);
 Std_ReturnType CCP1_PWM1_Start(void);
 Std_ReturnType CCP1_PWM1_Stop(void);
 #endif
