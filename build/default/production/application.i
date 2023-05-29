@@ -5410,4 +5410,5 @@ void EUSART_Tx_InterruptHandler(void){
 }
 void EUSART_Rx_InterruptHandler(void){
     usart_rx_valid++;
+    EUSART_ASYNC_ReadByteNonBlocking(&rec_uart_data);
 }
