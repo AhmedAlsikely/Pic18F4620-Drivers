@@ -19,7 +19,12 @@ ECU_Layer/../MCAL_Layer/Timer/Timer0/../../Interrupt/mcal_interrupt_gen_cfg.h  \
 ECU_Layer/../MCAL_Layer/Timer/Timer1/hal_timer1.h  \
 ECU_Layer/7_segement/ecu_7_segement.h  \
 ECU_Layer/../MCAL_Layer/Timer/Timer2/hal_timer2.h  \
+ECU_Layer/../MCAL_Layer/Timer/Timer3/hal_timer3.h  \
 ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h  \
 ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1_cfg.h  \
+ECU_Layer/../MCAL_Layer/CCP/CCP2/hal_cpp2.h  \
+ECU_Layer/../MCAL_Layer/CCP/CCP2/hal_cpp2_cfg.h  \
+ECU_Layer/../MCAL_Layer/USART/hal_usart.h  \
+ECU_Layer/../MCAL_Layer/USART/hal_usart_cfg.h  \
 MCAL_Layer/ADC/hal_adc.h  \
 MCAL_Layer/ADC/hal_adc_cfg.h 

@@ -30,6 +30,10 @@
             <itemPath>MCAL_Layer/CCP/CCP1/hal_cpp1.h</itemPath>
             <itemPath>MCAL_Layer/CCP/CCP1/hal_cpp1_cfg.h</itemPath>
           </logicalFolder>
+          <logicalFolder name="CCP2" displayName="CCP2" projectFiles="true">
+            <itemPath>MCAL_Layer/CCP/CCP2/hal_cpp2.h</itemPath>
+            <itemPath>MCAL_Layer/CCP/CCP2/hal_cpp2_cfg.h</itemPath>
+          </logicalFolder>
         </logicalFolder>
         <logicalFolder name="EEPROM" displayName="EEPROM" projectFiles="true">
           <itemPath>MCAL_Layer/EEPROM/hal_eeprom.h</itemPath>
@@ -58,6 +62,10 @@
           <logicalFolder name="Timer3" displayName="Timer3" projectFiles="true">
             <itemPath>MCAL_Layer/Timer/Timer3/hal_timer3.h</itemPath>
           </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="USART" displayName="USART" projectFiles="true">
+          <itemPath>MCAL_Layer/USART/hal_usart.h</itemPath>
+          <itemPath>MCAL_Layer/USART/hal_usart_cfg.h</itemPath>
         </logicalFolder>
         <itemPath>MCAL_Layer/compiler.h</itemPath>
         <itemPath>MCAL_Layer/device_config.h</itemPath>
@@ -96,6 +104,9 @@
           <logicalFolder name="CCP1" displayName="CCP1" projectFiles="true">
             <itemPath>MCAL_Layer/CCP/CCP1/hal_ccp1.c</itemPath>
           </logicalFolder>
+          <logicalFolder name="CCP2" displayName="CCP2" projectFiles="true">
+            <itemPath>MCAL_Layer/CCP/CCP2/hal_ccp2.c</itemPath>
+          </logicalFolder>
         </logicalFolder>
         <logicalFolder name="EEPROM" displayName="EEPROM" projectFiles="true">
           <itemPath>MCAL_Layer/EEPROM/hal_eeprom.c</itemPath>
@@ -121,6 +132,9 @@
           <logicalFolder name="Timer3" displayName="Timer3" projectFiles="true">
             <itemPath>MCAL_Layer/Timer/Timer3/hal_timer3.c</itemPath>
           </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="USART" displayName="USART" projectFiles="true">
+          <itemPath>MCAL_Layer/USART/hal_usart.c</itemPath>
         </logicalFolder>
         <itemPath>MCAL_Layer/device_config.c</itemPath>
       </logicalFolder>

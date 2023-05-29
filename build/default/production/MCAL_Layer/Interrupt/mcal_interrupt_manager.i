@@ -4695,10 +4695,10 @@ unsigned char __t3rd16on(void);
 
 typedef unsigned char uint8;
 typedef unsigned short uint16;
-typedef unsigned int uint32;
+typedef unsigned long uint32;
 typedef signed char sint8;
 typedef signed short sint16;
-typedef signed int sint32;
+typedef signed long sint32;
 typedef uint8 Std_ReturnType;
 # 13 "MCAL_Layer/Interrupt/mcal_interrupt_config.h" 2
 
@@ -4777,19 +4777,43 @@ typedef enum{
     INTERRUPT_HIGH_PRIORITY
 }interrupt_priority_cfg;
 # 12 "MCAL_Layer/Interrupt/mcal_interrupt_manager.h" 2
-# 23 "MCAL_Layer/Interrupt/mcal_interrupt_manager.h"
+# 24 "MCAL_Layer/Interrupt/mcal_interrupt_manager.h"
 void INT0_ISR(void);
 void INT1_ISR(void);
 void INT2_ISR(void);
+
+
 void RB4_ISR(uint8 RB4_Source);
 void RB5_ISR(uint8 RB5_Source);
 void RB6_ISR(uint8 RB6_Source);
 void RB7_ISR(uint8 RB7_Source);
+
+
 void ADC_ISR(void);
+
+
 void TMRO_ISR(void);
+
+
 void TMR1_ISR(void);
+
+
 void TMR2_ISR(void);
+
+
 void TMR3_ISR(void);
+
+
+void CCP1_ISR(void);
+
+
+void CCP2_ISR(void);
+
+
+void EUSART_TX_ISR(void);
+
+
+void EUSART_RX_ISR(void);
 # 8 "MCAL_Layer/Interrupt/mcal_interrupt_manager.c" 2
 
 
@@ -4808,6 +4832,7 @@ void __attribute__((picinterrupt(("low_priority")))) InterruptManagerLow(void){
 }
 # 31 "MCAL_Layer/Interrupt/mcal_interrupt_manager.c"
 static void InterruptCheck(void){
+
     if((1 == INTCONbits.INT0IE)&&(1 == INTCONbits.INT0IF)){
         INT0_ISR();
     }
@@ -4822,6 +4847,7 @@ static void InterruptCheck(void){
         INT2_ISR();
     }
     else{ }
+
 
     if((1 == INTCONbits.RBIE)&&(1 == INTCONbits.RBIF)&&(PORTBbits.RB4 == GPIO_HIGH) && (RB4_Flag ==1)){
         RB4_Flag = 0;
@@ -4867,28 +4893,67 @@ static void InterruptCheck(void){
     }
     else{ }
 
+
+
     if((1 == PIE1bits.ADIE)&&(1 == PIR1bits.ADIF)){
         ADC_ISR();
     }
     else{ }
+
+
 
     if((1 == INTCONbits.TMR0IE)&&(1 == INTCONbits.TMR0IF)){
         TMRO_ISR();
     }
     else{ }
 
+
+
     if((1 == PIE1bits.TMR1IE)&&(1 == PIR1bits.TMR1IF)){
         TMR1_ISR();
     }
     else{ }
+
+
 
     if((1 == PIE1bits.TMR2IE)&&(1 == PIR1bits.TMR2IF)){
         TMR2_ISR();
     }
     else{ }
 
+
+
     if((1 == PIE2bits.TMR3IE)&&(1 == PIR2bits.TMR3IF)){
         TMR3_ISR();
     }
     else{ }
+
+
+
+    if((1 == PIE1bits.CCP1IE )&&(1 == PIR1bits.CCP1IF )){
+        CCP1_ISR();
+    }
+    else{ }
+
+
+
+    if((1 == PIE2bits.CCP2IE )&&(1 == PIR2bits.CCP2IF )){
+        CCP2_ISR();
+    }
+    else{ }
+
+
+
+    if((1 == PIE1bits.TXIE )&&(1 == PIR1bits.TXIF )){
+        EUSART_TX_ISR();
+    }
+    else{ }
+
+
+
+    if((1 == PIE1bits.RCIE )&&(1 == PIR1bits.RCIF )){
+        EUSART_RX_ISR();
+    }
+    else{ }
+
 }

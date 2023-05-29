@@ -13,13 +13,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-/* Section : Macro Declarations */
+/*---------------------- Section : Macro Declarations------------ */
 
-/* Section : Macro Functions Declarations */
+/*---------------------- Section : Macro Functions Declarations --*/
 
-/* Section : Data Type Declarations */
+/*---------------------- Section : Data Type Declarations --------*/
 
-/* Section : Functions Declarations */
+/*---------------------- Section : Functions Declarations --------*/
 
 #endif	/* STD_LIBRARIES_H */
 

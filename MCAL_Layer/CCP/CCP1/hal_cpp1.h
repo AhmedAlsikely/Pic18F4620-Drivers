@@ -92,6 +92,14 @@ typedef union{
     uint16 ccpr1_16Bit;
 }CCP1_REG_T;
 
+#if ((CCP1_CFG_SELECTED_MODE == CCP1_CFG_CAPTURE_MODE_SELECTED) || (CCP1_CFG_SELECTED_MODE == CCP1_CFG_COMPARE_MODE_SELECTED))
+typedef enum{
+    CCP1_CCP2_TIMER3 = 0,
+    CCP1_TIMER1_CCP2_TIMER3,
+    CCP1_CCP2_TIMER1
+}ccp1_capture_Compare_timer_t;
+#endif
+
 typedef struct{
     ccp1_mode_t ccp1_mode;  
     pin_config_t ccp1_pin;
@@ -101,6 +109,7 @@ typedef struct{
 #endif
 #if ((CCP1_CFG_SELECTED_MODE == CCP1_CFG_CAPTURE_MODE_SELECTED) || (CCP1_CFG_SELECTED_MODE == CCP1_CFG_COMPARE_MODE_SELECTED))
     uint8 ccp1_mode_variant;
+    ccp1_capture_Compare_timer_t ccp1_capture_Compare_timer;
 #endif
 #if CCP1_CFG_SELECTED_MODE == CCP1_CFG_PWM_MODE_SELECTED
     uint32 PWM_Frequency;

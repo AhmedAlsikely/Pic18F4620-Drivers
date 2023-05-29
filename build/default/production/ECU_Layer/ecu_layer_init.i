@@ -4697,10 +4697,10 @@ unsigned char __t3rd16on(void);
 
 typedef unsigned char uint8;
 typedef unsigned short uint16;
-typedef unsigned int uint32;
+typedef unsigned long uint32;
 typedef signed char sint8;
 typedef signed short sint16;
-typedef signed int sint32;
+typedef signed long sint32;
 typedef uint8 Std_ReturnType;
 # 13 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio.h" 2
 
@@ -4960,6 +4960,27 @@ Std_ReturnType Timer2_Write_value(const timer2_t *_timer,uint8 _value);
 Std_ReturnType Timer2_Read_value(const timer2_t *_timer,uint8 *_value);
 # 19 "ECU_Layer/ecu_layer_init.h" 2
 
+# 1 "ECU_Layer/../MCAL_Layer/Timer/Timer3/hal_timer3.h" 1
+# 46 "ECU_Layer/../MCAL_Layer/Timer/Timer3/hal_timer3.h"
+typedef struct{
+
+    void (* TMR3_InterruptHandler)(void);
+    interrupt_priority_cfg priority;
+
+    uint16 timer3_preload_value;
+    uint8 timer3_prescaler_value :2;
+    uint8 timer3_mode :1;
+    uint8 timer3_counter_mode :1;
+    uint8 timer3_reg_wr_mode :1;
+    uint8 reserved :3;
+}timer3_t;
+
+Std_ReturnType Timer3_Init(const timer3_t *_timer);
+Std_ReturnType Timer3_DeInit(const timer3_t *_timer);
+Std_ReturnType Timer3_Write_value(const timer3_t *_timer,uint16 _value);
+Std_ReturnType Timer3_Read_value(const timer3_t *_timer,uint16 *_value);
+# 20 "ECU_Layer/ecu_layer_init.h" 2
+
 # 1 "ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h" 1
 # 15 "ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h"
 # 1 "ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1_cfg.h" 1
@@ -4983,6 +5004,14 @@ typedef union{
     uint16 ccpr1_16Bit;
 }CCP1_REG_T;
 
+
+typedef enum{
+    CCP1_CCP2_TIMER3 = 0,
+    CCP1_TIMER1_CCP2_TIMER3,
+    CCP1_CCP2_TIMER1
+}ccp1_capture_Compare_timer_t;
+
+
 typedef struct{
     ccp1_mode_t ccp1_mode;
     pin_config_t ccp1_pin;
@@ -4991,13 +5020,14 @@ typedef struct{
     interrupt_priority_cfg priority;
 
 
+    uint8 ccp1_mode_variant;
+    ccp1_capture_Compare_timer_t ccp1_capture_Compare_timer;
 
 
 
-    uint32 PWM_Frequency;
-    uint8 CCP1_timer2_postscaler_value :4;
-    uint8 CCP1_timer2_prescaler_value :2;
-    uint8 reserved :2;
+
+
+
 
 }ccp1_t;
 
@@ -5005,11 +5035,132 @@ typedef struct{
 
 Std_ReturnType CCP1_Init(const ccp1_t *_ccp);
 Std_ReturnType CCP1_DeInit(const ccp1_t *_ccp);
-# 129 "ECU_Layer/../MCAL_Layer/CCP/CCP1/hal_cpp1.h"
-Std_ReturnType CCP1_PWM1_Set_Duty_Cycle(const uint8 _duty);
-Std_ReturnType CCP1_PWM1_Start(void);
-Std_ReturnType CCP1_PWM1_Stop(void);
-# 20 "ECU_Layer/ecu_layer_init.h" 2
+
+
+Std_ReturnType CCP1_IsCaptureDataReady(uint8 *_capture_status);
+Std_ReturnType CCP1_Capture_Mode_Read_Value(uint16 *_capture_value);
+# 21 "ECU_Layer/ecu_layer_init.h" 2
+
+# 1 "ECU_Layer/../MCAL_Layer/CCP/CCP2/hal_cpp2.h" 1
+# 15 "ECU_Layer/../MCAL_Layer/CCP/CCP2/hal_cpp2.h"
+# 1 "ECU_Layer/../MCAL_Layer/CCP/CCP2/hal_cpp2_cfg.h" 1
+# 15 "ECU_Layer/../MCAL_Layer/CCP/CCP2/hal_cpp2.h" 2
+# 77 "ECU_Layer/../MCAL_Layer/CCP/CCP2/hal_cpp2.h"
+typedef enum{
+    CCP2_CAPTURE_MODE_SELECTED =0,
+    CCP2_COMPARE_MODE_SELECTED,
+    CCP2_PWM_MODE_SELECTED
+}ccp2_mode_t;
+
+
+
+
+
+typedef union{
+    struct{
+        uint8 ccpr2_low;
+        uint8 ccpr2_high;
+    };
+    uint16 ccpr2_16Bit;
+}CCP2_REG_T;
+
+
+typedef enum{
+    CCP2_CCP1_TIMER3 = 0,
+    CCP2_TIMER3_CCP1_TIMER1,
+    CCP2_CCP1_TIMER1
+}ccp2_capture_Compare_timer_t;
+
+
+typedef struct{
+    ccp2_mode_t ccp2_mode;
+    pin_config_t ccp2_pin;
+
+    void (* CCP2_InterruptHandler)(void);
+    interrupt_priority_cfg priority;
+
+
+    uint8 ccp2_mode_variant;
+    ccp2_capture_Compare_timer_t ccp2_capture_Compare_timer;
+
+
+
+
+
+
+
+}ccp2_t;
+
+
+
+Std_ReturnType CCP2_Init(const ccp2_t *_ccp);
+Std_ReturnType CCP2_DeInit(const ccp2_t *_ccp);
+
+
+Std_ReturnType CCP2_IsCaptureDataReady(uint8 *_capture_status);
+Std_ReturnType CCP2_Capture_Mode_Read_Value(uint16 *_capture_value);
+# 22 "ECU_Layer/ecu_layer_init.h" 2
+
+# 1 "ECU_Layer/../MCAL_Layer/USART/hal_usart.h" 1
+# 17 "ECU_Layer/../MCAL_Layer/USART/hal_usart.h"
+# 1 "ECU_Layer/../MCAL_Layer/USART/hal_usart_cfg.h" 1
+# 17 "ECU_Layer/../MCAL_Layer/USART/hal_usart.h" 2
+# 74 "ECU_Layer/../MCAL_Layer/USART/hal_usart.h"
+typedef enum{
+    BAUDRATE_ASYN_8BIT_LOW_SPEED = 0,
+    BAUDRATE_ASYN_8BIT_HIGH_SPEED,
+    BAUDRATE_ASYN_16BIT_LOW_SPEED,
+    BAUDRATE_ASYN_16BIT_HIGH_SPEED,
+    BAUDRATE_SYN_8BIT,
+    BAUDRATE_SYN_16BIT
+}baudrate_gen_t;
+
+typedef struct{
+    interrupt_priority_cfg usart_tx_priority ;
+
+    uint8 usart_tx_enable :1;
+    uint8 usart_tx_interrupt_enable :1;
+    uint8 usart_tx_9bit_enable :1;
+    uint8 usart_tx_reserved :4;
+}usart_tx_cfg_t;
+
+typedef struct{
+    uint8 usart_rx_priority;
+
+    uint8 usart_rx_enable :1;
+    uint8 usart_rx_interrupt_enable :1;
+    uint8 usart_rx_9bit_enable :1;
+    uint8 usart_rx_reserved :4;
+}usart_rx_cfg_t;
+
+typedef union{
+    struct{
+        uint8 usart_tx_reserved :6;
+        uint8 usart_ferr:1;
+        uint8 usart_oerr;
+    };
+    uint8 status;
+}usart_error_status_t;
+
+typedef struct{
+    uint32 baudrate;
+    baudrate_gen_t baudrate_gen_cfg;
+    usart_tx_cfg_t usart_tx_cfg;
+    usart_rx_cfg_t usart_rx_cfg;
+    usart_error_status_t error_status;
+    void (* EUSART_TxDefailtInterruptHandler)(void);
+    void (* EUSART_RxDefailtInterruptHandler)(void);
+    void (* EUSART_FramingErrorHandler)(void);
+    void (* EUSART_OverrunErrorHandler)(void);
+}usart_t;
+
+Std_ReturnType EUSART_ASYNC_Init(const usart_t *_eusart);
+Std_ReturnType EUSART_ASYNC_DeInit(const usart_t *_eusart);
+Std_ReturnType EUSART_ASYNC_ReadByteBlocking(uint8 *_data);
+Std_ReturnType EUSART_ASYNC_ReadByteNonBlocking(uint8 *_data);
+Std_ReturnType EUSART_ASYNC_WriteByteBlocking( uint8 _data);
+Std_ReturnType EUSART_ASYNC_WriteStringBlocking( uint8 *_data);
+# 23 "ECU_Layer/ecu_layer_init.h" 2
 # 8 "ECU_Layer/ecu_layer_init.c" 2
 
 chr_lcd_4bit_t lcd_1 = {

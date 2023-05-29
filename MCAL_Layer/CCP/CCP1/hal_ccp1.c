@@ -9,9 +9,11 @@
 
 
 #if INTERRUPT_FEATURE_ENABLE == CCP1_INTERRUPT_FEATURE_ENABLE
-static void (* _CCP1_InterruptHandler)(void) = NULL;
+static void (* CCP1_InterruptHandler)(void) = NULL;
 #endif 
-
+#if ((CCP1_CFG_SELECTED_MODE == CCP1_CFG_CAPTURE_MODE_SELECTED) || (CCP1_CFG_SELECTED_MODE == CCP1_CFG_COMPARE_MODE_SELECTED))
+    static void CCP1_Capture_Mode_Timer_Select(const ccp1_t *_ccp_obj);
+#endif    
 
 Std_ReturnType CCP1_Init(const ccp1_t *_ccp){
     Std_ReturnType ret = E_OK;
@@ -25,8 +27,10 @@ Std_ReturnType CCP1_Init(const ccp1_t *_ccp){
         /* CCP1 Module Mode Set */
 #if CCP1_CFG_SELECTED_MODE == CCP1_CFG_CAPTURE_MODE_SELECTED
         CCP1_SET_MODE(_ccp->ccp1_mode_variant);
+        CCP1_Capture_Mode_Timer_Select(_ccp);
 #elif CCP1_CFG_SELECTED_MODE == CCP1_CFG_COMPARE_MODE_SELECTED
         CCP1_SET_MODE(_ccp->ccp1_mode_variant);
+        CCP1_Capture_Mode_Timer_Select(_ccp);
 #elif CCP1_CFG_SELECTED_MODE == CCP1_CFG_PWM_MODE_SELECTED
         CCP1_SET_MODE(CCP1_PWM_MODE);
         PR2 = (uint8)(((_XTAL_FREQ)/(_ccp->PWM_Frequency * 4.0 *
@@ -40,7 +44,7 @@ Std_ReturnType CCP1_Init(const ccp1_t *_ccp){
 #if INTERRUPT_FEATURE_ENABLE == CCP1_INTERRUPT_FEATURE_ENABLE
         CCP1_InterruptEnable();
         CCP1_InterruptFlagClear();
-        _CCP1_InterruptHandler = _ccp->CCP1_InterruptHandler;
+        CCP1_InterruptHandler = _ccp->CCP1_InterruptHandler;
 #if INTERRUPT_PRIORITY_LEVELS_ENABLE == INTERRUPT_FEATURE_ENABLE
         INTERRUPT_PeriorityLevelsEnable();
         if(INTERRUPT_HIGH_PRIORITY == _ccp->priority){
@@ -175,4 +179,29 @@ Std_ReturnType CCP1_PWM1_Stop(void){
     ret = E_OK;
     return ret;
 }
+#endif
+
+#if ((CCP1_CFG_SELECTED_MODE == CCP1_CFG_CAPTURE_MODE_SELECTED) || (CCP1_CFG_SELECTED_MODE == CCP1_CFG_COMPARE_MODE_SELECTED))
+    static void CCP1_Capture_Mode_Timer_Select(const ccp1_t *_ccp_obj){
+        if(CCP1_CCP2_TIMER3 == _ccp_obj->ccp1_capture_Compare_timer){
+            T3CONbits.T3CCP1 = 0;
+            T3CONbits.T3CCP2 = 1;
+        }else if(CCP1_TIMER1_CCP2_TIMER3 == _ccp_obj->ccp1_capture_Compare_timer){
+            T3CONbits.T3CCP1 = 1;
+            T3CONbits.T3CCP2 = 0;
+        }else if(CCP1_CCP2_TIMER1 == _ccp_obj->ccp1_capture_Compare_timer){
+            T3CONbits.T3CCP1 = 0;
+            T3CONbits.T3CCP2 = 0;
+        }else{/*NoThing*/}
+    }
+#endif
+
+#if INTERRUPT_FEATURE_ENABLE == CCP1_INTERRUPT_FEATURE_ENABLE
+void CCP1_ISR(void){
+    CCP1_InterruptFlagClear();
+    
+    if(CCP1_InterruptHandler){
+        CCP1_InterruptHandler();
+    }
+}    
 #endif

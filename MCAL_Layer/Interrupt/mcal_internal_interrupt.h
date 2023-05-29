@@ -118,6 +118,53 @@
 #endif
 #endif
 /*------------------------------------------------------------------------*/
+/*-----------------------------CCP2 Module------------------------------*/
+#if INTERRUPT_FEATURE_ENABLE == CCP2_INTERRUPT_FEATURE_ENABLE  
+/* This routine Sets the interrupt enable for the CCP2 Module */
+#define CCP2_InterruptEnable()       (PIE2bits.CCP2IE = 1)
+/* This routine clears the interrupt enable for the CCP2 Module */
+#define CCP2_InterruptDisable()      (PIE2bits.CCP2IE = 0)
+/* This routine clears the interrupt Flag for the CCP2 Module */
+#define CCP2_InterruptFlagClear()    (PIR2bits.CCP2IF = 0)
+
+#if INTERRUPT_PRIORITY_LEVELS_ENABLE == INTERRUPT_FEATURE_ENABLE
+/* This routine Sets the CCP2 Interrupt Priority to be High Priority, CCP2. */
+#define CCP2_HighPrioritySet()       (IPR2bits.CCP2IP = 1)
+/* This routine Sets the CCP2 Interrupt Priority to be Low Priority, CCP2. */
+#define CCP2_LowPrioritySet()        (IPR2bits.CCP2IP = 0)
+#endif
+#endif
+/*------------------------------------------------------------------------*/
+/*-----------------------------EUSART TX Module------------------------------*/
+#if INTERRUPT_FEATURE_ENABLE == EUSART_TX_INTERRUPT_FEATURE_ENABLE  
+/* This routine Sets the interrupt enable for the EUSART_TX Module */
+#define EUSART_TX_InterruptEnable()       (PIE1bits.TXIE = 1)
+/* This routine clears the interrupt enable for the EUSART_TX Module */
+#define EUSART_TX_InterruptDisable()      (PIE1bits.TXIE = 0)
+
+#if INTERRUPT_PRIORITY_LEVELS_ENABLE == INTERRUPT_FEATURE_ENABLE
+/* This routine Sets the EUSART_TX Interrupt Priority to be High Priority, EUSART_TX. */
+#define EUSART_TX_HighPrioritySet()       (IPR1bits.TXIP = 1)
+/* This routine Sets the EUSART_TX Interrupt Priority to be Low Priority, EUSART_TX. */
+#define EUSART_TX_LowPrioritySet()        (IPR1bits.TXIP = 0)
+#endif
+#endif
+/*------------------------------------------------------------------------*/
+/*-----------------------------EUSART RX Module------------------------------*/
+#if INTERRUPT_FEATURE_ENABLE == EUSART_RX_INTERRUPT_FEATURE_ENABLE  
+/* This routine Sets the interrupt enable for the EUSART_RX Module */
+#define EUSART_RX_InterruptEnable()       (PIE1bits.RCIE = 1)
+/* This routine clears the interrupt enable for the EUSART_RX Module */
+#define EUSART_RX_InterruptDisable()      (PIE1bits.RCIE = 0)
+
+#if INTERRUPT_PRIORITY_LEVELS_ENABLE == INTERRUPT_FEATURE_ENABLE
+/* This routine Sets the EUSART_RX Interrupt Priority to be High Priority, EUSART_RX. */
+#define EUSART_RX_HighPrioritySet()       (IPR1bits.RCIP = 1)
+/* This routine Sets the EUSART_RX Interrupt Priority to be Low Priority, EUSART_RX. */
+#define EUSART_RX_LowPrioritySet()        (IPR1bits.RCIP = 0)
+#endif
+#endif
+/*------------------------------------------------------------------------*/
 
 /* Section : Data Type Declarations */
 
