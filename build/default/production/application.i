@@ -5273,6 +5273,7 @@ void timer1_interruptHundler(void);
 void timer2_interruptHundler(void);
 void timer3_interruptHundler(void);
 void CCP1_interruptHundler(void);
+void EUSART_Tx_InterruptHandler(void);
 ccp1_t ccp1_obj ={
   .CCP1_InterruptHandler = CCP1_interruptHundler,
   .priority = INTERRUPT_HIGH_PRIORITY,
@@ -5326,7 +5327,7 @@ usart_t usart_obj = {
     .EUSART_FramingErrorHandler = ((void*)0),
     .EUSART_OverrunErrorHandler= ((void*)0),
     .EUSART_RxDefailtInterruptHandler = ((void*)0),
-    .EUSART_TxDefailtInterruptHandler= ((void*)0),
+    .EUSART_TxDefailtInterruptHandler= EUSART_Tx_InterruptHandler,
 
     .baudrate = 9600,
     .baudrate_gen_cfg = BAUDRATE_ASYN_8BIT_LOW_SPEED,
@@ -5350,17 +5351,9 @@ int main() {
     app_intialize();
 
     while(1){
-        ret = EUSART_ASYNC_ReadByteNonBlocking(&rec_uart_data);
-        if((Std_ReturnType)0x01){
-            if('a' == rec_uart_data){
-                led_turn_on(&led1);
-            }else if('b' ==rec_uart_data){
-                led_turn_off(&led1);
-            }else{
 
-            }
-        }
-
+        ret = EUSART_ASYNC_WriteStringBlocking("AHMED\r");
+# 112 "application.c"
     }
     return (0);
 }
@@ -5406,4 +5399,8 @@ void CCP1_interruptHundler(void){
         CCP1_Capture_Mode_Read_Value(&ccp1_capature_value);
 
     }
+}
+
+void EUSART_Tx_InterruptHandler(void){
+    led_turn_toggle(&led1);
 }
