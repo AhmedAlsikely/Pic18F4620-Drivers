@@ -5265,8 +5265,11 @@ volatile uint8 CCP1_Interrupt_flag = 0;
 volatile uint8 CCP1_Interrupt_flag_2 = 0;
 volatile uint32 ccp1_capature_value = 0;
 volatile uint32 timer3_overflow = 0;
+volatile uint32 usart_rx_valid = 0;
+volatile uint32 usart_tx_valid = 0;
 uint32 Total_period_microSecond = 0;
 uint32 freqenct_measured = 0;
+
 
 void timer0_interruptHundler(void);
 void timer1_interruptHundler(void);
@@ -5274,6 +5277,7 @@ void timer2_interruptHundler(void);
 void timer3_interruptHundler(void);
 void CCP1_interruptHundler(void);
 void EUSART_Tx_InterruptHandler(void);
+void EUSART_Rx_InterruptHandler(void);
 ccp1_t ccp1_obj ={
   .CCP1_InterruptHandler = CCP1_interruptHundler,
   .priority = INTERRUPT_HIGH_PRIORITY,
@@ -5326,7 +5330,7 @@ timer3_t timer3 = {
 usart_t usart_obj = {
     .EUSART_FramingErrorHandler = ((void*)0),
     .EUSART_OverrunErrorHandler= ((void*)0),
-    .EUSART_RxDefailtInterruptHandler = ((void*)0),
+    .EUSART_RxDefailtInterruptHandler = EUSART_Rx_InterruptHandler,
     .EUSART_TxDefailtInterruptHandler= EUSART_Tx_InterruptHandler,
 
     .baudrate = 9600,
@@ -5353,7 +5357,7 @@ int main() {
     while(1){
 
         ret = EUSART_ASYNC_WriteStringBlocking("AHMED\r");
-# 112 "application.c"
+# 116 "application.c"
     }
     return (0);
 }
@@ -5402,5 +5406,8 @@ void CCP1_interruptHundler(void){
 }
 
 void EUSART_Tx_InterruptHandler(void){
-    led_turn_toggle(&led1);
+    usart_tx_valid++;
+}
+void EUSART_Rx_InterruptHandler(void){
+    usart_rx_valid++;
 }
