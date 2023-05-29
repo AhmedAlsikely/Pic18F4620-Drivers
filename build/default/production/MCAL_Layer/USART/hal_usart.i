@@ -4937,6 +4937,9 @@ Std_ReturnType EUSART_ASYNC_ReadByteNonBlocking(uint8 *_data){
 Std_ReturnType EUSART_ASYNC_WriteByteBlocking(uint8 _data){
     Std_ReturnType ret = (Std_ReturnType)0x00;
         while(!TXSTAbits.TRMT);
+
+        (PIE1bits.TXIE = 1);
+
         TXREG = _data;
         ret = (Std_ReturnType)0x01;
     return ret;
@@ -5055,12 +5058,15 @@ static void EUSART_ASYNC_RX_Init(const usart_t *_eusart){
 
     }else{}
 }
-void EUSART_TX_ISR(void){
 
+
+void EUSART_TX_ISR(void){
+    (PIE1bits.TXIE = 0);
     if(EUSART_Tx_InterruptHandler){
         EUSART_Tx_InterruptHandler();
     }
 }
+
 
 void EUSART_RX_ISR(void){
 

@@ -488,16 +488,16 @@ CCP2_CCP1_TIMER1 2
 [v _EUSART_ASYNC_ReadByteNonBlocking EUSART_ASYNC_ReadByteNonBlocking `(uc  1 e 1 0 ]
 "102
 [v _EUSART_ASYNC_WriteByteBlocking EUSART_ASYNC_WriteByteBlocking `(uc  1 e 1 0 ]
-"124
+"127
 [v _EUSART_Baud_Rate_Calculation EUSART_Baud_Rate_Calculation `(v  1 s 1 EUSART_Baud_Rate_Calculation ]
-"168
+"171
 [v _EUSART_ASYNC_TX_Init EUSART_ASYNC_TX_Init `(v  1 s 1 EUSART_ASYNC_TX_Init ]
-"194
+"197
 [v _EUSART_ASYNC_RX_Init EUSART_ASYNC_RX_Init `(v  1 s 1 EUSART_ASYNC_RX_Init ]
-"223
+"228
 [v _EUSART_TX_ISR EUSART_TX_ISR `(v  1 e 1 0 ]
 [v i2_EUSART_TX_ISR EUSART_TX_ISR `(v  1 e 1 0 ]
-"230
+"236
 [v _EUSART_RX_ISR EUSART_RX_ISR `(v  1 e 1 0 ]
 [v i2_EUSART_RX_ISR EUSART_RX_ISR `(v  1 e 1 0 ]
 [s S409 . 1 `uc 1 port_name 1 0 :4:0 
@@ -846,7 +846,7 @@ CCP2_CCP1_TIMER1 2
 [v _TMR3L TMR3L `VEuc  1 e 1 @4018 ]
 "3656
 [v _TMR3H TMR3H `VEuc  1 e 1 @4019 ]
-[s S3772 . 1 `uc 1 ABDEN 1 0 :1:0 
+[s S3789 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -856,16 +856,16 @@ CCP2_CCP1_TIMER1 2
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4016
-[s S3781 . 1 `uc 1 . 1 0 :4:0 
+[s S3798 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SCKP 1 0 :1:4 
 `uc 1 RXCKP 1 0 :1:5 
 `uc 1 RCMT 1 0 :1:6 
 ]
-[s S3786 . 1 `uc 1 . 1 0 :1:0 
+[s S3803 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 W4E 1 0 :1:1 
 ]
-[u S3789 . 1 `S3772 1 . 1 0 `S3781 1 . 1 0 `S3786 1 . 1 0 ]
-[v _BAUDCONbits BAUDCONbits `VES3789  1 e 1 @4024 ]
+[u S3806 . 1 `S3789 1 . 1 0 `S3798 1 . 1 0 `S3803 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES3806  1 e 1 @4024 ]
 [s S4082 . 1 `uc 1 CCP2M 1 0 :4:0 
 `uc 1 DC2B 1 0 :2:4 
 ]
@@ -1344,17 +1344,17 @@ CCP2_CCP1_TIMER1 2
 [v EUSART_ASYNC_Init@_eusart _eusart `*.39CS2669  1 p 2 20 ]
 "43
 } 0
-"124
+"127
 [v _EUSART_Baud_Rate_Calculation EUSART_Baud_Rate_Calculation `(v  1 s 1 EUSART_Baud_Rate_Calculation ]
 {
-"125
+"128
 [v EUSART_Baud_Rate_Calculation@Baud_Rate_Temp Baud_Rate_Temp `f  1 a 4 12 ]
 [s S2646 . 2 `E3135 1 usart_tx_priority 1 0 `uc 1 usart_tx_enable 1 1 :1:0 
 `uc 1 usart_tx_interrupt_enable 1 1 :1:1 
 `uc 1 usart_tx_9bit_enable 1 1 :1:2 
 `uc 1 usart_tx_reserved 1 1 :4:3 
 ]
-"124
+"127
 [s S2652 . 2 `uc 1 usart_rx_priority 1 0 `uc 1 usart_rx_enable 1 1 :1:0 
 `uc 1 usart_rx_interrupt_enable 1 1 :1:1 
 `uc 1 usart_rx_9bit_enable 1 1 :1:2 
@@ -1366,7 +1366,7 @@ CCP2_CCP1_TIMER1 2
 [u S2662 . 2 `S2658 1 . 2 0 `uc 1 status 1 0 ]
 [s S2669 . 19 `ul 1 baudrate 4 0 `E3314 1 baudrate_gen_cfg 1 4 `S2646 1 usart_tx_cfg 2 5 `S2652 1 usart_rx_cfg 2 7 `S2662 1 error_status 2 9 `*.37(v 1 EUSART_TxDefailtInterruptHandler 2 11 `*.37(v 1 EUSART_RxDefailtInterruptHandler 2 13 `*.37(v 1 EUSART_FramingErrorHandler 2 15 `*.37(v 1 EUSART_OverrunErrorHandler 2 17 ]
 [v EUSART_Baud_Rate_Calculation@_eusart _eusart `*.39CS2669  1 p 2 8 ]
-"166
+"169
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -1429,7 +1429,7 @@ CCP2_CCP1_TIMER1 2
 [v ___fladd@a a `d  1 p 4 4 ]
 "237
 } 0
-"168 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/USART/hal_usart.c
+"171 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/USART/hal_usart.c
 [v _EUSART_ASYNC_TX_Init EUSART_ASYNC_TX_Init `(v  1 s 1 EUSART_ASYNC_TX_Init ]
 {
 [s S2646 . 2 `E3135 1 usart_tx_priority 1 0 `uc 1 usart_tx_enable 1 1 :1:0 
@@ -1448,9 +1448,9 @@ CCP2_CCP1_TIMER1 2
 [u S2662 . 2 `S2658 1 . 2 0 `uc 1 status 1 0 ]
 [s S2669 . 19 `ul 1 baudrate 4 0 `E3314 1 baudrate_gen_cfg 1 4 `S2646 1 usart_tx_cfg 2 5 `S2652 1 usart_rx_cfg 2 7 `S2662 1 error_status 2 9 `*.37(v 1 EUSART_TxDefailtInterruptHandler 2 11 `*.37(v 1 EUSART_RxDefailtInterruptHandler 2 13 `*.37(v 1 EUSART_FramingErrorHandler 2 15 `*.37(v 1 EUSART_OverrunErrorHandler 2 17 ]
 [v EUSART_ASYNC_TX_Init@_eusart _eusart `*.39CS2669  1 p 2 27 ]
-"193
+"196
 } 0
-"194
+"197
 [v _EUSART_ASYNC_RX_Init EUSART_ASYNC_RX_Init `(v  1 s 1 EUSART_ASYNC_RX_Init ]
 {
 [s S2646 . 2 `E3135 1 usart_tx_priority 1 0 `uc 1 usart_tx_enable 1 1 :1:0 
@@ -1469,7 +1469,7 @@ CCP2_CCP1_TIMER1 2
 [u S2662 . 2 `S2658 1 . 2 0 `uc 1 status 1 0 ]
 [s S2669 . 19 `ul 1 baudrate 4 0 `E3314 1 baudrate_gen_cfg 1 4 `S2646 1 usart_tx_cfg 2 5 `S2652 1 usart_rx_cfg 2 7 `S2662 1 error_status 2 9 `*.37(v 1 EUSART_TxDefailtInterruptHandler 2 11 `*.37(v 1 EUSART_RxDefailtInterruptHandler 2 13 `*.37(v 1 EUSART_FramingErrorHandler 2 15 `*.37(v 1 EUSART_OverrunErrorHandler 2 17 ]
 [v EUSART_ASYNC_RX_Init@_eusart _eusart `*.39CS2669  1 p 2 27 ]
-"222
+"225
 } 0
 "78
 [v _EUSART_ASYNC_ReadByteNonBlocking EUSART_ASYNC_ReadByteNonBlocking `(uc  1 e 1 0 ]
@@ -1604,15 +1604,15 @@ CCP2_CCP1_TIMER1 2
 {
 "528
 } 0
-"223 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/USART/hal_usart.c
+"228 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/USART/hal_usart.c
 [v _EUSART_TX_ISR EUSART_TX_ISR `(v  1 e 1 0 ]
 {
-"228
+"233
 } 0
-"230
+"236
 [v _EUSART_RX_ISR EUSART_RX_ISR `(v  1 e 1 0 ]
 {
-"241
+"247
 } 0
 "200 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/CCP/CCP2/hal_ccp2.c
 [v _CCP2_ISR CCP2_ISR `(v  1 e 1 0 ]
@@ -1784,15 +1784,15 @@ CCP2_CCP1_TIMER1 2
 {
 "528
 } 0
-"223 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/USART/hal_usart.c
+"228 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/USART/hal_usart.c
 [v i2_EUSART_TX_ISR EUSART_TX_ISR `(v  1 e 1 0 ]
 {
-"228
+"233
 } 0
-"230
+"236
 [v i2_EUSART_RX_ISR EUSART_RX_ISR `(v  1 e 1 0 ]
 {
-"241
+"247
 } 0
 "200 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/CCP/CCP2/hal_ccp2.c
 [v i2_CCP2_ISR CCP2_ISR `(v  1 e 1 0 ]
