@@ -1,4 +1,4 @@
-# 1 "MCAL_Layer/CCP/CCP2/hal_ccp2.c"
+# 1 "MCAL_Layer/SPI/hal_SPI.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MCAL_Layer/CCP/CCP2/hal_ccp2.c" 2
+# 1 "MCAL_Layer/SPI/hal_SPI.c" 2
 
 
 
@@ -14,8 +14,8 @@
 
 
 
-# 1 "MCAL_Layer/CCP/CCP2/hal_cpp2.h" 1
-# 11 "MCAL_Layer/CCP/CCP2/hal_cpp2.h"
+# 1 "MCAL_Layer/SPI/hal_SPI.h" 1
+# 11 "MCAL_Layer/SPI/hal_SPI.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 1 3
 # 45 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\__at.h" 1 3
@@ -4228,12 +4228,12 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 11 "MCAL_Layer/CCP/CCP2/hal_cpp2.h" 2
+# 11 "MCAL_Layer/SPI/hal_SPI.h" 2
 
-# 1 "MCAL_Layer/CCP/CCP2/../../mcal_std_types.h" 1
-# 14 "MCAL_Layer/CCP/CCP2/../../mcal_std_types.h"
-# 1 "MCAL_Layer/CCP/CCP2/../../std_libraries.h" 1
-# 12 "MCAL_Layer/CCP/CCP2/../../std_libraries.h"
+# 1 "MCAL_Layer/SPI/../mcal_std_types.h" 1
+# 14 "MCAL_Layer/SPI/../mcal_std_types.h"
+# 1 "MCAL_Layer/SPI/../std_libraries.h" 1
+# 12 "MCAL_Layer/SPI/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -4398,7 +4398,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 12 "MCAL_Layer/CCP/CCP2/../../std_libraries.h" 2
+# 12 "MCAL_Layer/SPI/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\stdlib.h" 3
@@ -4462,7 +4462,7 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 13 "MCAL_Layer/CCP/CCP2/../../std_libraries.h" 2
+# 13 "MCAL_Layer/SPI/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\string.h" 3
@@ -4521,11 +4521,11 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 14 "MCAL_Layer/CCP/CCP2/../../std_libraries.h" 2
-# 14 "MCAL_Layer/CCP/CCP2/../../mcal_std_types.h" 2
+# 14 "MCAL_Layer/SPI/../std_libraries.h" 2
+# 14 "MCAL_Layer/SPI/../mcal_std_types.h" 2
 
-# 1 "MCAL_Layer/CCP/CCP2/../../compiler.h" 1
-# 12 "MCAL_Layer/CCP/CCP2/../../compiler.h"
+# 1 "MCAL_Layer/SPI/../compiler.h" 1
+# 12 "MCAL_Layer/SPI/../compiler.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4686,8 +4686,8 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 12 "MCAL_Layer/CCP/CCP2/../../compiler.h" 2
-# 15 "MCAL_Layer/CCP/CCP2/../../mcal_std_types.h" 2
+# 12 "MCAL_Layer/SPI/../compiler.h" 2
+# 15 "MCAL_Layer/SPI/../mcal_std_types.h" 2
 
 
 
@@ -4698,16 +4698,16 @@ typedef signed char sint8;
 typedef signed short sint16;
 typedef signed long sint32;
 typedef uint8 Std_ReturnType;
-# 12 "MCAL_Layer/CCP/CCP2/hal_cpp2.h" 2
+# 12 "MCAL_Layer/SPI/hal_SPI.h" 2
 
-# 1 "MCAL_Layer/CCP/CCP2/../../GPIO/hal_gpio.h" 1
-# 14 "MCAL_Layer/CCP/CCP2/../../GPIO/hal_gpio.h"
-# 1 "MCAL_Layer/CCP/CCP2/../../GPIO/../device_config.h" 1
-# 14 "MCAL_Layer/CCP/CCP2/../../GPIO/hal_gpio.h" 2
+# 1 "MCAL_Layer/SPI/../GPIO/hal_gpio.h" 1
+# 14 "MCAL_Layer/SPI/../GPIO/hal_gpio.h"
+# 1 "MCAL_Layer/SPI/../GPIO/../device_config.h" 1
+# 14 "MCAL_Layer/SPI/../GPIO/hal_gpio.h" 2
 
-# 1 "MCAL_Layer/CCP/CCP2/../../GPIO/hal_gpio_cfg.h" 1
-# 15 "MCAL_Layer/CCP/CCP2/../../GPIO/hal_gpio.h" 2
-# 32 "MCAL_Layer/CCP/CCP2/../../GPIO/hal_gpio.h"
+# 1 "MCAL_Layer/SPI/../GPIO/hal_gpio_cfg.h" 1
+# 15 "MCAL_Layer/SPI/../GPIO/hal_gpio.h" 2
+# 32 "MCAL_Layer/SPI/../GPIO/hal_gpio.h"
 typedef enum{
     GPIO_LOW =0,
     GPIO_HIGH
@@ -4743,228 +4743,199 @@ typedef struct{
     uint8 direction :1;
     uint8 logic :1;
 }pin_config_t;
-# 77 "MCAL_Layer/CCP/CCP2/../../GPIO/hal_gpio.h"
+# 77 "MCAL_Layer/SPI/../GPIO/hal_gpio.h"
 Std_ReturnType gpio_pin_direction_intialize(const pin_config_t *_pin_config);
-# 87 "MCAL_Layer/CCP/CCP2/../../GPIO/hal_gpio.h"
+# 87 "MCAL_Layer/SPI/../GPIO/hal_gpio.h"
 Std_ReturnType gpio_pin_get_direction_status(const pin_config_t *_pin_config,direction_t *direction_status);
-# 97 "MCAL_Layer/CCP/CCP2/../../GPIO/hal_gpio.h"
+# 97 "MCAL_Layer/SPI/../GPIO/hal_gpio.h"
 Std_ReturnType gpio_pin_write_logic(const pin_config_t *_pin_config ,logic_t logic);
-# 107 "MCAL_Layer/CCP/CCP2/../../GPIO/hal_gpio.h"
+# 107 "MCAL_Layer/SPI/../GPIO/hal_gpio.h"
 Std_ReturnType gpio_pin_read_logic(const pin_config_t *_pin_config ,logic_t *logic);
-# 116 "MCAL_Layer/CCP/CCP2/../../GPIO/hal_gpio.h"
+# 116 "MCAL_Layer/SPI/../GPIO/hal_gpio.h"
 Std_ReturnType gpio_pin_toggle_logic(const pin_config_t *_pin_config);
-# 125 "MCAL_Layer/CCP/CCP2/../../GPIO/hal_gpio.h"
+# 125 "MCAL_Layer/SPI/../GPIO/hal_gpio.h"
 Std_ReturnType gpio_pin_intialize(const pin_config_t *_pin_config);
-# 137 "MCAL_Layer/CCP/CCP2/../../GPIO/hal_gpio.h"
+# 137 "MCAL_Layer/SPI/../GPIO/hal_gpio.h"
 Std_ReturnType gpio_port_direction_intialize(port_index_t port, uint8 direction);
-# 147 "MCAL_Layer/CCP/CCP2/../../GPIO/hal_gpio.h"
+# 147 "MCAL_Layer/SPI/../GPIO/hal_gpio.h"
 Std_ReturnType gpio_port_get_direction_status(port_index_t port,uint8 *direction_status);
-# 159 "MCAL_Layer/CCP/CCP2/../../GPIO/hal_gpio.h"
+# 159 "MCAL_Layer/SPI/../GPIO/hal_gpio.h"
 Std_ReturnType gpio_port_write_logic(port_index_t port ,uint8 logic);
-# 168 "MCAL_Layer/CCP/CCP2/../../GPIO/hal_gpio.h"
+# 168 "MCAL_Layer/SPI/../GPIO/hal_gpio.h"
 Std_ReturnType gpio_port_read_logic(port_index_t port ,uint8 *logic);
-# 177 "MCAL_Layer/CCP/CCP2/../../GPIO/hal_gpio.h"
+# 177 "MCAL_Layer/SPI/../GPIO/hal_gpio.h"
 Std_ReturnType gpio_port_toggle_logic(port_index_t port);
-# 13 "MCAL_Layer/CCP/CCP2/hal_cpp2.h" 2
+# 13 "MCAL_Layer/SPI/hal_SPI.h" 2
 
-# 1 "MCAL_Layer/CCP/CCP2/../../Interrupt/mcal_internal_interrupt.h" 1
-# 13 "MCAL_Layer/CCP/CCP2/../../Interrupt/mcal_internal_interrupt.h"
-# 1 "MCAL_Layer/CCP/CCP2/../../Interrupt/mcal_interrupt_config.h" 1
-# 15 "MCAL_Layer/CCP/CCP2/../../Interrupt/mcal_interrupt_config.h"
-# 1 "MCAL_Layer/CCP/CCP2/../../Interrupt/mcal_interrupt_gen_cfg.h" 1
-# 15 "MCAL_Layer/CCP/CCP2/../../Interrupt/mcal_interrupt_config.h" 2
-# 54 "MCAL_Layer/CCP/CCP2/../../Interrupt/mcal_interrupt_config.h"
+# 1 "MCAL_Layer/SPI/../Interrupt/mcal_internal_interrupt.h" 1
+# 13 "MCAL_Layer/SPI/../Interrupt/mcal_internal_interrupt.h"
+# 1 "MCAL_Layer/SPI/../Interrupt/mcal_interrupt_config.h" 1
+# 15 "MCAL_Layer/SPI/../Interrupt/mcal_interrupt_config.h"
+# 1 "MCAL_Layer/SPI/../Interrupt/mcal_interrupt_gen_cfg.h" 1
+# 15 "MCAL_Layer/SPI/../Interrupt/mcal_interrupt_config.h" 2
+# 54 "MCAL_Layer/SPI/../Interrupt/mcal_interrupt_config.h"
 typedef enum{
     INTERRUPT_LOW_PRIORITY = 0,
     INTERRUPT_HIGH_PRIORITY
 }interrupt_priority_cfg;
-# 13 "MCAL_Layer/CCP/CCP2/../../Interrupt/mcal_internal_interrupt.h" 2
-# 14 "MCAL_Layer/CCP/CCP2/hal_cpp2.h" 2
-
-# 1 "MCAL_Layer/CCP/CCP2/hal_cpp2_cfg.h" 1
-# 15 "MCAL_Layer/CCP/CCP2/hal_cpp2.h" 2
-# 77 "MCAL_Layer/CCP/CCP2/hal_cpp2.h"
+# 13 "MCAL_Layer/SPI/../Interrupt/mcal_internal_interrupt.h" 2
+# 14 "MCAL_Layer/SPI/hal_SPI.h" 2
+# 59 "MCAL_Layer/SPI/hal_SPI.h"
 typedef enum{
-    CCP2_CAPTURE_MODE_SELECTED =0,
-    CCP2_COMPARE_MODE_SELECTED,
-    CCP2_PWM_MODE_SELECTED
-}ccp2_mode_t;
-
-
-
-
-
-typedef union{
-    struct{
-        uint8 ccpr2_low;
-        uint8 ccpr2_high;
-    };
-    uint16 ccpr2_16Bit;
-}CCP2_REG_T;
-
+    SPI_CLK_IDLE_LOW_TRANSMIT_FROM_IDLE_TO_ACTIVE = 0,
+    SPI_CLK_IDLE_LOW_TRANSMIT_FROM_ACTIVE_TO_IDLE,
+    SPI_CLK_IDLE_HIGH_TRANSMIT_FROM_IDLE_TO_ACTIVE,
+    SPI_CLK_IDLE_HIGH_TRANSMIT_FROM_ACTIVE_TO_IDLE
+}SPI_Transmit_data_mode_t;
 
 typedef enum{
-    CCP2_CCP1_TIMER3 = 0,
-    CCP2_TIMER3_CCP1_TIMER1,
-    CCP2_CCP1_TIMER1
-}ccp2_capture_Compare_timer_t;
+    SPI_CLOCK_IDLE_LOW_LEVEL_CFG = 0,
+    SPI_CLOCK_IDLE_HIGH_LEVEL_CFG
+}SPI_Clock_Polarity_t;
 
+typedef enum{
+    SPI_CLOCK_PHASE_TRANSMIT_AT_LEADING_EDGE = 0,
+    SPI_CLOCK_PHASE_TRANSMIT_AT_TRAILING_EDGE
+}SPI_Clock_Phase_t;
+
+typedef enum{
+    SPI_MASTER_SAMPLED_AT_MIDDLE_OF_DATA_OUTPUT_TIME = 0,
+    SPI_MASTER_SAMPLED_AT_END_OF_DATA_OUTPUT_TIME,
+}SPI_Master_Sampled_Mode_t;
+
+typedef enum{
+    SPI_MASTER_MODE_CLOCK_FOSC_DEV_4 = 0,
+    SPI_MASTER_MODE_CLOCK_FOSC_DEV_16,
+    SPI_MASTER_MODE_CLOCK_FOSC_DEV_64,
+    SPI_MASTER_MODE_CLOCK_TMR2_OUTPUT_DEV_2,
+}SPI_Master_Clock_Rate_t;
+
+typedef enum{
+    SPI_SLAVE_MODE_SS_ENABLED = 4,
+    SPI_SLAVE_MODE_SS_DISABLED_USED_AS_I_O_PIN = 5,
+}SPI_Slave_Mode_t;
+
+typedef enum{
+    SPI_MASTER_MODE = 0,
+    SPI_SLAVE_MODE
+}SPI_Mode_t;
 
 typedef struct{
-    ccp2_mode_t ccp2_mode;
-    pin_config_t ccp2_pin;
-
-    void (* CCP2_InterruptHandler)(void);
-    interrupt_priority_cfg priority;
-
-
-    uint8 ccp2_mode_variant;
-    ccp2_capture_Compare_timer_t ccp2_capture_Compare_timer;
+    SPI_Clock_Polarity_t clock_idle;
+    SPI_Clock_Phase_t clock_phase;
+    SPI_Master_Sampled_Mode_t sample_data;
+    SPI_Mode_t spi_mode;
+    SPI_Master_Clock_Rate_t master_clk_rate;
+    SPI_Slave_Mode_t slave_mode;
+}SPI_t;
 
 
+Std_ReturnType SPI_Init(const SPI_t *_spi);
+Std_ReturnType SPI_DeInit(const SPI_t *_spi);
+Std_ReturnType SPI_ReadByteBlocking(uint8 *_data);
+Std_ReturnType SPI_ReadByteNonBlocking(uint8 *_data);
+Std_ReturnType SPI_WriteByteBlocking( uint8 _data);
+Std_ReturnType SPI_WriteStringBlocking( uint8 *_data);
+# 8 "MCAL_Layer/SPI/hal_SPI.c" 2
 
 
-
-
-
-}ccp2_t;
-
-
-
-Std_ReturnType CCP2_Init(const ccp2_t *_ccp);
-Std_ReturnType CCP2_DeInit(const ccp2_t *_ccp);
-
-
-Std_ReturnType CCP2_IsCaptureDataReady(uint8 *_capture_status);
-Std_ReturnType CCP2_Capture_Mode_Read_Value(uint16 *_capture_value);
-# 8 "MCAL_Layer/CCP/CCP2/hal_ccp2.c" 2
-
-
-
-
-static void (* CCP2_InterruptHandler)(void) = ((void*)0);
-
-
-    static void CCP2_Capture_Mode_Timer_Select(const ccp2_t *_ccp_obj);
-
-
-Std_ReturnType CCP2_Init(const ccp2_t *_ccp){
-    Std_ReturnType ret = (Std_ReturnType)0x01;
-    if(((void*)0) == _ccp){
+Std_ReturnType SPI_Init(const SPI_t *_spi){
+    Std_ReturnType ret = (Std_ReturnType)0x00;
+    if(((void*)0) == _spi){
         ret = (Std_ReturnType)0x00;
     }
-    else
-    {
+    else{
 
-        (CCP2CONbits.CCP2M = ((uint8)0x00));
+        (SSPCON1bits.SSPEN = 0);
 
-
-        (CCP2CONbits.CCP2M = _ccp->ccp2_mode_variant);
-        CCP2_Capture_Mode_Timer_Select(_ccp);
-# 41 "MCAL_Layer/CCP/CCP2/hal_ccp2.c"
-        ret &= gpio_pin_intialize(&(_ccp->ccp2_pin));
-
-
-
-        (PIE2bits.CCP2IE = 1);
-        (PIR2bits.CCP2IF = 0);
-        CCP2_InterruptHandler = _ccp->CCP2_InterruptHandler;
-
-        (RCONbits.IPEN = 1);
-        if(INTERRUPT_HIGH_PRIORITY == _ccp->priority){
-            (INTCONbits.GIEH = 1);
-            (IPR2bits.CCP2IP = 1);
-        }else if(INTERRUPT_LOW_PRIORITY == _ccp->priority){
-            (INTCONbits.GIEL = 1);
-            (IPR2bits.CCP2IP = 0);
+        TRISCbits.RC5 = 0;
+        if(SPI_MASTER_MODE == _spi->spi_mode){
+            TRISCbits.RC3 = 0;
+            TRISAbits.RA5 = 0;
+        }else if(SPI_SLAVE_MODE == _spi->spi_mode){
+            TRISCbits.RC3 = 1;
+            TRISAbits.RA5 = 1;
         }else{ }
 
+        (SSPCON1bits.CKP = _spi->clock_idle);
 
+        (SSPSTATbits.CKE = _spi->clock_phase);
 
+        if(SPI_MASTER_MODE == _spi->spi_mode){
+            (SSPSTATbits.SMP = _spi->sample_data);
+        }else if(SPI_SLAVE_MODE == _spi->spi_mode){
+            (SSPSTATbits.SMP = 0);
+        }else{ }
 
+        if(SPI_MASTER_MODE == _spi->spi_mode){
+            (SSPCON1bits.SSPM = _spi->master_clk_rate);
+        }else if(SPI_SLAVE_MODE == _spi->spi_mode){
+            (SSPCON1bits.SSPM = _spi->slave_mode);
+        }else{ }
 
-
-
+        (SSPCON1bits.SSPEN = 1);
+        ret = (Std_ReturnType)0x01;
     }
-
     return ret;
 }
 
-Std_ReturnType CCP2_DeInit(const ccp2_t *_ccp){
+Std_ReturnType SPI_DeInit(const SPI_t *_spi){
     Std_ReturnType ret = (Std_ReturnType)0x00;
-    if(((void*)0) == _ccp){
+    if(((void*)0) == _spi){
         ret = (Std_ReturnType)0x00;
     }
-    else
-    {
+    else{
 
-        (CCP2CONbits.CCP2M = ((uint8)0x00));
+        (SSPCON1bits.SSPEN = 1);
+        ret = (Std_ReturnType)0x01;
+    }
+    return ret;
+}
 
-        (PIE2bits.CCP2IE = 1);
-        (PIR2bits.CCP2IF = 0);
+Std_ReturnType SPI_ReadByteBlocking(uint8 *_data){
+    Std_ReturnType ret = (Std_ReturnType)0x00;
+    if(((void*)0) == _data){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
+        SSPBUF = 0x00;
+        while(!SSPSTATbits.BF);
+        *_data = SSPBUF;
+        ret = (Std_ReturnType)0x01;
+    }
+    return ret;
+}
+
+Std_ReturnType SPI_ReadByteNonBlocking(uint8 *_data){
+    Std_ReturnType ret = (Std_ReturnType)0x00;
+    if(((void*)0) == _data){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
 
         ret = (Std_ReturnType)0x01;
     }
-
     return ret;
 }
 
-
-Std_ReturnType CCP2_IsCaptureDataReady(uint8 *_capture_status){
+Std_ReturnType SPI_WriteByteBlocking( uint8 _data){
     Std_ReturnType ret = (Std_ReturnType)0x00;
-    if(((void*)0) == _capture_status){
+    SSPBUF = _data;
+    while(!SSPSTATbits.BF);
+    ret = (Std_ReturnType)0x01;
+}
+
+Std_ReturnType SPI_WriteStringBlocking( uint8 *_data){
+    Std_ReturnType ret = (Std_ReturnType)0x00;
+    if(((void*)0) == _data){
         ret = (Std_ReturnType)0x00;
     }
-    else
-    {
-        if(0x01 == PIR2bits.CCP2IF){
-            *_capture_status = 0x01;
-            (PIR2bits.CCP2IF = 0);
-        }else{
-            *_capture_status = 0x00;
+    else{
+        while(*_data){
+            SPI_WriteByteBlocking(*_data);
+            _data++;
         }
         ret = (Std_ReturnType)0x01;
     }
-
     return ret;
-}
-
-Std_ReturnType CCP2_Capture_Mode_Read_Value(uint16 *_capture_value){
-    Std_ReturnType ret = (Std_ReturnType)0x00;
-    CCP2_REG_T compare_temp_value = {.ccpr2_16Bit = 0};
-    if(((void*)0) == _capture_value){
-        ret = (Std_ReturnType)0x00;
-    }
-    else
-    {
-        compare_temp_value.ccpr2_low = CCPR2L;
-        compare_temp_value.ccpr2_high = CCPR2H;
-        *_capture_value = compare_temp_value.ccpr2_16Bit;
-        ret = (Std_ReturnType)0x01;
-    }
-
-    return ret;
-}
-# 185 "MCAL_Layer/CCP/CCP2/hal_ccp2.c"
-    static void CCP2_Capture_Mode_Timer_Select(const ccp2_t *_ccp_obj){
-        if(CCP2_CCP1_TIMER3 == _ccp_obj->ccp2_capture_Compare_timer){
-            T3CONbits.T3CCP1 = 0;
-            T3CONbits.T3CCP2 = 1;
-        }else if(CCP2_TIMER3_CCP1_TIMER1 == _ccp_obj->ccp2_capture_Compare_timer){
-            T3CONbits.T3CCP1 = 1;
-            T3CONbits.T3CCP2 = 0;
-        }else if(CCP2_CCP1_TIMER1 == _ccp_obj->ccp2_capture_Compare_timer){
-            T3CONbits.T3CCP1 = 0;
-            T3CONbits.T3CCP2 = 0;
-        }else{ }
-    }
-
-
-
-void CCP2_ISR(void){
-    (PIR2bits.CCP2IF = 0);
-
-    if(CCP2_InterruptHandler){
-        CCP2_InterruptHandler();
-    }
 }

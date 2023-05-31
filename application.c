@@ -92,6 +92,13 @@ usart_t usart_obj = {
     .usart_rx_cfg.usart_rx_priority = INTERRUPT_LOW_PRIORITY,
 };
 
+SPI_t SPI_obj={
+  .spi_mode = SPI_MASTER_MODE,
+  .clock_idle = SPI_CLOCK_IDLE_LOW_LEVEL_CFG,
+  .clock_phase = SPI_CLOCK_PHASE_TRANSMIT_AT_LEADING_EDGE,
+  .master_clk_rate = SPI_MASTER_MODE_CLOCK_FOSC_DEV_4,
+  .sample_data = SPI_MASTER_SAMPLED_AT_MIDDLE_OF_DATA_OUTPUT_TIME,
+};
 uint8 rec_uart_data;
 void app_intialize(void);
 
@@ -101,7 +108,9 @@ int main() {
 
     while(1){
         
-        ret = EUSART_ASYNC_WriteStringBlocking("AHMED\r");
+        //ret = EUSART_ASYNC_WriteStringBlocking("AHMED\r");
+        //ret = SPI_WriteByteBlocking('A');
+        ret = SPI_WriteStringBlocking("AHMED\r");
 //        ret = EUSART_ASYNC_ReadByteNonBlocking(&rec_uart_data);
 //        if(E_OK){
 //            if('a' == rec_uart_data){
@@ -128,7 +137,8 @@ void app_intialize(void){
     //ret = Timer2_Init(&timer2);
     //ret = Timer3_Init(&timer3);
     //ret = CCP1_Init(&ccp1_obj);
-    ret = EUSART_ASYNC_Init(&usart_obj);
+   // ret = EUSART_ASYNC_Init(&usart_obj);
+    ret = SPI_Init(&SPI_obj);
 }
 
 void timer0_interruptHundler(void){

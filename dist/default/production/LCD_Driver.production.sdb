@@ -108,6 +108,21 @@ ADC_CHANNEL_AN10 10
 ADC_CHANNEL_AN11 11
 ADC_CHANNEL_AN12 12
 ]
+"18 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/CCP/CCP1/hal_ccp1.c
+[e E3032 . `uc
+CCP1_CAPTURE_MODE_SELECTED 0
+CCP1_COMPARE_MODE_SELECTED 1
+CCP1_PWM_MODE_SELECTED 2
+]
+[e E3028 . `uc
+INTERRUPT_LOW_PRIORITY 0
+INTERRUPT_HIGH_PRIORITY 1
+]
+[e E3044 . `uc
+CCP1_CCP2_TIMER3 0
+CCP1_TIMER1_CCP2_TIMER3 1
+CCP1_CCP2_TIMER1 2
+]
 "39 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/GPIO/hal_gpio.c
 [e E2972 . `uc
 GPIO_OUTPUT 0
@@ -176,6 +191,29 @@ TIMER0_PRESCALER_DIV_BY_256 7
 INTERRUPT_LOW_PRIORITY 0
 INTERRUPT_HIGH_PRIORITY 1
 ]
+"20 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/Timer/Timer2/hal_timer2.c
+[e E3028 . `uc
+INTERRUPT_LOW_PRIORITY 0
+INTERRUPT_HIGH_PRIORITY 1
+]
+"22 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/Timer/Timer3/hal_timer3.c
+[e E3028 . `uc
+INTERRUPT_LOW_PRIORITY 0
+INTERRUPT_HIGH_PRIORITY 1
+]
+"27 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/USART/hal_usart.c
+[e E3032 . `uc
+BAUDRATE_ASYN_8BIT_LOW_SPEED 0
+BAUDRATE_ASYN_8BIT_HIGH_SPEED 1
+BAUDRATE_ASYN_16BIT_LOW_SPEED 2
+BAUDRATE_ASYN_16BIT_HIGH_SPEED 3
+BAUDRATE_SYN_8BIT 4
+BAUDRATE_SYN_16BIT 5
+]
+[e E3028 . `uc
+INTERRUPT_LOW_PRIORITY 0
+INTERRUPT_HIGH_PRIORITY 1
+]
 "4 E:\codes\embeddedProjects\LCD_Driver\application.c
 [e E2986 . `uc
 PORTA_INDEX 0
@@ -229,7 +267,7 @@ TIMER0_PRESCALER_DIV_BY_128 6
 TIMER0_PRESCALER_DIV_BY_256 7
 ]
 "75
-[e E3314 . `uc
+[e E3280 . `uc
 BAUDRATE_ASYN_8BIT_LOW_SPEED 0
 BAUDRATE_ASYN_8BIT_HIGH_SPEED 1
 BAUDRATE_ASYN_16BIT_LOW_SPEED 2
@@ -237,76 +275,77 @@ BAUDRATE_ASYN_16BIT_HIGH_SPEED 3
 BAUDRATE_SYN_8BIT 4
 BAUDRATE_SYN_16BIT 5
 ]
-"20 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/Timer/Timer2/hal_timer2.c
-[e E3028 . `uc
-INTERRUPT_LOW_PRIORITY 0
-INTERRUPT_HIGH_PRIORITY 1
+"95
+[e E3343 . `uc
+SPI_CLOCK_IDLE_LOW_LEVEL_CFG 0
+SPI_CLOCK_IDLE_HIGH_LEVEL_CFG 1
 ]
-"22 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/Timer/Timer3/hal_timer3.c
-[e E3028 . `uc
-INTERRUPT_LOW_PRIORITY 0
-INTERRUPT_HIGH_PRIORITY 1
+[e E3347 . `uc
+SPI_CLOCK_PHASE_TRANSMIT_AT_LEADING_EDGE 0
+SPI_CLOCK_PHASE_TRANSMIT_AT_TRAILING_EDGE 1
 ]
-"18 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/CCP/CCP1/hal_ccp1.c
-[e E3032 . `uc
-CCP1_CAPTURE_MODE_SELECTED 0
-CCP1_COMPARE_MODE_SELECTED 1
-CCP1_PWM_MODE_SELECTED 2
+[e E3351 . `uc
+SPI_MASTER_SAMPLED_AT_MIDDLE_OF_DATA_OUTPUT_TIME 0
+SPI_MASTER_SAMPLED_AT_END_OF_DATA_OUTPUT_TIME 1
 ]
-[e E3028 . `uc
-INTERRUPT_LOW_PRIORITY 0
-INTERRUPT_HIGH_PRIORITY 1
+[e E3365 . `uc
+SPI_MASTER_MODE 0
+SPI_SLAVE_MODE 1
 ]
-[e E3044 . `uc
-CCP1_CCP2_TIMER3 0
-CCP1_TIMER1_CCP2_TIMER3 1
-CCP1_CCP2_TIMER1 2
+[e E3355 . `uc
+SPI_MASTER_MODE_CLOCK_FOSC_DEV_4 0
+SPI_MASTER_MODE_CLOCK_FOSC_DEV_16 1
+SPI_MASTER_MODE_CLOCK_FOSC_DEV_64 2
+SPI_MASTER_MODE_CLOCK_TMR2_OUTPUT_DEV_2 3
 ]
-"27 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/USART/hal_usart.c
-[e E3032 . `uc
-BAUDRATE_ASYN_8BIT_LOW_SPEED 0
-BAUDRATE_ASYN_8BIT_HIGH_SPEED 1
-BAUDRATE_ASYN_16BIT_LOW_SPEED 2
-BAUDRATE_ASYN_16BIT_HIGH_SPEED 3
-BAUDRATE_SYN_8BIT 4
-BAUDRATE_SYN_16BIT 5
+[e E3361 . `uc
+SPI_SLAVE_MODE_SS_ENABLED 4
+SPI_SLAVE_MODE_SS_DISABLED_USED_AS_I_O_PIN 5
 ]
-[e E3028 . `uc
-INTERRUPT_LOW_PRIORITY 0
-INTERRUPT_HIGH_PRIORITY 1
+"10 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/SPI/hal_SPI.c
+[e E3038 . `uc
+SPI_CLOCK_IDLE_LOW_LEVEL_CFG 0
+SPI_CLOCK_IDLE_HIGH_LEVEL_CFG 1
 ]
-"18 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/CCP/CCP2/hal_ccp2.c
-[e E3032 . `uc
-CCP2_CAPTURE_MODE_SELECTED 0
-CCP2_COMPARE_MODE_SELECTED 1
-CCP2_PWM_MODE_SELECTED 2
+[e E3042 . `uc
+SPI_CLOCK_PHASE_TRANSMIT_AT_LEADING_EDGE 0
+SPI_CLOCK_PHASE_TRANSMIT_AT_TRAILING_EDGE 1
 ]
-[e E3028 . `uc
-INTERRUPT_LOW_PRIORITY 0
-INTERRUPT_HIGH_PRIORITY 1
+[e E3046 . `uc
+SPI_MASTER_SAMPLED_AT_MIDDLE_OF_DATA_OUTPUT_TIME 0
+SPI_MASTER_SAMPLED_AT_END_OF_DATA_OUTPUT_TIME 1
 ]
-[e E3044 . `uc
-CCP2_CCP1_TIMER3 0
-CCP2_TIMER3_CCP1_TIMER1 1
-CCP2_CCP1_TIMER1 2
+[e E3060 . `uc
+SPI_MASTER_MODE 0
+SPI_SLAVE_MODE 1
 ]
-"98 E:\codes\embeddedProjects\LCD_Driver\application.c
+[e E3050 . `uc
+SPI_MASTER_MODE_CLOCK_FOSC_DEV_4 0
+SPI_MASTER_MODE_CLOCK_FOSC_DEV_16 1
+SPI_MASTER_MODE_CLOCK_FOSC_DEV_64 2
+SPI_MASTER_MODE_CLOCK_TMR2_OUTPUT_DEV_2 3
+]
+[e E3056 . `uc
+SPI_SLAVE_MODE_SS_ENABLED 4
+SPI_SLAVE_MODE_SS_DISABLED_USED_AS_I_O_PIN 5
+]
+"105 E:\codes\embeddedProjects\LCD_Driver\application.c
 [v _main main `(i  1 e 2 0 ]
-"120
+"129
 [v _app_intialize app_intialize `(v  1 e 1 0 ]
-"134
+"144
 [v _timer0_interruptHundler timer0_interruptHundler `(v  1 e 1 0 ]
 [v i2_timer0_interruptHundler timer0_interruptHundler `(v  1 e 1 0 ]
-"145
+"155
 [v _timer3_interruptHundler timer3_interruptHundler `(v  1 e 1 0 ]
 [v i2_timer3_interruptHundler timer3_interruptHundler `(v  1 e 1 0 ]
-"148
+"158
 [v _CCP1_interruptHundler CCP1_interruptHundler `(v  1 e 1 0 ]
 [v i2_CCP1_interruptHundler CCP1_interruptHundler `(v  1 e 1 0 ]
-"163
+"173
 [v _EUSART_Tx_InterruptHandler EUSART_Tx_InterruptHandler `(v  1 e 1 0 ]
 [v i2_EUSART_Tx_InterruptHandler EUSART_Tx_InterruptHandler `(v  1 e 1 0 ]
-"166
+"176
 [v _EUSART_Rx_InterruptHandler EUSART_Rx_InterruptHandler `(v  1 e 1 0 ]
 [v i2_EUSART_Rx_InterruptHandler EUSART_Rx_InterruptHandler `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\fleq.c
@@ -390,11 +429,6 @@ CCP2_CCP1_TIMER1 2
 "200
 [v _CCP1_ISR CCP1_ISR `(v  1 e 1 0 ]
 [v i2_CCP1_ISR CCP1_ISR `(v  1 e 1 0 ]
-"185 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/CCP/CCP2/hal_ccp2.c
-[v _CCP2_Capture_Mode_Timer_Select CCP2_Capture_Mode_Timer_Select `(v  1 s 1 CCP2_Capture_Mode_Timer_Select ]
-"200
-[v _CCP2_ISR CCP2_ISR `(v  1 e 1 0 ]
-[v i2_CCP2_ISR CCP2_ISR `(v  1 e 1 0 ]
 "22 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/GPIO/hal_gpio.c
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
 "80
@@ -453,6 +487,12 @@ CCP2_CCP1_TIMER1 2
 "31
 [v _InterruptCheck InterruptCheck `(v  1 s 1 InterruptCheck ]
 [v i2_InterruptCheck InterruptCheck `(v  1 s 1 i2_InterruptCheck ]
+"10 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/SPI/hal_SPI.c
+[v _SPI_Init SPI_Init `(uc  1 e 1 0 ]
+"89
+[v _SPI_WriteByteBlocking SPI_WriteByteBlocking `(uc  1 e 1 0 ]
+"96
+[v _SPI_WriteStringBlocking SPI_WriteStringBlocking `(uc  1 e 1 0 ]
 "134 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/Timer/Timer0/hal_timer0.c
 [v _TMRO_ISR TMRO_ISR `(v  1 e 1 0 ]
 [v i2_TMRO_ISR TMRO_ISR `(v  1 e 1 0 ]
@@ -484,15 +524,11 @@ CCP2_CCP1_TIMER1 2
 [v i2_TMR3_ISR TMR3_ISR `(v  1 e 1 0 ]
 "147
 [v _Timer3_Mode_Select Timer3_Mode_Select `T(v  1 s 1 Timer3_Mode_Select ]
-"27 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/USART/hal_usart.c
-[v _EUSART_ASYNC_Init EUSART_ASYNC_Init `(uc  1 e 1 0 ]
-"78
+"78 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/USART/hal_usart.c
 [v _EUSART_ASYNC_ReadByteNonBlocking EUSART_ASYNC_ReadByteNonBlocking `(uc  1 e 1 0 ]
 [v i2_EUSART_ASYNC_ReadByteNonBlocking EUSART_ASYNC_ReadByteNonBlocking `(uc  1 e 1 0 ]
 "102
 [v _EUSART_ASYNC_WriteByteBlocking EUSART_ASYNC_WriteByteBlocking `(uc  1 e 1 0 ]
-"113
-[v _EUSART_ASYNC_WriteStringBlocking EUSART_ASYNC_WriteStringBlocking `(uc  1 e 1 0 ]
 "127
 [v _EUSART_Baud_Rate_Calculation EUSART_Baud_Rate_Calculation `(v  1 s 1 EUSART_Baud_Rate_Calculation ]
 "171
@@ -527,7 +563,7 @@ CCP2_CCP1_TIMER1 2
 [v _usart_rx_valid usart_rx_valid `VEul  1 e 4 0 ]
 "14
 [v _usart_tx_valid usart_tx_valid `VEul  1 e 4 0 ]
-[s S2289 . 6 `*.37(v 1 TMR1_InterruptHandler 2 0 `E3028 1 priority 1 2 `us 1 timer1_preload_value 2 3 `uc 1 timer1_prescaler_value 1 5 :2:0 
+[s S2597 . 6 `*.37(v 1 TMR1_InterruptHandler 2 0 `E3028 1 priority 1 2 `us 1 timer1_preload_value 2 3 `uc 1 timer1_prescaler_value 1 5 :2:0 
 `uc 1 timer1_mode 1 5 :1:2 
 `uc 1 timer1_counter_mode 1 5 :1:3 
 `uc 1 timer1_osc_cfg 1 5 :1:4 
@@ -535,39 +571,25 @@ CCP2_CCP1_TIMER1 2
 `uc 1 reserved 1 5 :2:6 
 ]
 "48
-[v _timer1 timer1 `S2289  1 e 6 0 ]
-[s S2626 . 6 `*.37(v 1 TMR3_InterruptHandler 2 0 `E3135 1 priority 1 2 `us 1 timer3_preload_value 2 3 `uc 1 timer3_prescaler_value 1 5 :2:0 
+[v _timer1 timer1 `S2597  1 e 6 0 ]
+[s S3027 . 6 `*.37(v 1 TMR3_InterruptHandler 2 0 `E3028 1 priority 1 2 `us 1 timer3_preload_value 2 3 `uc 1 timer3_prescaler_value 1 5 :2:0 
 `uc 1 timer3_mode 1 5 :1:2 
 `uc 1 timer3_counter_mode 1 5 :1:3 
 `uc 1 timer3_reg_wr_mode 1 5 :1:4 
 `uc 1 reserved 1 5 :3:5 
 ]
 "64
-[v _timer3 timer3 `S2626  1 e 6 0 ]
-[s S2646 . 2 `E3135 1 usart_tx_priority 1 0 `uc 1 usart_tx_enable 1 1 :1:0 
-`uc 1 usart_tx_interrupt_enable 1 1 :1:1 
-`uc 1 usart_tx_9bit_enable 1 1 :1:2 
-`uc 1 usart_tx_reserved 1 1 :4:3 
-]
-"75
-[s S2652 . 2 `uc 1 usart_rx_priority 1 0 `uc 1 usart_rx_enable 1 1 :1:0 
-`uc 1 usart_rx_interrupt_enable 1 1 :1:1 
-`uc 1 usart_rx_9bit_enable 1 1 :1:2 
-`uc 1 usart_rx_reserved 1 1 :4:3 
-]
-[s S2658 . 2 `uc 1 usart_tx_reserved 1 0 :6:0 
-`uc 1 usart_ferr 1 0 :1:6 
-`uc 1 usart_oerr 1 1 ]
-[u S2662 . 2 `S2658 1 . 2 0 `uc 1 status 1 0 ]
-[s S2669 . 19 `ul 1 baudrate 4 0 `E3314 1 baudrate_gen_cfg 1 4 `S2646 1 usart_tx_cfg 2 5 `S2652 1 usart_rx_cfg 2 7 `S2662 1 error_status 2 9 `*.37(v 1 EUSART_TxDefailtInterruptHandler 2 11 `*.37(v 1 EUSART_RxDefailtInterruptHandler 2 13 `*.37(v 1 EUSART_FramingErrorHandler 2 15 `*.37(v 1 EUSART_OverrunErrorHandler 2 17 ]
-[v _usart_obj usart_obj `S2669  1 e 19 0 ]
+[v _timer3 timer3 `S3027  1 e 6 0 ]
+[s S3934 . 6 `E3343 1 clock_idle 1 0 `E3347 1 clock_phase 1 1 `E3351 1 sample_data 1 2 `E3365 1 spi_mode 1 3 `E3355 1 master_clk_rate 1 4 `E3361 1 slave_mode 1 5 ]
 "95
+[v _SPI_obj SPI_obj `S3934  1 e 6 0 ]
+"102
 [v _rec_uart_data rec_uart_data `uc  1 e 1 0 ]
 "53 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "190
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
-[s S1360 . 1 `uc 1 RB0 1 0 :1:0 
+[s S1674 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -577,7 +599,7 @@ CCP2_CCP1_TIMER1 2
 `uc 1 RB7 1 0 :1:7 
 ]
 "231
-[s S1369 . 1 `uc 1 INT0 1 0 :1:0 
+[s S1683 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 CCP2 1 0 :1:3 
@@ -586,7 +608,7 @@ CCP2_CCP1_TIMER1 2
 `uc 1 KBI2 1 0 :1:6 
 `uc 1 KBI3 1 0 :1:7 
 ]
-[s S1378 . 1 `uc 1 AN12 1 0 :1:0 
+[s S1692 . 1 `uc 1 AN12 1 0 :1:0 
 `uc 1 AN10 1 0 :1:1 
 `uc 1 AN8 1 0 :1:2 
 `uc 1 AN9 1 0 :1:3 
@@ -595,11 +617,11 @@ CCP2_CCP1_TIMER1 2
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S1387 . 1 `uc 1 . 1 0 :3:0 
+[s S1701 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S1390 . 1 `S1360 1 . 1 0 `S1369 1 . 1 0 `S1378 1 . 1 0 `S1387 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES1390  1 e 1 @3969 ]
+[u S1704 . 1 `S1674 1 . 1 0 `S1683 1 . 1 0 `S1692 1 . 1 0 `S1701 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES1704  1 e 1 @3969 ]
 "361
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
 "536
@@ -618,11 +640,32 @@ CCP2_CCP1_TIMER1 2
 [v _LATE LATE `VEuc  1 e 1 @3981 ]
 "1381
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+[s S4161 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"1413
+[s S4170 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+[u S4179 . 1 `S4161 1 . 1 0 `S4170 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES4179  1 e 1 @3986 ]
 "1603
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "1825
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
-[s S3658 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S3342 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -632,7 +675,7 @@ CCP2_CCP1_TIMER1 2
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1857
-[s S3667 . 1 `uc 1 RC0 1 0 :1:0 
+[s S3351 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -641,8 +684,8 @@ CCP2_CCP1_TIMER1 2
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S3676 . 1 `S3658 1 . 1 0 `S3667 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES3676  1 e 1 @3988 ]
+[u S3360 . 1 `S3342 1 . 1 0 `S3351 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES3360  1 e 1 @3988 ]
 "2047
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
 "2269
@@ -695,7 +738,7 @@ CCP2_CCP1_TIMER1 2
 ]
 [u S891 . 1 `S878 1 . 1 0 `S887 1 . 1 0 ]
 [v _IPR1bits IPR1bits `VES891  1 e 1 @3999 ]
-[s S1496 . 1 `uc 1 CCP2IE 1 0 :1:0 
+[s S1810 . 1 `uc 1 CCP2IE 1 0 :1:0 
 `uc 1 TMR3IE 1 0 :1:1 
 `uc 1 HLVDIE 1 0 :1:2 
 `uc 1 BCLIE 1 0 :1:3 
@@ -705,12 +748,12 @@ CCP2_CCP1_TIMER1 2
 `uc 1 OSCFIE 1 0 :1:7 
 ]
 "2750
-[s S1505 . 1 `uc 1 . 1 0 :2:0 
+[s S1819 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIE 1 0 :1:2 
 ]
-[u S1508 . 1 `S1496 1 . 1 0 `S1505 1 . 1 0 ]
-[v _PIE2bits PIE2bits `VES1508  1 e 1 @4000 ]
-[s S1524 . 1 `uc 1 CCP2IF 1 0 :1:0 
+[u S1822 . 1 `S1810 1 . 1 0 `S1819 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES1822  1 e 1 @4000 ]
+[s S1838 . 1 `uc 1 CCP2IF 1 0 :1:0 
 `uc 1 TMR3IF 1 0 :1:1 
 `uc 1 HLVDIF 1 0 :1:2 
 `uc 1 BCLIF 1 0 :1:3 
@@ -720,27 +763,12 @@ CCP2_CCP1_TIMER1 2
 `uc 1 OSCFIF 1 0 :1:7 
 ]
 "2816
-[s S1533 . 1 `uc 1 . 1 0 :2:0 
+[s S1847 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIF 1 0 :1:2 
 ]
-[u S1536 . 1 `S1524 1 . 1 0 `S1533 1 . 1 0 ]
-[v _PIR2bits PIR2bits `VES1536  1 e 1 @4001 ]
-[s S4230 . 1 `uc 1 CCP2IP 1 0 :1:0 
-`uc 1 TMR3IP 1 0 :1:1 
-`uc 1 HLVDIP 1 0 :1:2 
-`uc 1 BCLIP 1 0 :1:3 
-`uc 1 EEIP 1 0 :1:4 
-`uc 1 . 1 0 :1:5 
-`uc 1 CMIP 1 0 :1:6 
-`uc 1 OSCFIP 1 0 :1:7 
-]
-"2882
-[s S4239 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 LVDIP 1 0 :1:2 
-]
-[u S4242 . 1 `S4230 1 . 1 0 `S4239 1 . 1 0 ]
-[v _IPR2bits IPR2bits `VES4242  1 e 1 @4002 ]
-[s S1120 . 1 `uc 1 RD 1 0 :1:0 
+[u S1850 . 1 `S1838 1 . 1 0 `S1847 1 . 1 0 ]
+[v _PIR2bits PIR2bits `VES1850  1 e 1 @4001 ]
+[s S1434 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -750,11 +778,11 @@ CCP2_CCP1_TIMER1 2
 `uc 1 EEPGD 1 0 :1:7 
 ]
 "2948
-[s S1129 . 1 `uc 1 . 1 0 :6:0 
+[s S1443 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 EEFS 1 0 :1:6 
 ]
-[u S1132 . 1 `S1120 1 . 1 0 `S1129 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES1132  1 e 1 @4006 ]
+[u S1446 . 1 `S1434 1 . 1 0 `S1443 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES1446  1 e 1 @4006 ]
 "2993
 [v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
 "3000
@@ -763,7 +791,7 @@ CCP2_CCP1_TIMER1 2
 [v _EEADR EEADR `VEuc  1 e 1 @4009 ]
 "3014
 [v _EEADRH EEADRH `VEuc  1 e 1 @4010 ]
-[s S3604 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S3288 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -773,23 +801,23 @@ CCP2_CCP1_TIMER1 2
 `uc 1 SPEN 1 0 :1:7 
 ]
 "3062
-[s S3613 . 1 `uc 1 . 1 0 :3:0 
+[s S3297 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S3616 . 1 `uc 1 . 1 0 :5:0 
+[s S3300 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[s S3619 . 1 `uc 1 . 1 0 :6:0 
+[s S3303 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S3622 . 1 `uc 1 . 1 0 :6:0 
+[s S3306 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S3625 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S3309 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[u S3627 . 1 `S3604 1 . 1 0 `S3613 1 . 1 0 `S3616 1 . 1 0 `S3619 1 . 1 0 `S3622 1 . 1 0 `S3625 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES3627  1 e 1 @4011 ]
-[s S3731 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S3311 . 1 `S3288 1 . 1 0 `S3297 1 . 1 0 `S3300 1 . 1 0 `S3303 1 . 1 0 `S3306 1 . 1 0 `S3309 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES3311  1 e 1 @4011 ]
+[s S3415 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -799,7 +827,7 @@ CCP2_CCP1_TIMER1 2
 `uc 1 CSRC 1 0 :1:7 
 ]
 "3270
-[s S3740 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S3424 . 1 `uc 1 TX9D1 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 `uc 1 BRGH1 1 0 :1:2 
 `uc 1 SENDB1 1 0 :1:3 
@@ -808,13 +836,13 @@ CCP2_CCP1_TIMER1 2
 `uc 1 TX91 1 0 :1:6 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S3749 . 1 `uc 1 . 1 0 :6:0 
+[s S3433 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S3752 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S3436 . 1 `uc 1 TXD8 1 0 :1:0 
 ]
-[u S3754 . 1 `S3731 1 . 1 0 `S3740 1 . 1 0 `S3749 1 . 1 0 `S3752 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES3754  1 e 1 @4012 ]
+[u S3438 . 1 `S3415 1 . 1 0 `S3424 1 . 1 0 `S3433 1 . 1 0 `S3436 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES3438  1 e 1 @4012 ]
 "3487
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
 "3499
@@ -823,11 +851,11 @@ CCP2_CCP1_TIMER1 2
 [v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
 "3523
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @4016 ]
-[s S3038 . 1 `uc 1 . 1 0 :2:0 
+[s S1285 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T3SYNC 1 0 :1:2 
 ]
 "3567
-[s S3041 . 1 `uc 1 TMR3ON 1 0 :1:0 
+[s S1288 . 1 `uc 1 TMR3ON 1 0 :1:0 
 `uc 1 TMR3CS 1 0 :1:1 
 `uc 1 nT3SYNC 1 0 :1:2 
 `uc 1 T3CCP1 1 0 :1:3 
@@ -835,27 +863,27 @@ CCP2_CCP1_TIMER1 2
 `uc 1 T3CCP2 1 0 :1:6 
 `uc 1 RD16 1 0 :1:7 
 ]
-[s S3049 . 1 `uc 1 . 1 0 :2:0 
+[s S1296 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T3SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T3CKPS0 1 0 :1:4 
 `uc 1 T3CKPS1 1 0 :1:5 
 ]
-[s S3055 . 1 `uc 1 . 1 0 :3:0 
+[s S1302 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN3 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 RD163 1 0 :1:7 
 ]
-[s S3060 . 1 `uc 1 . 1 0 :7:0 
+[s S1307 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 T3RD16 1 0 :1:7 
 ]
-[u S3063 . 1 `S3038 1 . 1 0 `S3041 1 . 1 0 `S3049 1 . 1 0 `S3055 1 . 1 0 `S3060 1 . 1 0 ]
-[v _T3CONbits T3CONbits `VES3063  1 e 1 @4017 ]
+[u S1310 . 1 `S1285 1 . 1 0 `S1288 1 . 1 0 `S1296 1 . 1 0 `S1302 1 . 1 0 `S1307 1 . 1 0 ]
+[v _T3CONbits T3CONbits `VES1310  1 e 1 @4017 ]
 "3649
 [v _TMR3L TMR3L `VEuc  1 e 1 @4018 ]
 "3656
 [v _TMR3H TMR3H `VEuc  1 e 1 @4019 ]
-[s S3801 . 1 `uc 1 ABDEN 1 0 :1:0 
+[s S3485 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -865,43 +893,22 @@ CCP2_CCP1_TIMER1 2
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4016
-[s S3810 . 1 `uc 1 . 1 0 :4:0 
+[s S3494 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SCKP 1 0 :1:4 
 `uc 1 RXCKP 1 0 :1:5 
 `uc 1 RCMT 1 0 :1:6 
 ]
-[s S3815 . 1 `uc 1 . 1 0 :1:0 
+[s S3499 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 W4E 1 0 :1:1 
 ]
-[u S3818 . 1 `S3801 1 . 1 0 `S3810 1 . 1 0 `S3815 1 . 1 0 ]
-[v _BAUDCONbits BAUDCONbits `VES3818  1 e 1 @4024 ]
-[s S4094 . 1 `uc 1 CCP2M 1 0 :4:0 
-`uc 1 DC2B 1 0 :2:4 
-]
-"4180
-[s S4097 . 1 `uc 1 CCP2M0 1 0 :1:0 
-`uc 1 CCP2M1 1 0 :1:1 
-`uc 1 CCP2M2 1 0 :1:2 
-`uc 1 CCP2M3 1 0 :1:3 
-`uc 1 CCP2Y 1 0 :1:4 
-`uc 1 CCP2X 1 0 :1:5 
-]
-[s S4104 . 1 `uc 1 . 1 0 :4:0 
-`uc 1 DC2B0 1 0 :1:4 
-`uc 1 DC2B1 1 0 :1:5 
-]
-[u S4108 . 1 `S4094 1 . 1 0 `S4097 1 . 1 0 `S4104 1 . 1 0 ]
-[v _CCP2CONbits CCP2CONbits `VES4108  1 e 1 @4026 ]
-"4242
-[v _CCPR2L CCPR2L `VEuc  1 e 1 @4027 ]
-"4249
-[v _CCPR2H CCPR2H `VEuc  1 e 1 @4028 ]
-[s S3297 . 1 `uc 1 CCP1M 1 0 :4:0 
+[u S3502 . 1 `S3485 1 . 1 0 `S3494 1 . 1 0 `S3499 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES3502  1 e 1 @4024 ]
+[s S1116 . 1 `uc 1 CCP1M 1 0 :4:0 
 `uc 1 DC1B 1 0 :2:4 
 `uc 1 P1M 1 0 :2:6 
 ]
 "4283
-[s S3301 . 1 `uc 1 CCP1M0 1 0 :1:0 
+[s S1120 . 1 `uc 1 CCP1M0 1 0 :1:0 
 `uc 1 CCP1M1 1 0 :1:1 
 `uc 1 CCP1M2 1 0 :1:2 
 `uc 1 CCP1M3 1 0 :1:3 
@@ -910,12 +917,12 @@ CCP2_CCP1_TIMER1 2
 `uc 1 P1M0 1 0 :1:6 
 `uc 1 P1M1 1 0 :1:7 
 ]
-[s S3310 . 1 `uc 1 . 1 0 :4:0 
+[s S1129 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 DC1B0 1 0 :1:4 
 `uc 1 DC1B1 1 0 :1:5 
 ]
-[u S3314 . 1 `S3297 1 . 1 0 `S3301 1 . 1 0 `S3310 1 . 1 0 ]
-[v _CCP1CONbits CCP1CONbits `VES3314  1 e 1 @4029 ]
+[u S1133 . 1 `S1116 1 . 1 0 `S1120 1 . 1 0 `S1129 1 . 1 0 ]
+[v _CCP1CONbits CCP1CONbits `VES1133  1 e 1 @4029 ]
 "4360
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
 "4367
@@ -989,12 +996,88 @@ CCP2_CCP1_TIMER1 2
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "4663
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
-[s S2850 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S4113 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"4752
+[s S4119 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+]
+[u S4124 . 1 `S4113 1 . 1 0 `S4119 1 . 1 0 ]
+[v _SSPCON1bits SSPCON1bits `VES4124  1 e 1 @4038 ]
+[s S4201 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_NOT_W 1 0 :1:2 
+]
+"4878
+[s S4204 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 D_NOT_A 1 0 :1:5 
+]
+[s S4207 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+[s S4216 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D 1 0 :1:5 
+]
+[s S4221 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 A 1 0 :1:5 
+]
+[s S4226 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA 1 0 :1:5 
+]
+[s S4231 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A 1 0 :1:5 
+]
+[s S4236 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_WRITE 1 0 :1:2 
+]
+[s S4239 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_ADDRESS 1 0 :1:5 
+]
+[s S4242 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS 1 0 :1:5 
+]
+[s S4247 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RW 1 0 :1:2 
+`uc 1 START 1 0 :1:3 
+`uc 1 STOP 1 0 :1:4 
+`uc 1 DA 1 0 :1:5 
+]
+[s S4253 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 NOT_A 1 0 :1:5 
+]
+[u S4258 . 1 `S4201 1 . 1 0 `S4204 1 . 1 0 `S4207 1 . 1 0 `S4216 1 . 1 0 `S4221 1 . 1 0 `S4226 1 . 1 0 `S4231 1 . 1 0 `S4236 1 . 1 0 `S4239 1 . 1 0 `S4242 1 . 1 0 `S4247 1 . 1 0 `S4253 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES4258  1 e 1 @4039 ]
+"5030
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
+[s S2848 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
 "5058
-[s S2854 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S2852 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -1002,15 +1085,15 @@ CCP2_CCP1_TIMER1 2
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S2862 . 1 `S2850 1 . 1 0 `S2854 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES2862  1 e 1 @4042 ]
+[u S2860 . 1 `S2848 1 . 1 0 `S2852 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES2860  1 e 1 @4042 ]
 "5218
 [v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
-[s S2299 . 1 `uc 1 . 1 0 :2:0 
+[s S2607 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T1SYNC 1 0 :1:2 
 ]
 "5258
-[s S2302 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S2610 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 TMR1CS 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -1018,19 +1101,19 @@ CCP2_CCP1_TIMER1 2
 `uc 1 T1RUN 1 0 :1:6 
 `uc 1 RD16 1 0 :1:7 
 ]
-[s S2310 . 1 `uc 1 . 1 0 :2:0 
+[s S2618 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 ]
-[s S2316 . 1 `uc 1 . 1 0 :3:0 
+[s S2624 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 T1RD16 1 0 :1:7 
 ]
-[u S2321 . 1 `S2299 1 . 1 0 `S2302 1 . 1 0 `S2310 1 . 1 0 `S2316 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES2321  1 e 1 @4045 ]
+[u S2629 . 1 `S2607 1 . 1 0 `S2610 1 . 1 0 `S2618 1 . 1 0 `S2624 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES2629  1 e 1 @4045 ]
 "5335
 [v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
 "5342
@@ -1067,7 +1150,7 @@ CCP2_CCP1_TIMER1 2
 ]
 [u S791 . 1 `S762 1 . 1 0 `S764 1 . 1 0 `S767 1 . 1 0 `S770 1 . 1 0 `S773 1 . 1 0 `S776 1 . 1 0 `S785 1 . 1 0 ]
 [v _RCONbits RCONbits `VES791  1 e 1 @4048 ]
-[s S2076 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S2384 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -1075,19 +1158,19 @@ CCP2_CCP1_TIMER1 2
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "5879
-[s S2083 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S2391 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 T016BIT 1 0 :1:6 
 ]
-[u S2089 . 1 `S2076 1 . 1 0 `S2083 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES2089  1 e 1 @4053 ]
+[u S2397 . 1 `S2384 1 . 1 0 `S2391 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES2397  1 e 1 @4053 ]
 "5941
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "5948
 [v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
-[s S1312 . 1 `uc 1 INT1IF 1 0 :1:0 
+[s S1626 . 1 `uc 1 INT1IF 1 0 :1:0 
 `uc 1 INT2IF 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1IE 1 0 :1:3 
@@ -1097,7 +1180,7 @@ CCP2_CCP1_TIMER1 2
 `uc 1 INT2IP 1 0 :1:7 
 ]
 "6240
-[s S1321 . 1 `uc 1 INT1F 1 0 :1:0 
+[s S1635 . 1 `uc 1 INT1F 1 0 :1:0 
 `uc 1 INT2F 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1E 1 0 :1:3 
@@ -1106,13 +1189,13 @@ CCP2_CCP1_TIMER1 2
 `uc 1 INT1P 1 0 :1:6 
 `uc 1 INT2P 1 0 :1:7 
 ]
-[u S1330 . 1 `S1312 1 . 1 0 `S1321 1 . 1 0 ]
-[v _INTCON3bits INTCON3bits `VES1330  1 e 1 @4080 ]
-[s S1779 . 1 `uc 1 . 1 0 :7:0 
+[u S1644 . 1 `S1626 1 . 1 0 `S1635 1 . 1 0 ]
+[v _INTCON3bits INTCON3bits `VES1644  1 e 1 @4080 ]
+[s S2087 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "6330
-[s S1782 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S2090 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -1121,11 +1204,11 @@ CCP2_CCP1_TIMER1 2
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S1791 . 1 `uc 1 . 1 0 :7:0 
+[s S2099 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S1794 . 1 `S1779 1 . 1 0 `S1782 1 . 1 0 `S1791 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES1794  1 e 1 @4081 ]
+[u S2102 . 1 `S2087 1 . 1 0 `S2090 1 . 1 0 `S2099 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES2102  1 e 1 @4081 ]
 [s S829 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
@@ -1155,8 +1238,6 @@ CCP2_CCP1_TIMER1 2
 [v _ADC_InterruptHandler ADC_InterruptHandler `*.37(v  1 s 2 ADC_InterruptHandler ]
 "12 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/CCP/CCP1/hal_ccp1.c
 [v _CCP1_InterruptHandler CCP1_InterruptHandler `*.37(v  1 s 2 CCP1_InterruptHandler ]
-"12 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/CCP/CCP2/hal_ccp2.c
-[v _CCP2_InterruptHandler CCP2_InterruptHandler `*.37(v  1 s 2 CCP2_InterruptHandler ]
 "10 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/GPIO/hal_gpio.c
 [v _tris_registers tris_registers `[5]*.39VEuc  1 e 10 0 ]
 "11
@@ -1207,22 +1288,22 @@ CCP2_CCP1_TIMER1 2
 "13
 [v _timer3_preload timer3_preload `us  1 s 2 timer3_preload ]
 "12 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/USART/hal_usart.c
-[v _EUSART_Tx_InterruptHandler@hal_usart$F3928 EUSART_Tx_InterruptHandler `*.37(v  1 s 2 EUSART_Tx_InterruptHandler ]
+[v _EUSART_Tx_InterruptHandler@hal_usart$F3612 EUSART_Tx_InterruptHandler `*.37(v  1 s 2 EUSART_Tx_InterruptHandler ]
 "15
-[v _EUSART_Rx_InterruptHandler@hal_usart$F3929 EUSART_Rx_InterruptHandler `*.37(v  1 s 2 EUSART_Rx_InterruptHandler ]
+[v _EUSART_Rx_InterruptHandler@hal_usart$F3613 EUSART_Rx_InterruptHandler `*.37(v  1 s 2 EUSART_Rx_InterruptHandler ]
 "16
 [v _EUSART_FramingErrorHandler EUSART_FramingErrorHandler `*.37(v  1 s 2 EUSART_FramingErrorHandler ]
 "17
 [v _EUSART_OverrunErrorHandler EUSART_OverrunErrorHandler `*.37(v  1 s 2 EUSART_OverrunErrorHandler ]
-"98 E:\codes\embeddedProjects\LCD_Driver\application.c
+"105 E:\codes\embeddedProjects\LCD_Driver\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"118
+"127
 } 0
-"120
+"129
 [v _app_intialize app_intialize `(v  1 e 1 0 ]
 {
-"132
+"142
 } 0
 "17 E:\codes\embeddedProjects\LCD_Driver\ECU_Layer/LED/ecu_led.c
 [v _led_initialize led_initialize `(uc  1 e 1 0 ]
@@ -1233,15 +1314,15 @@ CCP2_CCP1_TIMER1 2
 `uc 1 logic 1 0 :1:7 
 ]
 "24
-[v led_initialize@pin_obj pin_obj `S24  1 a 1 44 ]
+[v led_initialize@pin_obj pin_obj `S24  1 a 1 3 ]
 "18
-[v led_initialize@ret ret `uc  1 a 1 43 ]
+[v led_initialize@ret ret `uc  1 a 1 2 ]
 [s S409 . 1 `uc 1 port_name 1 0 :4:0 
 `uc 1 pin 1 0 :3:4 
 `uc 1 led_status 1 0 :1:7 
 ]
 "17
-[v led_initialize@led led `*.39CS409  1 p 2 40 ]
+[v led_initialize@led led `*.39CS409  1 p 2 0 ]
 "23
 [v led_initialize@F3048 F3048 `S24  1 s 1 F3048 ]
 "28
@@ -1250,212 +1331,71 @@ CCP2_CCP1_TIMER1 2
 [v _gpio_pin_intialize gpio_pin_intialize `(uc  1 e 1 0 ]
 {
 "160
-[v gpio_pin_intialize@ret ret `uc  1 a 1 39 ]
+[v gpio_pin_intialize@ret ret `uc  1 a 1 12 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
 "159
-[v gpio_pin_intialize@_pin_config _pin_config `*.39CS24  1 p 2 37 ]
+[v gpio_pin_intialize@_pin_config _pin_config `*.39CS24  1 p 2 10 ]
 "173
 } 0
 "80
 [v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
 {
 "81
-[v gpio_pin_write_logic@ret ret `uc  1 a 1 36 ]
+[v gpio_pin_write_logic@ret ret `uc  1 a 1 9 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
 "80
-[v gpio_pin_write_logic@_pin_config _pin_config `*.39CS24  1 p 2 27 ]
-[v gpio_pin_write_logic@logic logic `E2968  1 p 1 29 ]
+[v gpio_pin_write_logic@_pin_config _pin_config `*.39CS24  1 p 2 0 ]
+[v gpio_pin_write_logic@logic logic `E2968  1 p 1 2 ]
 "101
 } 0
 "22
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
 {
 "23
-[v gpio_pin_direction_intialize@ret ret `uc  1 a 1 35 ]
+[v gpio_pin_direction_intialize@ret ret `uc  1 a 1 8 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
 "22
-[v gpio_pin_direction_intialize@_pin_config _pin_config `*.39CS24  1 p 2 27 ]
+[v gpio_pin_direction_intialize@_pin_config _pin_config `*.39CS24  1 p 2 0 ]
 "44
 } 0
-"27 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/USART/hal_usart.c
-[v _EUSART_ASYNC_Init EUSART_ASYNC_Init `(uc  1 e 1 0 ]
+"10 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/SPI/hal_SPI.c
+[v _SPI_Init SPI_Init `(uc  1 e 1 0 ]
 {
-"28
-[v EUSART_ASYNC_Init@ret ret `uc  1 a 1 2 ]
-[s S2646 . 2 `E3135 1 usart_tx_priority 1 0 `uc 1 usart_tx_enable 1 1 :1:0 
-`uc 1 usart_tx_interrupt_enable 1 1 :1:1 
-`uc 1 usart_tx_9bit_enable 1 1 :1:2 
-`uc 1 usart_tx_reserved 1 1 :4:3 
-]
-"27
-[s S2652 . 2 `uc 1 usart_rx_priority 1 0 `uc 1 usart_rx_enable 1 1 :1:0 
-`uc 1 usart_rx_interrupt_enable 1 1 :1:1 
-`uc 1 usart_rx_9bit_enable 1 1 :1:2 
-`uc 1 usart_rx_reserved 1 1 :4:3 
-]
-[s S2658 . 2 `uc 1 usart_tx_reserved 1 0 :6:0 
-`uc 1 usart_ferr 1 0 :1:6 
-`uc 1 usart_oerr 1 1 ]
-[u S2662 . 2 `S2658 1 . 2 0 `uc 1 status 1 0 ]
-[s S2669 . 19 `ul 1 baudrate 4 0 `E3314 1 baudrate_gen_cfg 1 4 `S2646 1 usart_tx_cfg 2 5 `S2652 1 usart_rx_cfg 2 7 `S2662 1 error_status 2 9 `*.37(v 1 EUSART_TxDefailtInterruptHandler 2 11 `*.37(v 1 EUSART_RxDefailtInterruptHandler 2 13 `*.37(v 1 EUSART_FramingErrorHandler 2 15 `*.37(v 1 EUSART_OverrunErrorHandler 2 17 ]
-[v EUSART_ASYNC_Init@_eusart _eusart `*.39CS2669  1 p 2 22 ]
-"43
-} 0
-"127
-[v _EUSART_Baud_Rate_Calculation EUSART_Baud_Rate_Calculation `(v  1 s 1 EUSART_Baud_Rate_Calculation ]
-{
-"128
-[v EUSART_Baud_Rate_Calculation@Baud_Rate_Temp Baud_Rate_Temp `f  1 a 4 14 ]
-[s S2646 . 2 `E3135 1 usart_tx_priority 1 0 `uc 1 usart_tx_enable 1 1 :1:0 
-`uc 1 usart_tx_interrupt_enable 1 1 :1:1 
-`uc 1 usart_tx_9bit_enable 1 1 :1:2 
-`uc 1 usart_tx_reserved 1 1 :4:3 
-]
-"127
-[s S2652 . 2 `uc 1 usart_rx_priority 1 0 `uc 1 usart_rx_enable 1 1 :1:0 
-`uc 1 usart_rx_interrupt_enable 1 1 :1:1 
-`uc 1 usart_rx_9bit_enable 1 1 :1:2 
-`uc 1 usart_rx_reserved 1 1 :4:3 
-]
-[s S2658 . 2 `uc 1 usart_tx_reserved 1 0 :6:0 
-`uc 1 usart_ferr 1 0 :1:6 
-`uc 1 usart_oerr 1 1 ]
-[u S2662 . 2 `S2658 1 . 2 0 `uc 1 status 1 0 ]
-[s S2669 . 19 `ul 1 baudrate 4 0 `E3314 1 baudrate_gen_cfg 1 4 `S2646 1 usart_tx_cfg 2 5 `S2652 1 usart_rx_cfg 2 7 `S2662 1 error_status 2 9 `*.37(v 1 EUSART_TxDefailtInterruptHandler 2 11 `*.37(v 1 EUSART_RxDefailtInterruptHandler 2 13 `*.37(v 1 EUSART_FramingErrorHandler 2 15 `*.37(v 1 EUSART_OverrunErrorHandler 2 17 ]
-[v EUSART_Baud_Rate_Calculation@_eusart _eusart `*.39CS2669  1 p 2 0 ]
-"169
-} 0
-"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\xxtofl.c
-[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-{
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-"13
-[v ___xxtofl@arg arg `ul  1 a 4 37 ]
-"12
-[v ___xxtofl@exp exp `uc  1 a 1 36 ]
-"10
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-[v ___xxtofl@val val `l  1 p 4 27 ]
-"15
-[v ___xxtofl@sign sign `uc  1 a 1 35 ]
-"44
-} 0
-"43 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\fltol.c
-[v ___fltol __fltol `(l  1 e 4 0 ]
-{
-"45
-[v ___fltol@exp1 exp1 `uc  1 a 1 36 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 35 ]
-"43
-[v ___fltol@f1 f1 `d  1 p 4 27 ]
-"70
-} 0
-"11 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcdiv.c
-[v ___fldiv __fldiv `(d  1 e 4 0 ]
-{
-"21
-[v ___fldiv@grs grs `ul  1 a 4 60 ]
-"22
-[v ___fldiv@rem rem `ul  1 a 4 53 ]
-"20
-[v ___fldiv@new_exp new_exp `s  1 a 2 58 ]
-"19
-[v ___fldiv@aexp aexp `uc  1 a 1 65 ]
-"18
-[v ___fldiv@bexp bexp `uc  1 a 1 64 ]
-"16
-[v ___fldiv@sign sign `uc  1 a 1 57 ]
 "11
-[v ___fldiv@b b `d  1 p 4 41 ]
-[v ___fldiv@a a `d  1 p 4 45 ]
-"185
-} 0
-"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcadd.c
-[v ___fladd __fladd `(d  1 e 4 0 ]
-{
-"17
-[v ___fladd@grs grs `uc  1 a 1 11 ]
-"15
-[v ___fladd@bexp bexp `uc  1 a 1 10 ]
-"16
-[v ___fladd@aexp aexp `uc  1 a 1 9 ]
-"13
-[v ___fladd@signs signs `uc  1 a 1 8 ]
+[v SPI_Init@ret ret `uc  1 a 1 3 ]
+[s S3934 . 6 `E3343 1 clock_idle 1 0 `E3347 1 clock_phase 1 1 `E3351 1 sample_data 1 2 `E3365 1 spi_mode 1 3 `E3355 1 master_clk_rate 1 4 `E3361 1 slave_mode 1 5 ]
 "10
-[v ___fladd@b b `d  1 p 4 0 ]
-[v ___fladd@a a `d  1 p 4 4 ]
-"237
+[v SPI_Init@_spi _spi `*.39CS3934  1 p 2 0 ]
+"48
 } 0
-"171 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/USART/hal_usart.c
-[v _EUSART_ASYNC_TX_Init EUSART_ASYNC_TX_Init `(v  1 s 1 EUSART_ASYNC_TX_Init ]
+"96
+[v _SPI_WriteStringBlocking SPI_WriteStringBlocking `(uc  1 e 1 0 ]
 {
-[s S2646 . 2 `E3135 1 usart_tx_priority 1 0 `uc 1 usart_tx_enable 1 1 :1:0 
-`uc 1 usart_tx_interrupt_enable 1 1 :1:1 
-`uc 1 usart_tx_9bit_enable 1 1 :1:2 
-`uc 1 usart_tx_reserved 1 1 :4:3 
-]
-[s S2652 . 2 `uc 1 usart_rx_priority 1 0 `uc 1 usart_rx_enable 1 1 :1:0 
-`uc 1 usart_rx_interrupt_enable 1 1 :1:1 
-`uc 1 usart_rx_9bit_enable 1 1 :1:2 
-`uc 1 usart_rx_reserved 1 1 :4:3 
-]
-[s S2658 . 2 `uc 1 usart_tx_reserved 1 0 :6:0 
-`uc 1 usart_ferr 1 0 :1:6 
-`uc 1 usart_oerr 1 1 ]
-[u S2662 . 2 `S2658 1 . 2 0 `uc 1 status 1 0 ]
-[s S2669 . 19 `ul 1 baudrate 4 0 `E3314 1 baudrate_gen_cfg 1 4 `S2646 1 usart_tx_cfg 2 5 `S2652 1 usart_rx_cfg 2 7 `S2662 1 error_status 2 9 `*.37(v 1 EUSART_TxDefailtInterruptHandler 2 11 `*.37(v 1 EUSART_RxDefailtInterruptHandler 2 13 `*.37(v 1 EUSART_FramingErrorHandler 2 15 `*.37(v 1 EUSART_OverrunErrorHandler 2 17 ]
-[v EUSART_ASYNC_TX_Init@_eusart _eusart `*.39CS2669  1 p 2 27 ]
-"196
+"97
+[v SPI_WriteStringBlocking@ret ret `uc  1 a 1 3 ]
+"96
+[v SPI_WriteStringBlocking@_data _data `*.32uc  1 p 2 1 ]
+"109
 } 0
-"197
-[v _EUSART_ASYNC_RX_Init EUSART_ASYNC_RX_Init `(v  1 s 1 EUSART_ASYNC_RX_Init ]
+"89
+[v _SPI_WriteByteBlocking SPI_WriteByteBlocking `(uc  1 e 1 0 ]
 {
-[s S2646 . 2 `E3135 1 usart_tx_priority 1 0 `uc 1 usart_tx_enable 1 1 :1:0 
-`uc 1 usart_tx_interrupt_enable 1 1 :1:1 
-`uc 1 usart_tx_9bit_enable 1 1 :1:2 
-`uc 1 usart_tx_reserved 1 1 :4:3 
-]
-[s S2652 . 2 `uc 1 usart_rx_priority 1 0 `uc 1 usart_rx_enable 1 1 :1:0 
-`uc 1 usart_rx_interrupt_enable 1 1 :1:1 
-`uc 1 usart_rx_9bit_enable 1 1 :1:2 
-`uc 1 usart_rx_reserved 1 1 :4:3 
-]
-[s S2658 . 2 `uc 1 usart_tx_reserved 1 0 :6:0 
-`uc 1 usart_ferr 1 0 :1:6 
-`uc 1 usart_oerr 1 1 ]
-[u S2662 . 2 `S2658 1 . 2 0 `uc 1 status 1 0 ]
-[s S2669 . 19 `ul 1 baudrate 4 0 `E3314 1 baudrate_gen_cfg 1 4 `S2646 1 usart_tx_cfg 2 5 `S2652 1 usart_rx_cfg 2 7 `S2662 1 error_status 2 9 `*.37(v 1 EUSART_TxDefailtInterruptHandler 2 11 `*.37(v 1 EUSART_RxDefailtInterruptHandler 2 13 `*.37(v 1 EUSART_FramingErrorHandler 2 15 `*.37(v 1 EUSART_OverrunErrorHandler 2 17 ]
-[v EUSART_ASYNC_RX_Init@_eusart _eusart `*.39CS2669  1 p 2 27 ]
-"225
-} 0
-"113
-[v _EUSART_ASYNC_WriteStringBlocking EUSART_ASYNC_WriteStringBlocking `(uc  1 e 1 0 ]
-{
-"114
-[v EUSART_ASYNC_WriteStringBlocking@ret ret `uc  1 a 1 30 ]
-"113
-[v EUSART_ASYNC_WriteStringBlocking@_data _data `*.32uc  1 p 2 28 ]
-"125
-} 0
-"102
-[v _EUSART_ASYNC_WriteByteBlocking EUSART_ASYNC_WriteByteBlocking `(uc  1 e 1 0 ]
-{
-[v EUSART_ASYNC_WriteByteBlocking@_data _data `uc  1 a 1 wreg ]
-[v EUSART_ASYNC_WriteByteBlocking@_data _data `uc  1 a 1 wreg ]
-[v EUSART_ASYNC_WriteByteBlocking@_data _data `uc  1 a 1 27 ]
-"111
+[v SPI_WriteByteBlocking@_data _data `uc  1 a 1 wreg ]
+[v SPI_WriteByteBlocking@_data _data `uc  1 a 1 wreg ]
+[v SPI_WriteByteBlocking@_data _data `uc  1 a 1 0 ]
+"94
 } 0
 "20 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/Interrupt/mcal_interrupt_manager.c
 [v _InterruptManagerLow InterruptManagerLow `IIL(v  1 e 1 0 ]
@@ -1472,22 +1412,22 @@ CCP2_CCP1_TIMER1 2
 {
 "141
 } 0
-"134 E:\codes\embeddedProjects\LCD_Driver\application.c
+"144 E:\codes\embeddedProjects\LCD_Driver\application.c
 [v _timer0_interruptHundler timer0_interruptHundler `(v  1 e 1 0 ]
 {
-"137
+"147
 } 0
 "95 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/Timer/Timer1/hal_timer1.c
 [v _Timer1_Write_value Timer1_Write_value `(uc  1 e 1 0 ]
 {
-[s S2289 . 6 `*.37(v 1 TMR1_InterruptHandler 2 0 `E3028 1 priority 1 2 `us 1 timer1_preload_value 2 3 `uc 1 timer1_prescaler_value 1 5 :2:0 
+[s S2597 . 6 `*.37(v 1 TMR1_InterruptHandler 2 0 `E3028 1 priority 1 2 `us 1 timer1_preload_value 2 3 `uc 1 timer1_prescaler_value 1 5 :2:0 
 `uc 1 timer1_mode 1 5 :1:2 
 `uc 1 timer1_counter_mode 1 5 :1:3 
 `uc 1 timer1_osc_cfg 1 5 :1:4 
 `uc 1 timer1_reg_wr_mode 1 5 :1:5 
 `uc 1 reserved 1 5 :2:6 
 ]
-[v Timer1_Write_value@_timer _timer `*.39CS2289  1 p 2 12 ]
+[v Timer1_Write_value@_timer _timer `*.39CS2597  1 p 2 12 ]
 [v Timer1_Write_value@_value _value `us  1 p 2 14 ]
 "109
 } 0
@@ -1498,7 +1438,7 @@ CCP2_CCP1_TIMER1 2
 [v Timer1_Read_value@tmr1h tmr1h `uc  1 a 1 19 ]
 "119
 [v Timer1_Read_value@tmr1l tmr1l `uc  1 a 1 18 ]
-[s S2289 . 6 `*.37(v 1 TMR1_InterruptHandler 2 0 `E3028 1 priority 1 2 `us 1 timer1_preload_value 2 3 `uc 1 timer1_prescaler_value 1 5 :2:0 
+[s S2597 . 6 `*.37(v 1 TMR1_InterruptHandler 2 0 `E3028 1 priority 1 2 `us 1 timer1_preload_value 2 3 `uc 1 timer1_prescaler_value 1 5 :2:0 
 `uc 1 timer1_mode 1 5 :1:2 
 `uc 1 timer1_counter_mode 1 5 :1:3 
 `uc 1 timer1_osc_cfg 1 5 :1:4 
@@ -1506,7 +1446,7 @@ CCP2_CCP1_TIMER1 2
 `uc 1 reserved 1 5 :2:6 
 ]
 "117
-[v Timer1_Read_value@_timer _timer `*.39CS2289  1 p 2 12 ]
+[v Timer1_Read_value@_timer _timer `*.39CS2597  1 p 2 12 ]
 [v Timer1_Read_value@_value _value `*.39us  1 p 2 14 ]
 "134
 } 0
@@ -1515,10 +1455,10 @@ CCP2_CCP1_TIMER1 2
 {
 "144
 } 0
-"145 E:\codes\embeddedProjects\LCD_Driver\application.c
+"155 E:\codes\embeddedProjects\LCD_Driver\application.c
 [v _timer3_interruptHundler timer3_interruptHundler `(v  1 e 1 0 ]
 {
-"147
+"157
 } 0
 "123 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/Timer/Timer2/hal_timer2.c
 [v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
@@ -1586,20 +1526,20 @@ CCP2_CCP1_TIMER1 2
 {
 "233
 } 0
-"163 E:\codes\embeddedProjects\LCD_Driver\application.c
+"173 E:\codes\embeddedProjects\LCD_Driver\application.c
 [v _EUSART_Tx_InterruptHandler EUSART_Tx_InterruptHandler `(v  1 e 1 0 ]
 {
-"165
+"175
 } 0
 "236 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/USART/hal_usart.c
 [v _EUSART_RX_ISR EUSART_RX_ISR `(v  1 e 1 0 ]
 {
 "247
 } 0
-"166 E:\codes\embeddedProjects\LCD_Driver\application.c
+"176 E:\codes\embeddedProjects\LCD_Driver\application.c
 [v _EUSART_Rx_InterruptHandler EUSART_Rx_InterruptHandler `(v  1 e 1 0 ]
 {
-"169
+"179
 } 0
 "78 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/USART/hal_usart.c
 [v _EUSART_ASYNC_ReadByteNonBlocking EUSART_ASYNC_ReadByteNonBlocking `(uc  1 e 1 0 ]
@@ -1607,45 +1547,40 @@ CCP2_CCP1_TIMER1 2
 [v EUSART_ASYNC_ReadByteNonBlocking@_data _data `*.39uc  1 p 2 12 ]
 "94
 } 0
-"200 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/CCP/CCP2/hal_ccp2.c
-[v _CCP2_ISR CCP2_ISR `(v  1 e 1 0 ]
-{
-"206
-} 0
 "200 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/CCP/CCP1/hal_ccp1.c
 [v _CCP1_ISR CCP1_ISR `(v  1 e 1 0 ]
 {
 "206
 } 0
-"148 E:\codes\embeddedProjects\LCD_Driver\application.c
+"158 E:\codes\embeddedProjects\LCD_Driver\application.c
 [v _CCP1_interruptHundler CCP1_interruptHundler `(v  1 e 1 0 ]
 {
-"161
+"171
 } 0
 "95 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/Timer/Timer3/hal_timer3.c
 [v _Timer3_Write_value Timer3_Write_value `(uc  1 e 1 0 ]
 {
-[s S2626 . 6 `*.37(v 1 TMR3_InterruptHandler 2 0 `E3135 1 priority 1 2 `us 1 timer3_preload_value 2 3 `uc 1 timer3_prescaler_value 1 5 :2:0 
+[s S3027 . 6 `*.37(v 1 TMR3_InterruptHandler 2 0 `E3028 1 priority 1 2 `us 1 timer3_preload_value 2 3 `uc 1 timer3_prescaler_value 1 5 :2:0 
 `uc 1 timer3_mode 1 5 :1:2 
 `uc 1 timer3_counter_mode 1 5 :1:3 
 `uc 1 timer3_reg_wr_mode 1 5 :1:4 
 `uc 1 reserved 1 5 :3:5 
 ]
-[v Timer3_Write_value@_timer _timer `*.39CS2626  1 p 2 12 ]
+[v Timer3_Write_value@_timer _timer `*.39CS3027  1 p 2 12 ]
 [v Timer3_Write_value@_value _value `us  1 p 2 14 ]
 "109
 } 0
 "108 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/CCP/CCP1/hal_ccp1.c
 [v _CCP1_Capture_Mode_Read_Value CCP1_Capture_Mode_Read_Value `(uc  1 e 1 0 ]
 {
-[s S3458 . 2 `uc 1 ccpr1_low 1 0 `uc 1 ccpr1_high 1 1 ]
+[s S1277 . 2 `uc 1 ccpr1_low 1 0 `uc 1 ccpr1_high 1 1 ]
 "110
-[u S3461 . 2 `S3458 1 . 2 0 `us 1 ccpr1_16Bit 2 0 ]
-[v CCP1_Capture_Mode_Read_Value@compare_temp_value compare_temp_value `S3461  1 a 2 14 ]
+[u S1280 . 2 `S1277 1 . 2 0 `us 1 ccpr1_16Bit 2 0 ]
+[v CCP1_Capture_Mode_Read_Value@compare_temp_value compare_temp_value `S1280  1 a 2 14 ]
 "108
 [v CCP1_Capture_Mode_Read_Value@_capture_value _capture_value `*.39us  1 p 2 12 ]
 "109
-[v CCP1_Capture_Mode_Read_Value@F3086 F3086 `S3461  1 s 2 F3086 ]
+[v CCP1_Capture_Mode_Read_Value@F3086 F3086 `S1280  1 s 2 F3086 ]
 "123
 } 0
 "348 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/ADC/hal_adc.c
@@ -1668,22 +1603,22 @@ CCP2_CCP1_TIMER1 2
 {
 "141
 } 0
-"134 E:\codes\embeddedProjects\LCD_Driver\application.c
+"144 E:\codes\embeddedProjects\LCD_Driver\application.c
 [v i2_timer0_interruptHundler timer0_interruptHundler `(v  1 e 1 0 ]
 {
-"137
+"147
 } 0
 "95 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/Timer/Timer1/hal_timer1.c
 [v i2_Timer1_Write_value Timer1_Write_value `(uc  1 e 1 0 ]
 {
-[s S2289 . 6 `*.37(v 1 TMR1_InterruptHandler 2 0 `E3028 1 priority 1 2 `us 1 timer1_preload_value 2 3 `uc 1 timer1_prescaler_value 1 5 :2:0 
+[s S2597 . 6 `*.37(v 1 TMR1_InterruptHandler 2 0 `E3028 1 priority 1 2 `us 1 timer1_preload_value 2 3 `uc 1 timer1_prescaler_value 1 5 :2:0 
 `uc 1 timer1_mode 1 5 :1:2 
 `uc 1 timer1_counter_mode 1 5 :1:3 
 `uc 1 timer1_osc_cfg 1 5 :1:4 
 `uc 1 timer1_reg_wr_mode 1 5 :1:5 
 `uc 1 reserved 1 5 :2:6 
 ]
-[v i2Timer1_Write_value@_timer _timer `*.39CS2289  1 p 2 0 ]
+[v i2Timer1_Write_value@_timer _timer `*.39CS2597  1 p 2 0 ]
 [v i2Timer1_Write_value@_value _value `us  1 p 2 2 ]
 "109
 } 0
@@ -1694,7 +1629,7 @@ CCP2_CCP1_TIMER1 2
 [v i2Timer1_Read_value@tmr1h tmr1h `uc  1 a 1 7 ]
 "119
 [v i2Timer1_Read_value@tmr1l tmr1l `uc  1 a 1 6 ]
-[s S2289 . 6 `*.37(v 1 TMR1_InterruptHandler 2 0 `E3028 1 priority 1 2 `us 1 timer1_preload_value 2 3 `uc 1 timer1_prescaler_value 1 5 :2:0 
+[s S2597 . 6 `*.37(v 1 TMR1_InterruptHandler 2 0 `E3028 1 priority 1 2 `us 1 timer1_preload_value 2 3 `uc 1 timer1_prescaler_value 1 5 :2:0 
 `uc 1 timer1_mode 1 5 :1:2 
 `uc 1 timer1_counter_mode 1 5 :1:3 
 `uc 1 timer1_osc_cfg 1 5 :1:4 
@@ -1702,7 +1637,7 @@ CCP2_CCP1_TIMER1 2
 `uc 1 reserved 1 5 :2:6 
 ]
 "117
-[v i2Timer1_Read_value@_timer _timer `*.39CS2289  1 p 2 0 ]
+[v i2Timer1_Read_value@_timer _timer `*.39CS2597  1 p 2 0 ]
 [v i2Timer1_Read_value@_value _value `*.39us  1 p 2 2 ]
 "134
 } 0
@@ -1711,10 +1646,10 @@ CCP2_CCP1_TIMER1 2
 {
 "144
 } 0
-"145 E:\codes\embeddedProjects\LCD_Driver\application.c
+"155 E:\codes\embeddedProjects\LCD_Driver\application.c
 [v i2_timer3_interruptHundler timer3_interruptHundler `(v  1 e 1 0 ]
 {
-"147
+"157
 } 0
 "123 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/Timer/Timer2/hal_timer2.c
 [v i2_TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
@@ -1782,20 +1717,20 @@ CCP2_CCP1_TIMER1 2
 {
 "233
 } 0
-"163 E:\codes\embeddedProjects\LCD_Driver\application.c
+"173 E:\codes\embeddedProjects\LCD_Driver\application.c
 [v i2_EUSART_Tx_InterruptHandler EUSART_Tx_InterruptHandler `(v  1 e 1 0 ]
 {
-"165
+"175
 } 0
 "236 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/USART/hal_usart.c
 [v i2_EUSART_RX_ISR EUSART_RX_ISR `(v  1 e 1 0 ]
 {
 "247
 } 0
-"166 E:\codes\embeddedProjects\LCD_Driver\application.c
+"176 E:\codes\embeddedProjects\LCD_Driver\application.c
 [v i2_EUSART_Rx_InterruptHandler EUSART_Rx_InterruptHandler `(v  1 e 1 0 ]
 {
-"169
+"179
 } 0
 "78 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/USART/hal_usart.c
 [v i2_EUSART_ASYNC_ReadByteNonBlocking EUSART_ASYNC_ReadByteNonBlocking `(uc  1 e 1 0 ]
@@ -1803,41 +1738,36 @@ CCP2_CCP1_TIMER1 2
 [v i2EUSART_ASYNC_ReadByteNonBlocking@_data _data `*.39uc  1 p 2 0 ]
 "94
 } 0
-"200 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/CCP/CCP2/hal_ccp2.c
-[v i2_CCP2_ISR CCP2_ISR `(v  1 e 1 0 ]
-{
-"206
-} 0
 "200 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/CCP/CCP1/hal_ccp1.c
 [v i2_CCP1_ISR CCP1_ISR `(v  1 e 1 0 ]
 {
 "206
 } 0
-"148 E:\codes\embeddedProjects\LCD_Driver\application.c
+"158 E:\codes\embeddedProjects\LCD_Driver\application.c
 [v i2_CCP1_interruptHundler CCP1_interruptHundler `(v  1 e 1 0 ]
 {
-"161
+"171
 } 0
 "95 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/Timer/Timer3/hal_timer3.c
 [v i2_Timer3_Write_value Timer3_Write_value `(uc  1 e 1 0 ]
 {
-[s S2626 . 6 `*.37(v 1 TMR3_InterruptHandler 2 0 `E3135 1 priority 1 2 `us 1 timer3_preload_value 2 3 `uc 1 timer3_prescaler_value 1 5 :2:0 
+[s S3027 . 6 `*.37(v 1 TMR3_InterruptHandler 2 0 `E3028 1 priority 1 2 `us 1 timer3_preload_value 2 3 `uc 1 timer3_prescaler_value 1 5 :2:0 
 `uc 1 timer3_mode 1 5 :1:2 
 `uc 1 timer3_counter_mode 1 5 :1:3 
 `uc 1 timer3_reg_wr_mode 1 5 :1:4 
 `uc 1 reserved 1 5 :3:5 
 ]
-[v i2Timer3_Write_value@_timer _timer `*.39CS2626  1 p 2 0 ]
+[v i2Timer3_Write_value@_timer _timer `*.39CS3027  1 p 2 0 ]
 [v i2Timer3_Write_value@_value _value `us  1 p 2 2 ]
 "109
 } 0
 "108 E:\codes\embeddedProjects\LCD_Driver\MCAL_Layer/CCP/CCP1/hal_ccp1.c
 [v i2_CCP1_Capture_Mode_Read_Value CCP1_Capture_Mode_Read_Value `(uc  1 e 1 0 ]
 {
-[s S3458 . 2 `uc 1 ccpr1_low 1 0 `uc 1 ccpr1_high 1 1 ]
+[s S1277 . 2 `uc 1 ccpr1_low 1 0 `uc 1 ccpr1_high 1 1 ]
 "110
-[u S3461 . 2 `S3458 1 . 2 0 `us 1 ccpr1_16Bit 2 0 ]
-[v i2CCP1_Capture_Mode_Read_Value@compare_temp_value compare_temp_value `S3461  1 a 2 2 ]
+[u S1280 . 2 `S1277 1 . 2 0 `us 1 ccpr1_16Bit 2 0 ]
+[v i2CCP1_Capture_Mode_Read_Value@compare_temp_value compare_temp_value `S1280  1 a 2 2 ]
 "108
 [v i2CCP1_Capture_Mode_Read_Value@_capture_value _capture_value `*.39us  1 p 2 0 ]
 "123

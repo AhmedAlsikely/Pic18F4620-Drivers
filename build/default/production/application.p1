@@ -53,12 +53,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./ECU_Layer/../MCAL_Layer/Timer/Timer1/hal_timer1.h: 55: typedef struct{
 [s S279 `*F3173 1 `E3135 1 `us 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 ]
 [n S279 . TMR1_InterruptHandler priority timer1_preload_value timer1_prescaler_value timer1_mode timer1_counter_mode timer1_osc_cfg timer1_reg_wr_mode reserved ]
-[v F3481 `(v ~T0 @X0 0 tf ]
+[v F3499 `(v ~T0 @X0 0 tf ]
 [v F3208 `(v ~T0 @X0 0 tf ]
 "50 ./MCAL_Layer/Timer/Timer2/hal_timer2.h
 [s S281 `*F3208 1 `E3135 1 `uc 1 :4 `uc 1 :2 `uc 1 :2 `uc 1 ]
 [n S281 . TMR2_InterruptHandler priority timer2_preload_value timer2_postscaler_value timer2_prescaler_value reserved ]
-[v F3483 `(v ~T0 @X0 0 tf ]
+[v F3501 `(v ~T0 @X0 0 tf ]
 [v F3227 `(v ~T0 @X0 0 tf ]
 "46 ./ECU_Layer/../MCAL_Layer/Timer/Timer3/hal_timer3.h
 [; ;./ECU_Layer/../MCAL_Layer/Timer/Timer3/hal_timer3.h: 46: typedef struct{
@@ -69,53 +69,71 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _timer3_interruptHundler `(v ~T0 @X0 0 ef ]
 "75
 [; ;application.c: 75: usart_t usart_obj = {
-[c E3314 0 1 2 3 4 5 .. ]
-[n E3314 . BAUDRATE_ASYN_8BIT_LOW_SPEED BAUDRATE_ASYN_8BIT_HIGH_SPEED BAUDRATE_ASYN_16BIT_LOW_SPEED BAUDRATE_ASYN_16BIT_HIGH_SPEED BAUDRATE_SYN_8BIT BAUDRATE_SYN_16BIT  ]
+[c E3280 0 1 2 3 4 5 .. ]
+[n E3280 . BAUDRATE_ASYN_8BIT_LOW_SPEED BAUDRATE_ASYN_8BIT_HIGH_SPEED BAUDRATE_ASYN_16BIT_LOW_SPEED BAUDRATE_ASYN_16BIT_HIGH_SPEED BAUDRATE_SYN_8BIT BAUDRATE_SYN_16BIT  ]
 "83 ./ECU_Layer/../MCAL_Layer/USART/hal_usart.h
 [; ;./ECU_Layer/../MCAL_Layer/USART/hal_usart.h: 83: typedef struct{
-[s S289 `E3135 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
-[n S289 . usart_tx_priority usart_tx_enable usart_tx_interrupt_enable usart_tx_9bit_enable usart_tx_reserved ]
+[s S286 `E3135 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S286 . usart_tx_priority usart_tx_enable usart_tx_interrupt_enable usart_tx_9bit_enable usart_tx_reserved ]
 "92
 [; ;./ECU_Layer/../MCAL_Layer/USART/hal_usart.h: 92: typedef struct{
-[s S290 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
-[n S290 . usart_rx_priority usart_rx_enable usart_rx_interrupt_enable usart_rx_9bit_enable usart_rx_reserved ]
+[s S287 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S287 . usart_rx_priority usart_rx_enable usart_rx_interrupt_enable usart_rx_9bit_enable usart_rx_reserved ]
 "102
 [; ;./ECU_Layer/../MCAL_Layer/USART/hal_usart.h: 102:     struct{
-[s S292 :6 `uc 1 :1 `uc 1 `uc 1 ]
-[n S292 . usart_tx_reserved usart_ferr usart_oerr ]
+[s S289 :6 `uc 1 :1 `uc 1 `uc 1 ]
+[n S289 . usart_tx_reserved usart_ferr usart_oerr ]
 "101
 [; ;./ECU_Layer/../MCAL_Layer/USART/hal_usart.h: 101: typedef union{
-[u S291 `S292 1 `uc 1 ]
-[n S291 . . status ]
-[v F3351 `(v ~T0 @X0 0 tf ]
-[v F3353 `(v ~T0 @X0 0 tf ]
-[v F3355 `(v ~T0 @X0 0 tf ]
-[v F3357 `(v ~T0 @X0 0 tf ]
+[u S288 `S289 1 `uc 1 ]
+[n S288 . . status ]
+[v F3317 `(v ~T0 @X0 0 tf ]
+[v F3319 `(v ~T0 @X0 0 tf ]
+[v F3321 `(v ~T0 @X0 0 tf ]
+[v F3323 `(v ~T0 @X0 0 tf ]
 "110
 [; ;./ECU_Layer/../MCAL_Layer/USART/hal_usart.h: 110: typedef struct{
-[s S293 `ul 1 `E3314 1 `S289 1 `S290 1 `S291 1 `*F3351 1 `*F3353 1 `*F3355 1 `*F3357 1 ]
-[n S293 . baudrate baudrate_gen_cfg usart_tx_cfg usart_rx_cfg error_status EUSART_TxDefailtInterruptHandler EUSART_RxDefailtInterruptHandler EUSART_FramingErrorHandler EUSART_OverrunErrorHandler ]
+[s S290 `ul 1 `E3280 1 `S286 1 `S287 1 `S288 1 `*F3317 1 `*F3319 1 `*F3321 1 `*F3323 1 ]
+[n S290 . baudrate baudrate_gen_cfg usart_tx_cfg usart_rx_cfg error_status EUSART_TxDefailtInterruptHandler EUSART_RxDefailtInterruptHandler EUSART_FramingErrorHandler EUSART_OverrunErrorHandler ]
 "24 application.c
 [; ;application.c: 24: void EUSART_Tx_InterruptHandler(void);
 [v _EUSART_Tx_InterruptHandler `(v ~T0 @X0 0 ef ]
 "25
 [; ;application.c: 25: void EUSART_Rx_InterruptHandler(void);
 [v _EUSART_Rx_InterruptHandler `(v ~T0 @X0 0 ef ]
-[v F3489 `(v ~T0 @X0 0 tf ]
-[v F3490 `(v ~T0 @X0 0 tf ]
+[v F3507 `(v ~T0 @X0 0 tf ]
+[v F3508 `(v ~T0 @X0 0 tf ]
+"95
+[; ;application.c: 95: SPI_t SPI_obj={
+[c E3343 0 1 .. ]
+[n E3343 . SPI_CLOCK_IDLE_LOW_LEVEL_CFG SPI_CLOCK_IDLE_HIGH_LEVEL_CFG  ]
+[c E3347 0 1 .. ]
+[n E3347 . SPI_CLOCK_PHASE_TRANSMIT_AT_LEADING_EDGE SPI_CLOCK_PHASE_TRANSMIT_AT_TRAILING_EDGE  ]
+[c E3351 0 1 .. ]
+[n E3351 . SPI_MASTER_SAMPLED_AT_MIDDLE_OF_DATA_OUTPUT_TIME SPI_MASTER_SAMPLED_AT_END_OF_DATA_OUTPUT_TIME  ]
+[c E3365 0 1 .. ]
+[n E3365 . SPI_MASTER_MODE SPI_SLAVE_MODE  ]
+[c E3355 0 1 2 3 .. ]
+[n E3355 . SPI_MASTER_MODE_CLOCK_FOSC_DEV_4 SPI_MASTER_MODE_CLOCK_FOSC_DEV_16 SPI_MASTER_MODE_CLOCK_FOSC_DEV_64 SPI_MASTER_MODE_CLOCK_TMR2_OUTPUT_DEV_2  ]
+[c E3361 4 5 .. ]
+[n E3361 . SPI_SLAVE_MODE_SS_ENABLED SPI_SLAVE_MODE_SS_DISABLED_USED_AS_I_O_PIN  ]
+"98 ./ECU_Layer/../MCAL_Layer/SPI/hal_SPI.h
+[; ;./ECU_Layer/../MCAL_Layer/SPI/hal_SPI.h: 98: typedef struct{
+[s S291 `E3343 1 `E3347 1 `E3351 1 `E3365 1 `E3355 1 `E3361 1 ]
+[n S291 . clock_idle clock_phase sample_data spi_mode master_clk_rate slave_mode ]
 [p mainexit ]
-"96
-[; ;application.c: 96: void app_intialize(void);
+"103 application.c
+[; ;application.c: 103: void app_intialize(void);
 [v _app_intialize `(v ~T0 @X0 0 ef ]
-"127 ./ECU_Layer/../MCAL_Layer/USART/hal_usart.h
-[; ;./ECU_Layer/../MCAL_Layer/USART/hal_usart.h: 127: Std_ReturnType EUSART_ASYNC_WriteStringBlocking( uint8 *_data);
-[v _EUSART_ASYNC_WriteStringBlocking `(uc ~T0 @X0 0 ef1`*uc ]
+"113 ./ECU_Layer/../MCAL_Layer/SPI/hal_SPI.h
+[; ;./ECU_Layer/../MCAL_Layer/SPI/hal_SPI.h: 113: Std_ReturnType SPI_WriteStringBlocking( uint8 *_data);
+[v _SPI_WriteStringBlocking `(uc ~T0 @X0 0 ef1`*uc ]
 "32 ./ECU_Layer/LED/ecu_led.h
 [; ;./ECU_Layer/LED/ecu_led.h: 32: Std_ReturnType led_initialize(const led_t *led);
 [v _led_initialize `(uc ~T0 @X0 0 ef1`*CS276 ]
-"122 ./ECU_Layer/../MCAL_Layer/USART/hal_usart.h
-[; ;./ECU_Layer/../MCAL_Layer/USART/hal_usart.h: 122: Std_ReturnType EUSART_ASYNC_Init(const usart_t *_eusart);
-[v _EUSART_ASYNC_Init `(uc ~T0 @X0 0 ef1`*CS293 ]
+"108 ./ECU_Layer/../MCAL_Layer/SPI/hal_SPI.h
+[; ;./ECU_Layer/../MCAL_Layer/SPI/hal_SPI.h: 108: Std_ReturnType SPI_Init(const SPI_t *_spi);
+[v _SPI_Init `(uc ~T0 @X0 0 ef1`*CS291 ]
 "73 ./ECU_Layer/../MCAL_Layer/Timer/Timer1/hal_timer1.h
 [; ;./ECU_Layer/../MCAL_Layer/Timer/Timer1/hal_timer1.h: 73: Std_ReturnType Timer1_Read_value(const timer1_t *_timer,uint16 *_value);
 [v _Timer1_Read_value `(uc ~T0 @X0 0 ef2`*CS279`*us ]
@@ -673,7 +691,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _timer1
 :U ..
 :U ..
--> -> -> 0 `i `*v `*F3481
+-> -> -> 0 `i `*v `*F3499
 . `E3135 1
 -> -> 0 `i `us
 -> -> 0 `i `uc
@@ -690,7 +708,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _timer2
 :U ..
 :U ..
--> -> -> 0 `i `*v `*F3483
+-> -> -> 0 `i `*v `*F3501
 . `E3135 1
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -716,12 +734,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "75
 [; ;application.c: 75: usart_t usart_obj = {
-[v _usart_obj `S293 ~T0 @X0 1 e ]
+[v _usart_obj `S290 ~T0 @X0 1 e ]
 [i _usart_obj
 :U ..
 :U ..
 -> -> -> 9600 `i `l `ul
-. `E3314 0
+. `E3280 0
 :U ..
 :U ..
 . `E3135 1
@@ -751,197 +769,211 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 &U _EUSART_Tx_InterruptHandler
 &U _EUSART_Rx_InterruptHandler
--> -> -> 0 `i `*v `*F3489
--> -> -> 0 `i `*v `*F3490
+-> -> -> 0 `i `*v `*F3507
+-> -> -> 0 `i `*v `*F3508
 ..
 ..
 ]
 "95
-[; ;application.c: 95: uint8 rec_uart_data;
+[; ;application.c: 95: SPI_t SPI_obj={
+[v _SPI_obj `S291 ~T0 @X0 1 e ]
+[i _SPI_obj
+:U ..
+:U ..
+. `E3343 0
+. `E3347 0
+. `E3351 0
+. `E3365 0
+. `E3355 0
+..
+..
+]
+"102
+[; ;application.c: 102: uint8 rec_uart_data;
 [v _rec_uart_data `uc ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"98
-[; ;application.c: 98: int main() {
+"105
+[; ;application.c: 105: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"99
-[; ;application.c: 99:     Std_ReturnType ret = (Std_ReturnType)0x00;
+"106
+[; ;application.c: 106:     Std_ReturnType ret = (Std_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 0 `i `uc ]
-"100
-[; ;application.c: 100:     app_intialize();
+"107
+[; ;application.c: 107:     app_intialize();
 [e ( _app_intialize ..  ]
-"102
-[; ;application.c: 102:     while(1){
-[e :U 297 ]
+"109
+[; ;application.c: 109:     while(1){
+[e :U 295 ]
 {
-"104
-[; ;application.c: 104:         ret = EUSART_ASYNC_WriteStringBlocking("AHMED\r");
-[e = _ret ( _EUSART_ASYNC_WriteStringBlocking (1 :s 1C ]
-"116
-[; ;application.c: 116:     }
+"113
+[; ;application.c: 113:         ret = SPI_WriteStringBlocking("AHMED\r");
+[e = _ret ( _SPI_WriteStringBlocking (1 :s 1C ]
+"125
+[; ;application.c: 125:     }
 }
+[e :U 294 ]
+[e $U 295  ]
 [e :U 296 ]
-[e $U 297  ]
-[e :U 298 ]
-"117
-[; ;application.c: 117:     return (0);
+"126
+[; ;application.c: 126:     return (0);
 [e ) -> 0 `i ]
-[e $UE 295  ]
-"118
-[; ;application.c: 118: }
-[e :UE 295 ]
+[e $UE 293  ]
+"127
+[; ;application.c: 127: }
+[e :UE 293 ]
 }
-"120
-[; ;application.c: 120: void app_intialize(void){
+"129
+[; ;application.c: 129: void app_intialize(void){
 [v _app_intialize `(v ~T0 @X0 1 ef ]
 {
 [e :U _app_intialize ]
 [f ]
-"121
-[; ;application.c: 121:     Std_ReturnType ret = (Std_ReturnType)0x00;
+"130
+[; ;application.c: 130:     Std_ReturnType ret = (Std_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 0 `i `uc ]
-"124
-[; ;application.c: 124:     ret = led_initialize(&led1);
+"133
+[; ;application.c: 133:     ret = led_initialize(&led1);
 [e = _ret ( _led_initialize (1 -> &U _led1 `*CS276 ]
-"131
-[; ;application.c: 131:     ret = EUSART_ASYNC_Init(&usart_obj);
-[e = _ret ( _EUSART_ASYNC_Init (1 -> &U _usart_obj `*CS293 ]
-"132
-[; ;application.c: 132: }
-[e :UE 299 ]
+"141
+[; ;application.c: 141:     ret = SPI_Init(&SPI_obj);
+[e = _ret ( _SPI_Init (1 -> &U _SPI_obj `*CS291 ]
+"142
+[; ;application.c: 142: }
+[e :UE 297 ]
 }
-"134
-[; ;application.c: 134: void timer0_interruptHundler(void){
+"144
+[; ;application.c: 144: void timer0_interruptHundler(void){
 [v _timer0_interruptHundler `(v ~T0 @X0 1 ef ]
 {
 [e :U _timer0_interruptHundler ]
 [f ]
-"135
-[; ;application.c: 135:     Timer1_Read_value(&timer1,&timer1_count);
+"145
+[; ;application.c: 145:     Timer1_Read_value(&timer1,&timer1_count);
 [e ( _Timer1_Read_value (2 , -> &U _timer1 `*CS279 -> &U _timer1_count `*us ]
-"136
-[; ;application.c: 136:     Timer1_Write_value(&timer1,0);
+"146
+[; ;application.c: 146:     Timer1_Write_value(&timer1,0);
 [e ( _Timer1_Write_value (2 , -> &U _timer1 `*CS279 -> -> 0 `i `us ]
-"137
-[; ;application.c: 137: }
-[e :UE 300 ]
+"147
+[; ;application.c: 147: }
+[e :UE 298 ]
 }
-"139
-[; ;application.c: 139: void timer1_interruptHundler(void){
+"149
+[; ;application.c: 149: void timer1_interruptHundler(void){
 [v _timer1_interruptHundler `(v ~T0 @X0 1 ef ]
 {
 [e :U _timer1_interruptHundler ]
 [f ]
-"140
-[; ;application.c: 140:     led_turn_toggle(&led1);
+"150
+[; ;application.c: 150:     led_turn_toggle(&led1);
 [e ( _led_turn_toggle (1 -> &U _led1 `*CS276 ]
-"141
-[; ;application.c: 141: }
-[e :UE 301 ]
+"151
+[; ;application.c: 151: }
+[e :UE 299 ]
 }
-"142
-[; ;application.c: 142: void timer2_interruptHundler(void){
+"152
+[; ;application.c: 152: void timer2_interruptHundler(void){
 [v _timer2_interruptHundler `(v ~T0 @X0 1 ef ]
 {
 [e :U _timer2_interruptHundler ]
 [f ]
-"143
-[; ;application.c: 143:     led_turn_toggle(&led1);
+"153
+[; ;application.c: 153:     led_turn_toggle(&led1);
 [e ( _led_turn_toggle (1 -> &U _led1 `*CS276 ]
-"144
-[; ;application.c: 144: }
-[e :UE 302 ]
+"154
+[; ;application.c: 154: }
+[e :UE 300 ]
 }
-"145
-[; ;application.c: 145: void timer3_interruptHundler(void){
+"155
+[; ;application.c: 155: void timer3_interruptHundler(void){
 [v _timer3_interruptHundler `(v ~T0 @X0 1 ef ]
 {
 [e :U _timer3_interruptHundler ]
 [f ]
-"146
-[; ;application.c: 146:     timer3_overflow++;
+"156
+[; ;application.c: 156:     timer3_overflow++;
 [e ++ _timer3_overflow -> -> 1 `i `Vul ]
-"147
-[; ;application.c: 147: }
-[e :UE 303 ]
+"157
+[; ;application.c: 157: }
+[e :UE 301 ]
 }
-"148
-[; ;application.c: 148: void CCP1_interruptHundler(void){
+"158
+[; ;application.c: 158: void CCP1_interruptHundler(void){
 [v _CCP1_interruptHundler `(v ~T0 @X0 1 ef ]
 {
 [e :U _CCP1_interruptHundler ]
 [f ]
-"149
-[; ;application.c: 149:     CCP1_Interrupt_flag++;
+"159
+[; ;application.c: 159:     CCP1_Interrupt_flag++;
 [e ++ _CCP1_Interrupt_flag -> -> 1 `i `Vuc ]
-"150
-[; ;application.c: 150:     CCP1_Interrupt_flag_2++;
-[e ++ _CCP1_Interrupt_flag_2 -> -> 1 `i `Vuc ]
-"151
-[; ;application.c: 151:     if(CCP1_Interrupt_flag == 1){
-[e $ ! == -> _CCP1_Interrupt_flag `i -> 1 `i 305  ]
-{
-"152
-[; ;application.c: 152:         Timer3_Write_value(&timer3,0);
-[e ( _Timer3_Write_value (2 , -> &U _timer3 `*CS282 -> -> 0 `i `us ]
-"153
-[; ;application.c: 153:         timer3_overflow = 0;
-[e = _timer3_overflow -> -> -> 0 `i `l `ul ]
-"154
-[; ;application.c: 154:     }
-}
-[e $U 306  ]
-"155
-[; ;application.c: 155:     else if(CCP1_Interrupt_flag == 2){
-[e :U 305 ]
-[e $ ! == -> _CCP1_Interrupt_flag `i -> 2 `i 307  ]
-{
-"157
-[; ;application.c: 157:         CCP1_Interrupt_flag = 0;
-[e = _CCP1_Interrupt_flag -> -> 0 `i `uc ]
-"158
-[; ;application.c: 158:         CCP1_Capture_Mode_Read_Value(&ccp1_capature_value);
-[e ( _CCP1_Capture_Mode_Read_Value (1 -> &U _ccp1_capature_value `*us ]
 "160
-[; ;application.c: 160:     }
-}
-[e :U 307 ]
-[e :U 306 ]
+[; ;application.c: 160:     CCP1_Interrupt_flag_2++;
+[e ++ _CCP1_Interrupt_flag_2 -> -> 1 `i `Vuc ]
 "161
-[; ;application.c: 161: }
-[e :UE 304 ]
-}
+[; ;application.c: 161:     if(CCP1_Interrupt_flag == 1){
+[e $ ! == -> _CCP1_Interrupt_flag `i -> 1 `i 303  ]
+{
+"162
+[; ;application.c: 162:         Timer3_Write_value(&timer3,0);
+[e ( _Timer3_Write_value (2 , -> &U _timer3 `*CS282 -> -> 0 `i `us ]
 "163
-[; ;application.c: 163: void EUSART_Tx_InterruptHandler(void){
+[; ;application.c: 163:         timer3_overflow = 0;
+[e = _timer3_overflow -> -> -> 0 `i `l `ul ]
+"164
+[; ;application.c: 164:     }
+}
+[e $U 304  ]
+"165
+[; ;application.c: 165:     else if(CCP1_Interrupt_flag == 2){
+[e :U 303 ]
+[e $ ! == -> _CCP1_Interrupt_flag `i -> 2 `i 305  ]
+{
+"167
+[; ;application.c: 167:         CCP1_Interrupt_flag = 0;
+[e = _CCP1_Interrupt_flag -> -> 0 `i `uc ]
+"168
+[; ;application.c: 168:         CCP1_Capture_Mode_Read_Value(&ccp1_capature_value);
+[e ( _CCP1_Capture_Mode_Read_Value (1 -> &U _ccp1_capature_value `*us ]
+"170
+[; ;application.c: 170:     }
+}
+[e :U 305 ]
+[e :U 304 ]
+"171
+[; ;application.c: 171: }
+[e :UE 302 ]
+}
+"173
+[; ;application.c: 173: void EUSART_Tx_InterruptHandler(void){
 [v _EUSART_Tx_InterruptHandler `(v ~T0 @X0 1 ef ]
 {
 [e :U _EUSART_Tx_InterruptHandler ]
 [f ]
-"164
-[; ;application.c: 164:     usart_tx_valid++;
+"174
+[; ;application.c: 174:     usart_tx_valid++;
 [e ++ _usart_tx_valid -> -> 1 `i `Vul ]
-"165
-[; ;application.c: 165: }
-[e :UE 308 ]
+"175
+[; ;application.c: 175: }
+[e :UE 306 ]
 }
-"166
-[; ;application.c: 166: void EUSART_Rx_InterruptHandler(void){
+"176
+[; ;application.c: 176: void EUSART_Rx_InterruptHandler(void){
 [v _EUSART_Rx_InterruptHandler `(v ~T0 @X0 1 ef ]
 {
 [e :U _EUSART_Rx_InterruptHandler ]
 [f ]
-"167
-[; ;application.c: 167:     usart_rx_valid++;
+"177
+[; ;application.c: 177:     usart_rx_valid++;
 [e ++ _usart_rx_valid -> -> 1 `i `Vul ]
-"168
-[; ;application.c: 168:     EUSART_ASYNC_ReadByteNonBlocking(&rec_uart_data);
+"178
+[; ;application.c: 178:     EUSART_ASYNC_ReadByteNonBlocking(&rec_uart_data);
 [e ( _EUSART_ASYNC_ReadByteNonBlocking (1 &U _rec_uart_data ]
-"169
-[; ;application.c: 169: }
-[e :UE 309 ]
+"179
+[; ;application.c: 179: }
+[e :UE 307 ]
 }
 [a 1C 65 72 77 69 68 13 0 ]

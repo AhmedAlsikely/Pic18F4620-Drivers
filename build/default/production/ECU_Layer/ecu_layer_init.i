@@ -5041,65 +5041,6 @@ Std_ReturnType CCP1_IsCaptureDataReady(uint8 *_capture_status);
 Std_ReturnType CCP1_Capture_Mode_Read_Value(uint16 *_capture_value);
 # 21 "ECU_Layer/ecu_layer_init.h" 2
 
-# 1 "ECU_Layer/../MCAL_Layer/CCP/CCP2/hal_cpp2.h" 1
-# 15 "ECU_Layer/../MCAL_Layer/CCP/CCP2/hal_cpp2.h"
-# 1 "ECU_Layer/../MCAL_Layer/CCP/CCP2/hal_cpp2_cfg.h" 1
-# 15 "ECU_Layer/../MCAL_Layer/CCP/CCP2/hal_cpp2.h" 2
-# 77 "ECU_Layer/../MCAL_Layer/CCP/CCP2/hal_cpp2.h"
-typedef enum{
-    CCP2_CAPTURE_MODE_SELECTED =0,
-    CCP2_COMPARE_MODE_SELECTED,
-    CCP2_PWM_MODE_SELECTED
-}ccp2_mode_t;
-
-
-
-
-
-typedef union{
-    struct{
-        uint8 ccpr2_low;
-        uint8 ccpr2_high;
-    };
-    uint16 ccpr2_16Bit;
-}CCP2_REG_T;
-
-
-typedef enum{
-    CCP2_CCP1_TIMER3 = 0,
-    CCP2_TIMER3_CCP1_TIMER1,
-    CCP2_CCP1_TIMER1
-}ccp2_capture_Compare_timer_t;
-
-
-typedef struct{
-    ccp2_mode_t ccp2_mode;
-    pin_config_t ccp2_pin;
-
-    void (* CCP2_InterruptHandler)(void);
-    interrupt_priority_cfg priority;
-
-
-    uint8 ccp2_mode_variant;
-    ccp2_capture_Compare_timer_t ccp2_capture_Compare_timer;
-
-
-
-
-
-
-
-}ccp2_t;
-
-
-
-Std_ReturnType CCP2_Init(const ccp2_t *_ccp);
-Std_ReturnType CCP2_DeInit(const ccp2_t *_ccp);
-
-
-Std_ReturnType CCP2_IsCaptureDataReady(uint8 *_capture_status);
-Std_ReturnType CCP2_Capture_Mode_Read_Value(uint16 *_capture_value);
-# 22 "ECU_Layer/ecu_layer_init.h" 2
 
 # 1 "ECU_Layer/../MCAL_Layer/USART/hal_usart.h" 1
 # 17 "ECU_Layer/../MCAL_Layer/USART/hal_usart.h"
@@ -5161,6 +5102,65 @@ Std_ReturnType EUSART_ASYNC_ReadByteNonBlocking(uint8 *_data);
 Std_ReturnType EUSART_ASYNC_WriteByteBlocking( uint8 _data);
 Std_ReturnType EUSART_ASYNC_WriteStringBlocking( uint8 *_data);
 # 23 "ECU_Layer/ecu_layer_init.h" 2
+
+# 1 "ECU_Layer/../MCAL_Layer/SPI/hal_SPI.h" 1
+# 59 "ECU_Layer/../MCAL_Layer/SPI/hal_SPI.h"
+typedef enum{
+    SPI_CLK_IDLE_LOW_TRANSMIT_FROM_IDLE_TO_ACTIVE = 0,
+    SPI_CLK_IDLE_LOW_TRANSMIT_FROM_ACTIVE_TO_IDLE,
+    SPI_CLK_IDLE_HIGH_TRANSMIT_FROM_IDLE_TO_ACTIVE,
+    SPI_CLK_IDLE_HIGH_TRANSMIT_FROM_ACTIVE_TO_IDLE
+}SPI_Transmit_data_mode_t;
+
+typedef enum{
+    SPI_CLOCK_IDLE_LOW_LEVEL_CFG = 0,
+    SPI_CLOCK_IDLE_HIGH_LEVEL_CFG
+}SPI_Clock_Polarity_t;
+
+typedef enum{
+    SPI_CLOCK_PHASE_TRANSMIT_AT_LEADING_EDGE = 0,
+    SPI_CLOCK_PHASE_TRANSMIT_AT_TRAILING_EDGE
+}SPI_Clock_Phase_t;
+
+typedef enum{
+    SPI_MASTER_SAMPLED_AT_MIDDLE_OF_DATA_OUTPUT_TIME = 0,
+    SPI_MASTER_SAMPLED_AT_END_OF_DATA_OUTPUT_TIME,
+}SPI_Master_Sampled_Mode_t;
+
+typedef enum{
+    SPI_MASTER_MODE_CLOCK_FOSC_DEV_4 = 0,
+    SPI_MASTER_MODE_CLOCK_FOSC_DEV_16,
+    SPI_MASTER_MODE_CLOCK_FOSC_DEV_64,
+    SPI_MASTER_MODE_CLOCK_TMR2_OUTPUT_DEV_2,
+}SPI_Master_Clock_Rate_t;
+
+typedef enum{
+    SPI_SLAVE_MODE_SS_ENABLED = 4,
+    SPI_SLAVE_MODE_SS_DISABLED_USED_AS_I_O_PIN = 5,
+}SPI_Slave_Mode_t;
+
+typedef enum{
+    SPI_MASTER_MODE = 0,
+    SPI_SLAVE_MODE
+}SPI_Mode_t;
+
+typedef struct{
+    SPI_Clock_Polarity_t clock_idle;
+    SPI_Clock_Phase_t clock_phase;
+    SPI_Master_Sampled_Mode_t sample_data;
+    SPI_Mode_t spi_mode;
+    SPI_Master_Clock_Rate_t master_clk_rate;
+    SPI_Slave_Mode_t slave_mode;
+}SPI_t;
+
+
+Std_ReturnType SPI_Init(const SPI_t *_spi);
+Std_ReturnType SPI_DeInit(const SPI_t *_spi);
+Std_ReturnType SPI_ReadByteBlocking(uint8 *_data);
+Std_ReturnType SPI_ReadByteNonBlocking(uint8 *_data);
+Std_ReturnType SPI_WriteByteBlocking( uint8 _data);
+Std_ReturnType SPI_WriteStringBlocking( uint8 *_data);
+# 24 "ECU_Layer/ecu_layer_init.h" 2
 # 8 "ECU_Layer/ecu_layer_init.c" 2
 
 chr_lcd_4bit_t lcd_1 = {

@@ -31,8 +31,6 @@
             <itemPath>MCAL_Layer/CCP/CCP1/hal_cpp1_cfg.h</itemPath>
           </logicalFolder>
           <logicalFolder name="CCP2" displayName="CCP2" projectFiles="true">
-            <itemPath>MCAL_Layer/CCP/CCP2/hal_cpp2.h</itemPath>
-            <itemPath>MCAL_Layer/CCP/CCP2/hal_cpp2_cfg.h</itemPath>
           </logicalFolder>
         </logicalFolder>
         <logicalFolder name="EEPROM" displayName="EEPROM" projectFiles="true">
@@ -48,6 +46,9 @@
           <itemPath>MCAL_Layer/Interrupt/mcal_internal_interrupt.h</itemPath>
           <itemPath>MCAL_Layer/Interrupt/mcal_external_interrupt.h</itemPath>
           <itemPath>MCAL_Layer/Interrupt/mcal_interrupt_manager.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="SPI" displayName="SPI" projectFiles="true">
+          <itemPath>MCAL_Layer/SPI/hal_SPI.h</itemPath>
         </logicalFolder>
         <logicalFolder name="Timer" displayName="Timer" projectFiles="true">
           <logicalFolder name="Timer0" displayName="Timer0" projectFiles="true">
@@ -105,7 +106,6 @@
             <itemPath>MCAL_Layer/CCP/CCP1/hal_ccp1.c</itemPath>
           </logicalFolder>
           <logicalFolder name="CCP2" displayName="CCP2" projectFiles="true">
-            <itemPath>MCAL_Layer/CCP/CCP2/hal_ccp2.c</itemPath>
           </logicalFolder>
         </logicalFolder>
         <logicalFolder name="EEPROM" displayName="EEPROM" projectFiles="true">
@@ -118,6 +118,9 @@
           <itemPath>MCAL_Layer/Interrupt/mcal_internal_interrupt.c</itemPath>
           <itemPath>MCAL_Layer/Interrupt/mcal_interrupt_manager.c</itemPath>
           <itemPath>MCAL_Layer/Interrupt/mcal_external_interrupt.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="SPI" displayName="SPI" projectFiles="true">
+          <itemPath>MCAL_Layer/SPI/hal_SPI.c</itemPath>
         </logicalFolder>
         <logicalFolder name="Timer" displayName="Timer" projectFiles="true">
           <logicalFolder name="Timer0" displayName="Timer0" projectFiles="true">

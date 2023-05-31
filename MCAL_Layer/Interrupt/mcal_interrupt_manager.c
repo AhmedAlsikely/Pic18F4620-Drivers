@@ -132,13 +132,13 @@ static void InterruptCheck(void){
     }
     else{/* Nothing */}
 #endif
-#if INTERRUPT_FEATURE_ENABLE == CCP2_INTERRUPT_FEATURE_ENABLE
-    /*------------------------------- CCP2 INTERRUPT ----------------------------------*/
-    if((INTERRUPT_ENABLE == PIE2bits.CCP2IE )&&(INTERRUPT_OCCUR == PIR2bits.CCP2IF )){
-        CCP2_ISR();
-    }
-    else{/* Nothing */}
-#endif
+//#if INTERRUPT_FEATURE_ENABLE == CCP2_INTERRUPT_FEATURE_ENABLE
+//    /*------------------------------- CCP2 INTERRUPT ----------------------------------*/
+//    if((INTERRUPT_ENABLE == PIE2bits.CCP2IE )&&(INTERRUPT_OCCUR == PIR2bits.CCP2IF )){
+//        CCP2_ISR();
+//    }
+//    else{/* Nothing */}
+//#endif
 #if INTERRUPT_FEATURE_ENABLE == EUSART_TX_INTERRUPT_FEATURE_ENABLE
     /*------------------------------- EUSART_TX INTERRUPT ----------------------------------*/
     if((INTERRUPT_ENABLE == PIE1bits.TXIE )&&(INTERRUPT_OCCUR == PIR1bits.TXIF )){

@@ -19,8 +19,9 @@
 #include "../MCAL_Layer/Timer/Timer2/hal_timer2.h"
 #include "../MCAL_Layer/Timer/Timer3/hal_timer3.h"
 #include "../MCAL_Layer/CCP/CCP1/hal_cpp1.h"
-#include "../MCAL_Layer/CCP/CCP2/hal_cpp2.h"
+//#include "../MCAL_Layer/CCP/CCP2/hal_cpp2.h"
 #include "../MCAL_Layer/USART/hal_usart.h"
+#include "../MCAL_Layer/SPI/hal_SPI.h"
 
 /* Section : Macro Declarations */
 

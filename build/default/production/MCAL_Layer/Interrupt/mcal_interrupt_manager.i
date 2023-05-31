@@ -4807,7 +4807,7 @@ void TMR3_ISR(void);
 void CCP1_ISR(void);
 
 
-void CCP2_ISR(void);
+
 
 
 void EUSART_TX_ISR(void);
@@ -4934,16 +4934,7 @@ static void InterruptCheck(void){
         CCP1_ISR();
     }
     else{ }
-
-
-
-    if((1 == PIE2bits.CCP2IE )&&(1 == PIR2bits.CCP2IF )){
-        CCP2_ISR();
-    }
-    else{ }
-
-
-
+# 144 "MCAL_Layer/Interrupt/mcal_interrupt_manager.c"
     if((1 == PIE1bits.TXIE )&&(1 == PIR1bits.TXIF )){
         EUSART_TX_ISR();
     }
