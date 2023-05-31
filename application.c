@@ -1,7 +1,7 @@
 #include "application.h"
 #include "ECU_Layer/7_segement/ecu_7_segement.h"
 #include "MCAL_Layer/Timer/Timer2/hal_timer2.h"
-led_t led1 = {.port_name = PORTC_INDEX, .pin = PIN4, .led_status = GPIO_LOW};
+led_t led1 = {.port_name = PORTD_INDEX, .pin = PIN0, .led_status = GPIO_LOW};
 led_t led2 = {.port_name = PORTC_INDEX, .pin = PIN7, .led_status = GPIO_LOW};
 
 volatile uint8 timer0_count = 0;
@@ -92,12 +92,16 @@ usart_t usart_obj = {
     .usart_rx_cfg.usart_rx_priority = INTERRUPT_LOW_PRIORITY,
 };
 
-SPI_t SPI_obj={
-  .spi_mode = SPI_MASTER_MODE,
+SPI_Master_t SPI_Master_obj={
   .clock_idle = SPI_CLOCK_IDLE_LOW_LEVEL_CFG,
   .clock_phase = SPI_CLOCK_PHASE_TRANSMIT_AT_LEADING_EDGE,
   .master_clk_rate = SPI_MASTER_MODE_CLOCK_FOSC_DEV_4,
   .sample_data = SPI_MASTER_SAMPLED_AT_MIDDLE_OF_DATA_OUTPUT_TIME,
+};
+SPI_Slave_t SPI_Slave_obj={
+  .clock_idle = SPI_CLOCK_IDLE_LOW_LEVEL_CFG,
+  .clock_phase = SPI_CLOCK_PHASE_TRANSMIT_AT_LEADING_EDGE,
+  .slave_mode = SPI_SLAVE_MODE_SS_ENABLED,
 };
 uint8 rec_uart_data;
 void app_intialize(void);
@@ -107,20 +111,22 @@ int main() {
     app_intialize();
 
     while(1){
-        
+        //        ret = EUSART_ASYNC_ReadByteNonBlocking(&rec_uart_data);
+
         //ret = EUSART_ASYNC_WriteStringBlocking("AHMED\r");
         //ret = SPI_WriteByteBlocking('A');
-        ret = SPI_WriteStringBlocking("AHMED\r");
-//        ret = EUSART_ASYNC_ReadByteNonBlocking(&rec_uart_data);
-//        if(E_OK){
-//            if('a' == rec_uart_data){
-//                led_turn_on(&led1);
-//            }else if('b' ==rec_uart_data){
-//                led_turn_off(&led1);
-//            }else{
-//                
-//            }
-//        }
+        //ret = SPI_WriteByte_NotBlocking('A');
+        //ret = SPI_WriteStringNotBlocking("AHMED\r");
+       // __delay_ms(1000);
+        
+        //ret = SPI_WriteStringBlocking("AHMED\r");
+        ret = SPI_ReadByteNonBlocking(&rec_uart_data);
+        if(E_OK){
+            if('A' == rec_uart_data){
+                led_turn_toggle(&led1);
+                __delay_ms(100);
+            }
+        }
         
     }
     return (0);
@@ -138,7 +144,8 @@ void app_intialize(void){
     //ret = Timer3_Init(&timer3);
     //ret = CCP1_Init(&ccp1_obj);
    // ret = EUSART_ASYNC_Init(&usart_obj);
-    ret = SPI_Init(&SPI_obj);
+    //ret = SPI_Init_Master(&SPI_Master_obj);
+    ret = SPI_Init_Slave(&SPI_Slave_obj);
 }
 
 void timer0_interruptHundler(void){

@@ -5139,27 +5139,33 @@ typedef enum{
     SPI_SLAVE_MODE_SS_DISABLED_USED_AS_I_O_PIN = 5,
 }SPI_Slave_Mode_t;
 
-typedef enum{
-    SPI_MASTER_MODE = 0,
-    SPI_SLAVE_MODE
-}SPI_Mode_t;
-
 typedef struct{
     SPI_Clock_Polarity_t clock_idle;
     SPI_Clock_Phase_t clock_phase;
     SPI_Master_Sampled_Mode_t sample_data;
-    SPI_Mode_t spi_mode;
     SPI_Master_Clock_Rate_t master_clk_rate;
+}SPI_Master_t;
+
+typedef struct{
+    SPI_Clock_Polarity_t clock_idle;
+    SPI_Clock_Phase_t clock_phase;
     SPI_Slave_Mode_t slave_mode;
-}SPI_t;
+}SPI_Slave_t;
 
 
-Std_ReturnType SPI_Init(const SPI_t *_spi);
-Std_ReturnType SPI_DeInit(const SPI_t *_spi);
+Std_ReturnType SPI_Init_Master(const SPI_Master_t *_spi);
+Std_ReturnType SPI_Init_Slave(const SPI_Slave_t *_spi);
+
+Std_ReturnType SPI_DeInit_Master(const SPI_Master_t *_spi);
+Std_ReturnType SPI_DeInit_Slave(const SPI_Slave_t *_spi);
+
 Std_ReturnType SPI_ReadByteBlocking(uint8 *_data);
 Std_ReturnType SPI_ReadByteNonBlocking(uint8 *_data);
+
 Std_ReturnType SPI_WriteByteBlocking( uint8 _data);
+Std_ReturnType SPI_WriteByte_NotBlocking( uint8 _data);
 Std_ReturnType SPI_WriteStringBlocking( uint8 *_data);
+Std_ReturnType SPI_WriteStringNotBlocking( uint8 *_data);
 # 24 "ECU_Layer/ecu_layer_init.h" 2
 # 8 "ECU_Layer/ecu_layer_init.c" 2
 

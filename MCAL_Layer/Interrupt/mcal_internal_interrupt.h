@@ -165,7 +165,23 @@
 #endif
 #endif
 /*------------------------------------------------------------------------*/
+/*-----------------------------SPI Module------------------------------*/
+#if INTERRUPT_FEATURE_ENABLE == MSSP_SPI_INTERRUPT_FEATURE_ENABLE  
+/* This routine Sets the interrupt enable for the MSSP_SPI Module */
+#define MSSP_SPI_InterruptEnable()       (PIE1bits.SSPIE = 1)
+/* This routine clears the interrupt enable for the MSSP_SPI Module */
+#define MSSP_SPI_InterruptDisable()      (PIE1bits.SSPIE = 0)
+/* This routine clears the interrupt Flag for the MSSP_SPI Module */
+#define MSSP_SPI_InterruptFlagClear()    (PIR1bits.SSPIF = 0)
 
+#if INTERRUPT_PRIORITY_LEVELS_ENABLE == INTERRUPT_FEATURE_ENABLE
+/* This routine Sets the MSSP_SPI Interrupt Priority to be High Priority, MSSP_SPI. */
+#define MSSP_SPI_HighPrioritySet()       (IPR1bits.SSPIP = 1)
+/* This routine Sets the MSSP_SPI Interrupt Priority to be Low Priority, MSSP_SPI. */
+#define MSSP_SPI_LowPrioritySet()        (IPR1bits.SSPIP = 0)
+#endif
+#endif
+/*------------------------------------------------------------------------*/
 /* Section : Data Type Declarations */
 
 /* Section : Functions Declarations */

@@ -5134,27 +5134,33 @@ typedef enum{
     SPI_SLAVE_MODE_SS_DISABLED_USED_AS_I_O_PIN = 5,
 }SPI_Slave_Mode_t;
 
-typedef enum{
-    SPI_MASTER_MODE = 0,
-    SPI_SLAVE_MODE
-}SPI_Mode_t;
-
 typedef struct{
     SPI_Clock_Polarity_t clock_idle;
     SPI_Clock_Phase_t clock_phase;
     SPI_Master_Sampled_Mode_t sample_data;
-    SPI_Mode_t spi_mode;
     SPI_Master_Clock_Rate_t master_clk_rate;
+}SPI_Master_t;
+
+typedef struct{
+    SPI_Clock_Polarity_t clock_idle;
+    SPI_Clock_Phase_t clock_phase;
     SPI_Slave_Mode_t slave_mode;
-}SPI_t;
+}SPI_Slave_t;
 
 
-Std_ReturnType SPI_Init(const SPI_t *_spi);
-Std_ReturnType SPI_DeInit(const SPI_t *_spi);
+Std_ReturnType SPI_Init_Master(const SPI_Master_t *_spi);
+Std_ReturnType SPI_Init_Slave(const SPI_Slave_t *_spi);
+
+Std_ReturnType SPI_DeInit_Master(const SPI_Master_t *_spi);
+Std_ReturnType SPI_DeInit_Slave(const SPI_Slave_t *_spi);
+
 Std_ReturnType SPI_ReadByteBlocking(uint8 *_data);
 Std_ReturnType SPI_ReadByteNonBlocking(uint8 *_data);
+
 Std_ReturnType SPI_WriteByteBlocking( uint8 _data);
+Std_ReturnType SPI_WriteByte_NotBlocking( uint8 _data);
 Std_ReturnType SPI_WriteStringBlocking( uint8 *_data);
+Std_ReturnType SPI_WriteStringNotBlocking( uint8 *_data);
 # 24 "./ECU_Layer/ecu_layer_init.h" 2
 # 14 "./application.h" 2
 
@@ -5256,7 +5262,7 @@ Std_ReturnType ADC_Start_Conversion_Intterrupt(const adc_conf_t *_adc,adc_channe
 
 
 
-led_t led1 = {.port_name = PORTC_INDEX, .pin = PIN4, .led_status = GPIO_LOW};
+led_t led1 = {.port_name = PORTD_INDEX, .pin = PIN0, .led_status = GPIO_LOW};
 led_t led2 = {.port_name = PORTC_INDEX, .pin = PIN7, .led_status = GPIO_LOW};
 
 volatile uint8 timer0_count = 0;
@@ -5347,12 +5353,16 @@ usart_t usart_obj = {
     .usart_rx_cfg.usart_rx_priority = INTERRUPT_LOW_PRIORITY,
 };
 
-SPI_t SPI_obj={
-  .spi_mode = SPI_MASTER_MODE,
+SPI_Master_t SPI_Master_obj={
   .clock_idle = SPI_CLOCK_IDLE_LOW_LEVEL_CFG,
   .clock_phase = SPI_CLOCK_PHASE_TRANSMIT_AT_LEADING_EDGE,
   .master_clk_rate = SPI_MASTER_MODE_CLOCK_FOSC_DEV_4,
   .sample_data = SPI_MASTER_SAMPLED_AT_MIDDLE_OF_DATA_OUTPUT_TIME,
+};
+SPI_Slave_t SPI_Slave_obj={
+  .clock_idle = SPI_CLOCK_IDLE_LOW_LEVEL_CFG,
+  .clock_phase = SPI_CLOCK_PHASE_TRANSMIT_AT_LEADING_EDGE,
+  .slave_mode = SPI_SLAVE_MODE_SS_ENABLED,
 };
 uint8 rec_uart_data;
 void app_intialize(void);
@@ -5362,11 +5372,15 @@ int main() {
     app_intialize();
 
     while(1){
+# 123 "application.c"
+        ret = SPI_ReadByteNonBlocking(&rec_uart_data);
+        if((Std_ReturnType)0x01){
+            if('A' == rec_uart_data){
+                led_turn_toggle(&led1);
+                _delay((unsigned long)((100)*(8000000UL/4000.0)));
+            }
+        }
 
-
-
-        ret = SPI_WriteStringBlocking("AHMED\r");
-# 125 "application.c"
     }
     return (0);
 }
@@ -5376,14 +5390,8 @@ void app_intialize(void){
 
 
     ret = led_initialize(&led1);
-
-
-
-
-
-
-
-    ret = SPI_Init(&SPI_obj);
+# 148 "application.c"
+    ret = SPI_Init_Slave(&SPI_Slave_obj);
 }
 
 void timer0_interruptHundler(void){

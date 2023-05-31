@@ -152,5 +152,12 @@ static void InterruptCheck(void){
         EUSART_RX_ISR();
     }
     else{/* Nothing */}
+#endif 
+#if INTERRUPT_FEATURE_ENABLE == MSSP_SPI_INTERRUPT_FEATURE_ENABLE
+    /*------------------------------- MSSP_SPI INTERRUPT ----------------------------------*/
+    if((INTERRUPT_ENABLE == PIE1bits.SSPIE )&&(INTERRUPT_OCCUR == PIR1bits.SSPIF )){
+        SPI_ISR();
+    }
+    else{/* Nothing */}    
 #endif       
 }
