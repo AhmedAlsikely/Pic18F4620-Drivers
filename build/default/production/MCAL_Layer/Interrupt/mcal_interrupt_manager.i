@@ -4814,9 +4814,6 @@ void EUSART_TX_ISR(void);
 
 
 void EUSART_RX_ISR(void);
-
-
-void SPI_ISR(void);
 # 8 "MCAL_Layer/Interrupt/mcal_interrupt_manager.c" 2
 
 
@@ -4949,12 +4946,5 @@ static void InterruptCheck(void){
         EUSART_RX_ISR();
     }
     else{ }
-
-
-
-    if((1 == PIE1bits.SSPIE )&&(1 == PIR1bits.SSPIF )){
-        SPI_ISR();
-    }
-    else{ }
-
+# 163 "MCAL_Layer/Interrupt/mcal_interrupt_manager.c"
 }

@@ -5135,6 +5135,10 @@ typedef enum{
 }SPI_Slave_Mode_t;
 
 typedef struct{
+
+
+
+
     SPI_Clock_Polarity_t clock_idle;
     SPI_Clock_Phase_t clock_phase;
     SPI_Master_Sampled_Mode_t sample_data;
@@ -5142,6 +5146,10 @@ typedef struct{
 }SPI_Master_t;
 
 typedef struct{
+
+
+
+
     SPI_Clock_Polarity_t clock_idle;
     SPI_Clock_Phase_t clock_phase;
     SPI_Slave_Mode_t slave_mode;
@@ -5372,15 +5380,16 @@ int main() {
     app_intialize();
 
     while(1){
-# 123 "application.c"
-        ret = SPI_ReadByteNonBlocking(&rec_uart_data);
-        if((Std_ReturnType)0x01){
-            if('A' == rec_uart_data){
-                led_turn_toggle(&led1);
-                _delay((unsigned long)((100)*(8000000UL/4000.0)));
-            }
-        }
 
+
+
+        ret = SPI_WriteByteBlocking('A');
+
+
+        _delay((unsigned long)((5000)*(8000000UL/4000.0)));
+        ret = SPI_WriteByteBlocking('B');
+        _delay((unsigned long)((5000)*(8000000UL/4000.0)));
+# 132 "application.c"
     }
     return (0);
 }
@@ -5390,8 +5399,15 @@ void app_intialize(void){
 
 
     ret = led_initialize(&led1);
-# 148 "application.c"
-    ret = SPI_Init_Slave(&SPI_Slave_obj);
+
+
+
+
+
+
+
+    ret = SPI_Init_Master(&SPI_Master_obj);
+
 }
 
 void timer0_interruptHundler(void){

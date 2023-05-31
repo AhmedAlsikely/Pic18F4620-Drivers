@@ -114,19 +114,20 @@ int main() {
         //        ret = EUSART_ASYNC_ReadByteNonBlocking(&rec_uart_data);
 
         //ret = EUSART_ASYNC_WriteStringBlocking("AHMED\r");
-        //ret = SPI_WriteByteBlocking('A');
+        ret = SPI_WriteByteBlocking('A');
         //ret = SPI_WriteByte_NotBlocking('A');
         //ret = SPI_WriteStringNotBlocking("AHMED\r");
-       // __delay_ms(1000);
-        
+        __delay_ms(5000);
+        ret = SPI_WriteByteBlocking('B');
+        __delay_ms(5000);
         //ret = SPI_WriteStringBlocking("AHMED\r");
-        ret = SPI_ReadByteNonBlocking(&rec_uart_data);
-        if(E_OK){
-            if('A' == rec_uart_data){
-                led_turn_toggle(&led1);
-                __delay_ms(100);
-            }
-        }
+//        ret = SPI_ReadByteNonBlocking(&rec_uart_data);
+//        if(E_OK){
+//            if('A' == rec_uart_data){
+//                led_turn_toggle(&led1);
+//                __delay_ms(100);
+//            }
+//        }
         
     }
     return (0);
@@ -144,8 +145,8 @@ void app_intialize(void){
     //ret = Timer3_Init(&timer3);
     //ret = CCP1_Init(&ccp1_obj);
    // ret = EUSART_ASYNC_Init(&usart_obj);
-    //ret = SPI_Init_Master(&SPI_Master_obj);
-    ret = SPI_Init_Slave(&SPI_Slave_obj);
+    ret = SPI_Init_Master(&SPI_Master_obj);
+    //ret = SPI_Init_Slave(&SPI_Slave_obj);
 }
 
 void timer0_interruptHundler(void){

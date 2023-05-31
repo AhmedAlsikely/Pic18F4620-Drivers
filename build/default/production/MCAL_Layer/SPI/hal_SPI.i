@@ -4816,6 +4816,10 @@ typedef enum{
 }SPI_Slave_Mode_t;
 
 typedef struct{
+
+
+
+
     SPI_Clock_Polarity_t clock_idle;
     SPI_Clock_Phase_t clock_phase;
     SPI_Master_Sampled_Mode_t sample_data;
@@ -4823,6 +4827,10 @@ typedef struct{
 }SPI_Master_t;
 
 typedef struct{
+
+
+
+
     SPI_Clock_Polarity_t clock_idle;
     SPI_Clock_Phase_t clock_phase;
     SPI_Slave_Mode_t slave_mode;
@@ -4843,13 +4851,7 @@ Std_ReturnType SPI_WriteByte_NotBlocking( uint8 _data);
 Std_ReturnType SPI_WriteStringBlocking( uint8 *_data);
 Std_ReturnType SPI_WriteStringNotBlocking( uint8 *_data);
 # 8 "MCAL_Layer/SPI/hal_SPI.c" 2
-
-
-
-static void(* SPI_InterruotHandler)(void) = ((void*)0);
-
-
-
+# 20 "MCAL_Layer/SPI/hal_SPI.c"
 Std_ReturnType SPI_Init_Master(const SPI_Master_t *_spi){
     Std_ReturnType ret = (Std_ReturnType)0x00;
     if(((void*)0) == _spi){
@@ -4863,6 +4865,10 @@ Std_ReturnType SPI_Init_Master(const SPI_Master_t *_spi){
         TRISCbits.RC3 = 0;
         TRISAbits.RA5 = 0;
         TRISCbits.RC5 = 0;
+
+
+
+
 
         (SSPCON1bits.CKP = _spi->clock_idle);
 
@@ -4879,6 +4885,10 @@ Std_ReturnType SPI_Init_Master(const SPI_Master_t *_spi){
 }
 
 
+
+
+
+
 Std_ReturnType SPI_Init_Slave(const SPI_Slave_t *_spi){
     Std_ReturnType ret = (Std_ReturnType)0x00;
     if(((void*)0) == _spi){
@@ -4893,6 +4903,10 @@ Std_ReturnType SPI_Init_Slave(const SPI_Slave_t *_spi){
         TRISAbits.RA5 = 1;
         TRISCbits.RC5 = 0;
 
+
+
+
+
         (SSPCON1bits.CKP = _spi->clock_idle);
 
         (SSPSTATbits.CKE = _spi->clock_phase);
@@ -4906,6 +4920,11 @@ Std_ReturnType SPI_Init_Slave(const SPI_Slave_t *_spi){
     }
     return ret;
 }
+
+
+
+
+
 Std_ReturnType SPI_DeInit_Master(const SPI_Master_t *_spi){
     Std_ReturnType ret = (Std_ReturnType)0x00;
     if(((void*)0) == _spi){
@@ -4914,10 +4933,18 @@ Std_ReturnType SPI_DeInit_Master(const SPI_Master_t *_spi){
     else{
 
         (SSPCON1bits.SSPEN = 1);
+
+
+
+
         ret = (Std_ReturnType)0x01;
     }
     return ret;
 }
+
+
+
+
 
 Std_ReturnType SPI_DeInit_Slave(const SPI_Slave_t *_spi){
     Std_ReturnType ret = (Std_ReturnType)0x00;
@@ -4927,10 +4954,18 @@ Std_ReturnType SPI_DeInit_Slave(const SPI_Slave_t *_spi){
     else{
 
         (SSPCON1bits.SSPEN = 1);
+
+
+
+
         ret = (Std_ReturnType)0x01;
     }
     return ret;
 }
+
+
+
+
 
 Std_ReturnType SPI_ReadByteBlocking(uint8 *_data){
     Std_ReturnType ret = (Std_ReturnType)0x00;
@@ -4946,6 +4981,10 @@ Std_ReturnType SPI_ReadByteBlocking(uint8 *_data){
     return ret;
 }
 
+
+
+
+
 Std_ReturnType SPI_ReadByteNonBlocking(uint8 *_data){
     Std_ReturnType ret = (Std_ReturnType)0x00;
     if(((void*)0) == _data){
@@ -4955,30 +4994,47 @@ Std_ReturnType SPI_ReadByteNonBlocking(uint8 *_data){
         if(PIR1bits.SSPIF)
         {
             *_data = SSPBUF;
-            (PIR1bits.SSPIF = 0);
+            PIR1bits.SSPIF = 0;
             ret = (Std_ReturnType)0x01;
         }else{
-        ret = (Std_ReturnType)0x01;
+        ret = (Std_ReturnType)0x00;
         }
     }
     return ret;
 }
 
+
+
+
+
 Std_ReturnType SPI_WriteByteBlocking( uint8 _data){
     Std_ReturnType ret = (Std_ReturnType)0x00;
+    uint8 buff_removed = 0;
     SSPBUF = _data;
     while(!SSPSTATbits.BF);
+    PIR1bits.SSPIF = 0;
+    buff_removed = SSPBUF;
     ret = (Std_ReturnType)0x01;
 }
+
+
+
+
+
 Std_ReturnType SPI_WriteByte_NotBlocking( uint8 _data){
     Std_ReturnType ret = (Std_ReturnType)0x00;
 
     if(1 == SSPSTATbits.BF || PIR1bits.SSPIF == 0){
-        (PIR1bits.SSPIF = 0);
+        PIR1bits.SSPIF = 0;
         SSPBUF = _data;
     }
     ret = (Std_ReturnType)0x01;
 }
+
+
+
+
+
 
 Std_ReturnType SPI_WriteStringBlocking( uint8 *_data){
     Std_ReturnType ret = (Std_ReturnType)0x00;
@@ -4995,6 +5051,11 @@ Std_ReturnType SPI_WriteStringBlocking( uint8 *_data){
     return ret;
 }
 
+
+
+
+
+
 Std_ReturnType SPI_WriteStringNotBlocking( uint8 *_data){
     Std_ReturnType ret = (Std_ReturnType)0x00;
     if(((void*)0) == _data){
@@ -5008,12 +5069,4 @@ Std_ReturnType SPI_WriteStringNotBlocking( uint8 *_data){
         ret = (Std_ReturnType)0x01;
     }
     return ret;
-}
-
-
-void SPI_ISR(void){
-
-    if(SPI_InterruotHandler){
-        SPI_InterruotHandler();
-    }
 }

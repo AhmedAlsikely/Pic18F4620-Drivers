@@ -91,6 +91,10 @@ typedef enum{
 }SPI_Slave_Mode_t;
 
 typedef struct{
+#if INTERRUPT_FEATURE_ENABLE == MSSP_SPI_INTERRUPT_FEATURE_ENABLE  
+     void (* SPI_DefailtInterruptHandler)(void);
+     interrupt_priority_cfg SPI_priority ;
+#endif
     SPI_Clock_Polarity_t clock_idle;
     SPI_Clock_Phase_t clock_phase;
     SPI_Master_Sampled_Mode_t sample_data;
@@ -98,6 +102,10 @@ typedef struct{
 }SPI_Master_t;
 
 typedef struct{
+#if INTERRUPT_FEATURE_ENABLE == MSSP_SPI_INTERRUPT_FEATURE_ENABLE  
+     void (* SPI_DefailtInterruptHandler)(void);
+     interrupt_priority_cfg SPI_priority ;
+#endif
     SPI_Clock_Polarity_t clock_idle;
     SPI_Clock_Phase_t clock_phase;
     SPI_Slave_Mode_t slave_mode;
