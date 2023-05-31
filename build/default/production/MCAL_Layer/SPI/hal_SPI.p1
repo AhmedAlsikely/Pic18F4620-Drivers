@@ -1,17 +1,17 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "20 MCAL_Layer/SPI/hal_SPI.c
 [; ;MCAL_Layer/SPI/hal_SPI.c: 20: Std_ReturnType SPI_Init_Master(const SPI_Master_t *_spi){
-[c E3038 0 1 .. ]
-[n E3038 . SPI_CLOCK_IDLE_LOW_LEVEL_CFG SPI_CLOCK_IDLE_HIGH_LEVEL_CFG  ]
-[c E3042 0 1 .. ]
-[n E3042 . SPI_CLOCK_PHASE_TRANSMIT_AT_LEADING_EDGE SPI_CLOCK_PHASE_TRANSMIT_AT_TRAILING_EDGE  ]
-[c E3046 0 1 .. ]
-[n E3046 . SPI_MASTER_SAMPLED_AT_MIDDLE_OF_DATA_OUTPUT_TIME SPI_MASTER_SAMPLED_AT_END_OF_DATA_OUTPUT_TIME  ]
-[c E3050 0 1 2 3 .. ]
-[n E3050 . SPI_MASTER_MODE_CLOCK_FOSC_DEV_4 SPI_MASTER_MODE_CLOCK_FOSC_DEV_16 SPI_MASTER_MODE_CLOCK_FOSC_DEV_64 SPI_MASTER_MODE_CLOCK_TMR2_OUTPUT_DEV_2  ]
+[c E3032 0 1 .. ]
+[n E3032 . SPI_CLOCK_IDLE_LOW_LEVEL_CFG SPI_CLOCK_IDLE_HIGH_LEVEL_CFG  ]
+[c E3036 0 1 .. ]
+[n E3036 . SPI_CLOCK_PHASE_TRANSMIT_AT_LEADING_EDGE SPI_CLOCK_PHASE_TRANSMIT_AT_TRAILING_EDGE  ]
+[c E3040 0 1 .. ]
+[n E3040 . SPI_MASTER_SAMPLED_AT_MIDDLE_OF_DATA_OUTPUT_TIME SPI_MASTER_SAMPLED_AT_END_OF_DATA_OUTPUT_TIME  ]
+[c E3044 0 1 2 3 .. ]
+[n E3044 . SPI_MASTER_MODE_CLOCK_FOSC_DEV_4 SPI_MASTER_MODE_CLOCK_FOSC_DEV_16 SPI_MASTER_MODE_CLOCK_FOSC_DEV_64 SPI_MASTER_MODE_CLOCK_TMR2_OUTPUT_DEV_2  ]
 "93 MCAL_Layer/SPI/hal_SPI.h
 [; ;MCAL_Layer/SPI/hal_SPI.h: 93: typedef struct{
-[s S274 `E3038 1 `E3042 1 `E3046 1 `E3050 1 ]
+[s S274 `E3032 1 `E3036 1 `E3040 1 `E3044 1 ]
 [n S274 . clock_idle clock_phase sample_data master_clk_rate ]
 "4738 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 4738:     struct {
@@ -115,11 +115,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _SSPSTATbits `VS187 ~T0 @X0 0 e@4039 ]
 "57 MCAL_Layer/SPI/hal_SPI.c
 [; ;MCAL_Layer/SPI/hal_SPI.c: 57: Std_ReturnType SPI_Init_Slave(const SPI_Slave_t *_spi){
-[c E3056 4 5 .. ]
-[n E3056 . SPI_SLAVE_MODE_SS_ENABLED SPI_SLAVE_MODE_SS_DISABLED_USED_AS_I_O_PIN  ]
+[c E3050 4 5 .. ]
+[n E3050 . SPI_SLAVE_MODE_SS_ENABLED SPI_SLAVE_MODE_SS_DISABLED_USED_AS_I_O_PIN  ]
 "104 MCAL_Layer/SPI/hal_SPI.h
 [; ;MCAL_Layer/SPI/hal_SPI.h: 104: typedef struct{
-[s S275 `E3038 1 `E3042 1 `E3056 1 ]
+[s S275 `E3032 1 `E3036 1 `E3050 1 ]
 [n S275 . clock_idle clock_phase slave_mode ]
 "5030 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 5030: extern volatile unsigned char SSPBUF __attribute__((address(0xFC9)));

@@ -5104,14 +5104,7 @@ Std_ReturnType EUSART_ASYNC_WriteStringBlocking( uint8 *_data);
 # 23 "ECU_Layer/ecu_layer_init.h" 2
 
 # 1 "ECU_Layer/../MCAL_Layer/SPI/hal_SPI.h" 1
-# 59 "ECU_Layer/../MCAL_Layer/SPI/hal_SPI.h"
-typedef enum{
-    SPI_CLK_IDLE_LOW_TRANSMIT_FROM_IDLE_TO_ACTIVE = 0,
-    SPI_CLK_IDLE_LOW_TRANSMIT_FROM_ACTIVE_TO_IDLE,
-    SPI_CLK_IDLE_HIGH_TRANSMIT_FROM_IDLE_TO_ACTIVE,
-    SPI_CLK_IDLE_HIGH_TRANSMIT_FROM_ACTIVE_TO_IDLE
-}SPI_Transmit_data_mode_t;
-
+# 66 "ECU_Layer/../MCAL_Layer/SPI/hal_SPI.h"
 typedef enum{
     SPI_CLOCK_IDLE_LOW_LEVEL_CFG = 0,
     SPI_CLOCK_IDLE_HIGH_LEVEL_CFG
