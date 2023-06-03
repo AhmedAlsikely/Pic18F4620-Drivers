@@ -40,6 +40,9 @@
           <itemPath>MCAL_Layer/GPIO/hal_gpio.h</itemPath>
           <itemPath>MCAL_Layer/GPIO/hal_gpio_cfg.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="I2C" displayName="I2C" projectFiles="true">
+          <itemPath>MCAL_Layer/I2C/hal_i2c.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="Interrupt" displayName="Interrupt" projectFiles="true">
           <itemPath>MCAL_Layer/Interrupt/mcal_interrupt_gen_cfg.h</itemPath>
           <itemPath>MCAL_Layer/Interrupt/mcal_interrupt_config.h</itemPath>
@@ -113,6 +116,9 @@
         </logicalFolder>
         <logicalFolder name="GPIO" displayName="GPIO" projectFiles="true">
           <itemPath>MCAL_Layer/GPIO/hal_gpio.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="I2C" displayName="I2C" projectFiles="true">
+          <itemPath>MCAL_Layer/I2C/hal_i2c.c</itemPath>
         </logicalFolder>
         <logicalFolder name="Interrupt" displayName="Interrupt" projectFiles="true">
           <itemPath>MCAL_Layer/Interrupt/mcal_internal_interrupt.c</itemPath>

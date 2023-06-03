@@ -238,7 +238,7 @@ Std_ReturnType SPI_WriteStringNotBlocking( uint8 *_data){
 
 #if INTERRUPT_FEATURE_ENABLE == MSSP_SPI_INTERRUPT_FEATURE_ENABLE  
 void SPI_ISR(void){
-   
+    MSSP_SPI_InterruptFlagClear();
     if(SPI_InterruotHandler){
         SPI_InterruotHandler();
     }
