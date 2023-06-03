@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\Belal\AppData\Local\Temp\xcAs4qo.\driver_tmp_3.o
+ C:\Users\Belal\AppData\Local\Temp\xcAs264.\driver_tmp_3.o
  -Odist/default/production\LCD_Driver.production.hex
  -logfile=dist/default/production\LCD_Driver.production.hxl
  -addressing=1
@@ -9,31 +9,31 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\Belal\AppData\Local\Temp\xcAs4qo.\driver_tmp_3.o)
-  8h - Dh		(C:\Users\Belal\AppData\Local\Temp\xcAs4qo.\driver_tmp_3.o)
-  18h - 5Dh		(C:\Users\Belal\AppData\Local\Temp\xcAs4qo.\driver_tmp_3.o)
-  1000h - 1004h		(C:\Users\Belal\AppData\Local\Temp\xcAs4qo.\driver_tmp_3.o)
-  1006h - 1D9Ch		(C:\Users\Belal\AppData\Local\Temp\xcAs4qo.\driver_tmp_3.o)
-  1D9Eh - 2302h		(C:\Users\Belal\AppData\Local\Temp\xcAs4qo.\driver_tmp_3.o)
-  2304h - 2332h		(C:\Users\Belal\AppData\Local\Temp\xcAs4qo.\driver_tmp_3.o)
-  2334h - 237Bh		(C:\Users\Belal\AppData\Local\Temp\xcAs4qo.\driver_tmp_3.o)
-  200000h - 200007h		(C:\Users\Belal\AppData\Local\Temp\xcAs4qo.\driver_tmp_3.o)
-  300000h - 30000Dh		(C:\Users\Belal\AppData\Local\Temp\xcAs4qo.\driver_tmp_3.o)
+  0h - 3h		(C:\Users\Belal\AppData\Local\Temp\xcAs264.\driver_tmp_3.o)
+  8h - Dh		(C:\Users\Belal\AppData\Local\Temp\xcAs264.\driver_tmp_3.o)
+  18h - 5Dh		(C:\Users\Belal\AppData\Local\Temp\xcAs264.\driver_tmp_3.o)
+  1000h - 1004h		(C:\Users\Belal\AppData\Local\Temp\xcAs264.\driver_tmp_3.o)
+  1006h - 1D6Ah		(C:\Users\Belal\AppData\Local\Temp\xcAs264.\driver_tmp_3.o)
+  1D6Ch - 231Ch		(C:\Users\Belal\AppData\Local\Temp\xcAs264.\driver_tmp_3.o)
+  231Eh - 235Eh		(C:\Users\Belal\AppData\Local\Temp\xcAs264.\driver_tmp_3.o)
+  2360h - 238Fh		(C:\Users\Belal\AppData\Local\Temp\xcAs264.\driver_tmp_3.o)
+  200000h - 200007h		(C:\Users\Belal\AppData\Local\Temp\xcAs264.\driver_tmp_3.o)
+  300000h - 30000Dh		(C:\Users\Belal\AppData\Local\Temp\xcAs264.\driver_tmp_3.o)
  Unused ranges:
   4h - 7h
   Eh - 17h
   5Eh - FFFh
   1005h - 1005h
-  1D9Dh - 1D9Dh
-  2303h - 2303h
-  2333h - 2333h
-  237Ch - 1FFFFFh
+  1D6Bh - 1D6Bh
+  231Dh - 231Dh
+  235Fh - 235Fh
+  2390h - 1FFFFFh
   200008h - 2FFFFFh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\Belal\AppData\Local\Temp\xcAs4qo.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\Belal\AppData\Local\Temp\xcAs264.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -258,10 +258,10 @@
 00001D30 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001D40 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001D50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00001D60 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001D60 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- H1 H1 H1 H1
 00001D70 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001D80 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00001D90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- H1 H1
+00001D90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001DA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001DB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001DC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
@@ -348,14 +348,15 @@
 000022D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000022E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000022F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00002300 | H1 H1 H1 -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00002310 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002300 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002310 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- H1 H1
 00002320 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00002330 | H1 H1 H1 -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002330 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00002340 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00002350 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002350 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 --
 00002360 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00002370 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- --
+00002370 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002380 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------

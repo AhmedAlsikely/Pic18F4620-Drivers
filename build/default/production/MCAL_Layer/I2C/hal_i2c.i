@@ -4821,13 +4821,75 @@ Std_ReturnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_t *i2c_obj, uint8 a
 # 7 "MCAL_Layer/I2C/hal_i2c.c" 2
 
 
+static __attribute__((inline)) void MSSP_I2C_Mode_GPIO_CFG(void);
+static __attribute__((inline)) void I2C_Master_Mode_Clock_Configurations(const mssp_i2c_t *i2c_obj);
+static __attribute__((inline)) void I2C_Slave_Mode_Configurations(const mssp_i2c_t *i2c_obj);
+static __attribute__((inline)) void MSSP_I2C_Interrupt_Configurations(const mssp_i2c_t *i2c_obj);
+
+
+static void (*I2C_Report_Write_Collision_InterruptHandler)(void) = ((void*)0);
+static void (*I2C_DefaultInterruptHandle)(void) = ((void*)0);
+static void (*I2C_Report_Receive_Overflow_InterruptHandle)(void) = ((void*)0);
+
+
 Std_ReturnType MSSP_I2C_Init(const mssp_i2c_t *i2c_obj){
     Std_ReturnType ret = (Std_ReturnType)0x00;
     if(((void*)0) == i2c_obj){
         ret = (Std_ReturnType)0x00;
-    }else
-    {
+    }
+    else{
 
+        (SSPCON1bits.SSPEN = 0);
+
+        if(1 == i2c_obj->i2c_cfg.i2c_mode){
+
+            I2C_Master_Mode_Clock_Configurations(i2c_obj);
+        }
+        else if(0 == i2c_obj->i2c_cfg.i2c_mode){
+
+            if(1 == i2c_obj->i2c_cfg.i2c_general_call){
+                (SSPCON2bits.GCEN = 1);
+            }
+            else if(0 == i2c_obj->i2c_cfg.i2c_general_call){
+                (SSPCON2bits.GCEN = 0);
+            }
+            else { }
+
+            SSPCON1bits.WCOL = 0;
+
+            SSPCON1bits.SSPOV = 0;
+
+            SSPCON1bits.CKP = 1;
+
+            SSPADD = i2c_obj->i2c_cfg.i2c_slave_address;
+
+            I2C_Slave_Mode_Configurations(i2c_obj);
+        }
+        else { }
+
+        MSSP_I2C_Mode_GPIO_CFG();
+
+        if(1 == i2c_obj->i2c_cfg.i2c_slew_rate){
+            (SSPSTATbits.SMP = 1);
+        }
+        else if(0 == i2c_obj->i2c_cfg.i2c_slew_rate){
+            (SSPSTATbits.SMP = 0);
+        }
+        else { }
+
+        if(1 == i2c_obj->i2c_cfg.i2c_SMBus_control){
+            (SSPSTATbits.CKE = 1);
+        }
+        else if(0 == i2c_obj->i2c_cfg.i2c_SMBus_control){
+            (SSPSTATbits.CKE = 0);
+        }
+        else { }
+
+
+      MSSP_I2C_Interrupt_Configurations(i2c_obj);
+
+
+        (SSPCON1bits.SSPEN = 1);
         ret = (Std_ReturnType)0x01;
     }
     return ret;
@@ -4837,21 +4899,39 @@ Std_ReturnType MSSP_I2C_DeInit(const mssp_i2c_t *i2c_obj){
     Std_ReturnType ret = (Std_ReturnType)0x00;
     if(((void*)0) == i2c_obj){
         ret = (Std_ReturnType)0x00;
-    }else
-    {
+    }
+    else{
+
+        (SSPCON1bits.SSPEN = 0);
+
+
+        (PIE1bits.SSPIE = 0);
+        (PIE2bits.BCLIE = 0);
+
         ret = (Std_ReturnType)0x01;
     }
     return ret;
 }
 
-
 Std_ReturnType MSSP_I2C_Master_Send_Start(const mssp_i2c_t *i2c_obj){
     Std_ReturnType ret = (Std_ReturnType)0x00;
     if(((void*)0) == i2c_obj){
         ret = (Std_ReturnType)0x00;
-    }else
-    {
-        ret = (Std_ReturnType)0x01;
+    }
+    else{
+
+        SSPCON2bits.SEN = 1;
+
+        while(SSPCON2bits.SEN);
+
+        PIR1bits.SSPIF = 0;
+
+        if(1 == SSPSTATbits.S){
+            ret = (Std_ReturnType)0x01;
+        }
+        else{
+            ret = (Std_ReturnType)0x00;
+        }
     }
     return ret;
 }
@@ -4860,8 +4940,14 @@ Std_ReturnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_t *i2c_obj){
     Std_ReturnType ret = (Std_ReturnType)0x00;
     if(((void*)0) == i2c_obj){
         ret = (Std_ReturnType)0x00;
-    }else
-    {
+    }
+    else{
+
+        SSPCON2bits.RSEN = 1;
+
+        while(SSPCON2bits.RSEN);
+
+        PIR1bits.SSPIF = 0;
         ret = (Std_ReturnType)0x01;
     }
     return ret;
@@ -4871,43 +4957,86 @@ Std_ReturnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_t *i2c_obj){
     Std_ReturnType ret = (Std_ReturnType)0x00;
     if(((void*)0) == i2c_obj){
         ret = (Std_ReturnType)0x00;
-    }else
-    {
+    }
+    else{
+
+        SSPCON2bits.PEN = 1;
+
+        while(SSPCON2bits.PEN);
+
+        PIR1bits.SSPIF = 0;
+
+        if(1 == SSPSTATbits.P){
+            ret = (Std_ReturnType)0x01;
+        }
+        else{
+            ret = (Std_ReturnType)0x00;
+        }
+    }
+    return ret;
+}
+
+Std_ReturnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_t *i2c_obj, uint8 i2c_data, uint8 *_ack){
+    Std_ReturnType ret = (Std_ReturnType)0x00;
+    if((((void*)0) == i2c_obj) || (((void*)0) == _ack)){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
+
+        SSPBUF = i2c_data;
+
+        while(SSPSTATbits.BF);
+
+        PIR1bits.SSPIF = 0;
+
+        if(0 == SSPCON2bits.ACKSTAT){
+            *_ack = 0;
+        }
+        else{
+            *_ack = 1;
+        }
         ret = (Std_ReturnType)0x01;
     }
     return ret;
 }
 
-
-Std_ReturnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_t *i2c_obj, uint8 i2c_data, uint8 *_ack){
+Std_ReturnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_t *i2c_obj, uint8 i2c_data, uint8 *_ack){
     Std_ReturnType ret = (Std_ReturnType)0x00;
-    if(((void*)0) == i2c_obj || ((void*)0) == _ack){
+    if((((void*)0) == i2c_obj) || (((void*)0) == _ack)){
         ret = (Std_ReturnType)0x00;
-    }else
-    {
-        ret = (Std_ReturnType)0x01;
+    }
+    else{
+
     }
     return ret;
 }
 
 Std_ReturnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_t *i2c_obj, uint8 ack, uint8 *i2c_data){
     Std_ReturnType ret = (Std_ReturnType)0x00;
-    if(((void*)0) == i2c_obj || ((void*)0) == i2c_data){
+    if((((void*)0) == i2c_obj) || (((void*)0) == i2c_data)){
         ret = (Std_ReturnType)0x00;
-    }else
-    {
-        ret = (Std_ReturnType)0x01;
     }
-    return ret;
-}
+    else{
 
+        (SSPCON2bits.RCEN = 1);
 
-Std_ReturnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_t *i2c_obj, uint8 i2c_data, uint8 *_ack){
-    Std_ReturnType ret = (Std_ReturnType)0x00;
-    if(((void*)0) == i2c_obj || ((void*)0) == _ack){
-        ret = (Std_ReturnType)0x00;
-    }else
-    {
+        while(!SSPSTATbits.BF);
+
+        *i2c_data = SSPBUF;
+
+        if(0 == ack){
+            SSPCON2bits.ACKDT = 0;
+
+            SSPCON2bits.ACKEN = 1;
+            while(SSPCON2bits.ACKEN);
+        }
+        else if(1 == ack){
+            SSPCON2bits.ACKDT = 1;
+
+            SSPCON2bits.ACKEN = 1;
+            while(SSPCON2bits.ACKEN);
+        }
+        else { }
         ret = (Std_ReturnType)0x01;
     }
     return ret;
@@ -4915,11 +5044,87 @@ Std_ReturnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_t *i2c_obj, uint8 
 
 Std_ReturnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_t *i2c_obj, uint8 ack, uint8 *i2c_data){
     Std_ReturnType ret = (Std_ReturnType)0x00;
-    if(((void*)0) == i2c_obj || ((void*)0) == i2c_data){
+    if((((void*)0) == i2c_obj) || (((void*)0) == i2c_data)){
         ret = (Std_ReturnType)0x00;
-    }else
-    {
-        ret = (Std_ReturnType)0x01;
+    }
+    else{
+
     }
     return ret;
+}
+
+void MSSP_I2C_ISR(void){
+
+    (PIR1bits.SSPIF = 0);
+    if(I2C_DefaultInterruptHandle){
+        I2C_DefaultInterruptHandle();
+    }
+
+}
+
+void MSSP_I2C_BC_ISR(void){
+
+    (PIR2bits.BCLIF = 0);
+    if(I2C_Report_Write_Collision_InterruptHandler){
+        I2C_Report_Write_Collision_InterruptHandler();
+    }
+
+}
+
+static __attribute__((inline)) void MSSP_I2C_Mode_GPIO_CFG(void){
+    TRISCbits.TRISC3 = 1;
+    TRISCbits.TRISC4 = 1;
+}
+
+static __attribute__((inline)) void I2C_Master_Mode_Clock_Configurations(const mssp_i2c_t *i2c_obj){
+
+    SSPCON1bits.SSPM = i2c_obj->i2c_cfg.i2c_mode_cfg;
+    SSPADD = (uint8)(((8000000UL / 4.0) / i2c_obj->i2c_clock) - 1);
+}
+
+static __attribute__((inline)) void I2C_Slave_Mode_Configurations(const mssp_i2c_t *i2c_obj){
+    SSPCON1bits.SSPM = i2c_obj->i2c_cfg.i2c_mode_cfg;
+}
+
+static __attribute__((inline)) void MSSP_I2C_Interrupt_Configurations(const mssp_i2c_t *i2c_obj){
+
+        (PIE1bits.SSPIE = 1);
+        (PIE2bits.BCLIE = 1);
+        (PIR1bits.SSPIF = 0);
+        (PIR2bits.BCLIF = 0);
+        I2C_Report_Write_Collision_InterruptHandler = i2c_obj->I2C_Report_Write_Collision;
+        I2C_DefaultInterruptHandle = i2c_obj->I2C_DefaultInterruptHandler;
+        I2C_Report_Receive_Overflow_InterruptHandle = i2c_obj->I2C_Report_Receive_Overflow;
+
+
+        (RCONbits.IPEN = 1);
+        if(INTERRUPT_HIGH_PRIORITY == i2c_obj->i2c_cfg.mssp_i2c_priority){
+
+            (INTCONbits.GIEH = 1);
+            (IPR1bits.SSPIP = 1);
+        }
+        else if(INTERRUPT_LOW_PRIORITY == i2c_obj->i2c_cfg.mssp_i2c_priority){
+
+            (INTCONbits.GIEL = 1);
+            (IPR1bits.SSPIP = 0);
+        }
+        else{ }
+
+        if(INTERRUPT_HIGH_PRIORITY == i2c_obj->i2c_cfg.mssp_i2c_bc_priority){
+
+            (INTCONbits.GIEH = 1);
+            (IPR2bits.BCLIP = 1);
+        }
+        else if(INTERRUPT_LOW_PRIORITY == i2c_obj->i2c_cfg.mssp_i2c_bc_priority){
+
+            (INTCONbits.GIEL = 1);
+            (IPR2bits.BCLIP = 0);
+        }
+        else{ }
+
+
+
+
+
+
 }
